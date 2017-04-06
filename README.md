@@ -6,6 +6,9 @@ Security, user authentication for caMicroscope
 
 * Setup [Google sign-in](https://developers.google.com/+/web/signin/)
 
+Make sure you Enable the Google+ APIservice.
+Also take note of the *client ID* and *client secret*
+
 ## Step 2. Configuration
 
 Edit `config/security_config.php`.
