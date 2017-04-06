@@ -7,10 +7,10 @@ $redirect_uri = 'postmessage';
 //Bindaas info
 $bindaas_trusted_id = 'xxxxx';
 $bindaas_trusted_secret = 'xxxxxx';
-$bindaas_trusted_url = 'http://quip-data:9099/trustedApplication';
+$bindaas_trusted_url = 'http://bindaas.hostname:9099/trustedApplication';
 
 $folder_path = '/';
-$mongo_client_url = 'mongodb://quip-data';
+$mongo_client_url = 'mongodb://mongodb.url';
 
 $admins = array( "admin@camicroscope.org" );
 function isAdmin($email) {
