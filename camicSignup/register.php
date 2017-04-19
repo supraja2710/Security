@@ -1,37 +1,43 @@
 
 <?php
 
+echo "Inputer Data:";
+echo "<br>";
+echo "<br>";
 
 $fname=$_POST['fname'];
-echo "$fname \r\n";
-
+echo "	First Name: $fname";
+echo "<br>";
 
 $lname=$_POST['lname'];
-echo $lname;
-echo "\r\n";
+echo "	Last Name: $lname";
+echo "<br>";
 
 $email=$_POST['email'];
 
-echo $email;
-echo "\r\n";
+echo "	Email: $email";
+echo "<br>";
 
 $username=$fname . $lname;
-echo $username;
-echo "\r\n";
+echo "	username: $username";
+echo "<br>";
 
 $expirationDate='01/01/2020';
-echo $expirationDate;
-echo "\r\n";
+echo "	Expiration Date: $expirationDate";
+echo "<br>";
 
 $command='sh createAPIKey.sh' . ' ' . $username . ' ' . $email . ' ' .  $expirationDate ; 
 
-echo $command;
-echo "\r\n";
-
+echo "	Command: $command";
+echo "<br>";
+echo "<br>";
+echo "Return Result:";
+echo "<br>";
+echo "<br>";
 
 echo shell_exec($command);
 
+echo "<br>";
 //echo shell_exec('sh createAPIKey.sh someone3 somewhere3@gmail.com  01/01/2020');
 
 ?>
-
