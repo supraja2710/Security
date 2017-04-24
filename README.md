@@ -24,7 +24,7 @@ Edit `config/security_config.php`.
 * Restart bindaas. 
 
 
-//How To Set Up Password Authentication with Apache2.4
+//How To Set Up Password Authentication with Apache2.4 to secure camicSignup folder
 
  step1: go to /etc/apache2 folder with this command to create admin user with 'password' as password
         htpasswd -c /etc/apache2/.htpasswd admin
