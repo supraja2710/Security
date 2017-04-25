@@ -24,13 +24,12 @@ Edit `config/security_config.php`.
 * Restart bindaas. 
 
 
-//How To Set Up Password Authentication with Apache2.4 to secure camicSignup folder
+## Step 4. Configuring super user account
 
- step1: go to /etc/apache2 folder with this command to create admin user with 'password' as password
-        htpasswd -c /etc/apache2/.htpasswd admin
+ * step1: go to /etc/apache2 folder with this command to create admin user with 'password' as password: `htpasswd -c /etc/apache2/.htpasswd admin`
  
- step2: edit /etc/apache2/sites-available/000-default.conf by adding Directory section
-
+ * step2: edit /etc/apache2/sites-available/000-default.conf by adding Directory section
+```
  <VirtualHost *:80> 
         #go to the end of <VirtualHost>        
         #add password protection to this folder
@@ -41,8 +40,9 @@ Edit `config/security_config.php`.
             Require valid-user
         </Directory>
 </VirtualHost>
+```
 
  
-step3: in viewer container with this command to restart apache server:
+* step3: in viewer container with this command to restart apache server:
        service apache2 restart
 	   
