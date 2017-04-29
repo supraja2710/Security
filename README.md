@@ -24,25 +24,10 @@ Edit `config/security_config.php`.
 * Restart bindaas. 
 
 
-## Step 4. Configuring super user account
+## Step 4. Default super user account
 
- * step1: go to /etc/apache2 folder with this command to create admin user with 'password' as password: `htpasswd -c /etc/apache2/.htpasswd admin`
+Super user account: Default user name is admin and 'quip2017' as password.
+  Super user can add users to the system from yourhost/camicSignup/index.html.
  
- * step2: edit /etc/apache2/sites-available/000-default.conf by adding Directory section
-```
- <VirtualHost *:80> 
-        #go to the end of <VirtualHost>        
-        #add password protection to this folder
-        <Directory "/var/www/html/camicSignup">
-            AuthType Basic
-            AuthName "Restricted Content"
-            AuthUserFile /etc/apache2/.htpasswd
-            Require valid-user
-        </Directory>
-</VirtualHost>
-```
-
  
-* step3: in viewer container with this command to restart apache server:
-       service apache2 restart
 	   
