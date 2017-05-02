@@ -65,6 +65,7 @@ $_SESSION["name"] = "quip";
                     <li><a href="/FlexTables/index.php" data-toggle="tooltip" data-placement="bottom" title="Image and Results Viewer">caMicroscope</a></li>
                     <li><a href="/featurescapeapps/featurescape/u24Preview.html" data-toggle="tooltip" data-placement="bottom" title="Visual Feature Analytics">FeatureScape</a></li>
                     <li><a href="https://github.com/SBU-BMI/quip_distro" data-toggle="tooltip" data-placement="bottom" title="Distribution and Installation" target="_blank">Repository</a></li>
+                    <li><a onclick="logOut(); return false;" href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo $_SESSION["email"]; ?>">Logout</a></li>
                 </ul>
             </div>
         </div>
