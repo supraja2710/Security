@@ -113,8 +113,11 @@ function userRegistration($email , $name)
         error_log($name);
 	writeHeaderHTML();
 ?>
-        <p>Since you don't have an account with caMicroscope, you need to sign up and wait for access grant from our administrator.</p>
-	<form role="form" action="?doAction=submitSignUp" method="post">
+        <p>Since you don't have an account with caMicroscope, you need to sign up as an administrator or ask your administrator to grant you access.</p>
+        <p>Administrator can signup himself/herself and  add other users to the caMicroscope by click below link.</p>
+        <p><a href="/camicSignup/index.html">Signup User to Access caMicroscope</a></p>
+	 <!--
+        <form role="form" action="?doAction=submitSignUp" method="post">
 		<div class="form-group">
 	    	<label >Screen Name</label>
 	    	<input type="text" name="name" class="form-control" value="<?php echo $name; ?>"  readonly>
@@ -130,9 +133,10 @@ function userRegistration($email , $name)
   		<script>
 			$("textarea").focus();
   		</script>
-  		
+
   		<button type="submit" class="btn btn-default">Submit</button>
 	</form>
+        -->
 <?php
 	writeFooterHTML();
 }
