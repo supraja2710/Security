@@ -1,7 +1,6 @@
 <?php 
 
   require '../authenticate.php';
-
   include_once("RestRequest.php");
   require_once 'HTTP/Request2.php';
 
@@ -13,16 +12,28 @@
     $api_key = $_SESSION['api_key'];
   }
 
-  $fname=$_POST['fname'];
-  $lname=$_POST['lname'];
-  $email=$_POST['email'];
-  $username=$fname . $lname;
-  $expirationDate='01/01/2020';
-
-  $command='sh createAPIKey.sh' . ' ' . $username . ' ' . $email . ' ' .  $expirationDate ; 
+  $command='sh list_user.sh'; 
 
   $output1 =shell_exec($command);
+  
+  //$matches = array();
+  preg_match_all("/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/", $output1, $matches,PREG_PATTERN_ORDER); 
+  //print_r($matches);
+  
+  //print_r($matches[0][0]);
+  //print_r($matches[0][1]);
+  
+  $user_count= sizeof($matches[0]);  
+
+  
+  //echo $user_count + "user\n";
+  
+  //$keywords = preg_split('/\"username\"(.*)\"\}/', $output1, -1, PREG_SPLIT_OFFSET_CAPTURE);
+  //print_r($keywords);  
+  
+  /*
   $output1 = str_replace('"', "'", $output1);
+  
   $errorPosition = strpos($output1, "error");
 
   if ($errorPosition > -1 ){
@@ -65,7 +76,9 @@
   } else if ($rightposition == false ) {
       $output2="Error occurs!";
   } else 
-     $output2 = $result;    
+     $output2 = $result;   
+     
+ */ 
 
 ?>
 
@@ -90,7 +103,7 @@
                 <img src="/camicroscope/images/ic_home_white_24px.svg" class="toolButton firstToolButtonSpace" alt="home">
             </a>
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
-            <a title="caMicroscope" href="/FlexTables/index.php" class="toolLink">caMicroscope</a>
+            <a title="caMicroscope" href="/FlexTables/index.php" class="toolLink">caMicroscope</a>            
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
             
             <a title="caMicroscope" href="/camicSignup/adminUpdate.html" class="toolLink">Admin Credential Update</a>
@@ -102,7 +115,7 @@
             <a title="caMicroscope" href="/camicSignup/index.html" class="toolLink">camicSignup</a>
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
             
-            <p class="titleButton">caMicroscope User Signup</p>
+            <p class="titleButton">caMicroscope User List</p>
     </div>
         
         <div class="container">
@@ -110,56 +123,34 @@
             <div class="col-md-offset-1 col-md-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title" title="Web Interface for Signup New users to QuIP."><span class="glyphicon glyphicon-file"></span>caMicroscope User Signup</h3>
+                        <h3 class="panel-title" title="Web Interface for Signup New users to QuIP."><span class="glyphicon glyphicon-file"></span>caMicroscope User List</h3>
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
                            
                               <div class="form-group row">
-                                        <label class="col-sm-3 control-label">Input Data:</label>                                   
-                              </div> 
+                                        <label class="col-sm-3 control-label">Current User List:</label>                                   
+                              </div>                                
+                               
+                             <?php   for( $i = 0; $i<$user_count; $i++ ) { ?>
                              
-                             <div class="form-group row">
-                                        <label  class="col-sm-8 control-label">User's First Name: "<?php echo $_POST["fname"] ?>"</label>                                   
-                             </div>  
-                             
-                              <div class="form-group row">
-                                        <label  class="col-sm-8 control-label">User's Last Name: "<?php echo $_POST["lname"] ?>"</label>                                   
-                             </div>  
-                           
-                             <div class="form-group row">
-                                        <label  class="col-sm-8 control-label">User's Gmail Address: "<?php echo $_POST["email"] ?>"</label>                                   
-                             </div> 
-                             
-                              <div class="form-group row">
-                                        <label class="col-sm-8 control-label">User Name: "<?php echo $username ?>"</label>                                   
-                             </div> 
-                             
-                             <div class="form-group row">
-                                        <label class="col-sm-8 control-label">Expiration Date: "<?php echo $expirationDate ?>"</label>                                   
-                             </div>   
-                             
-                             <div class="form-group row">
-                                        <label class="col-sm-12 control-label"> -- Save user info to Bindaas --</label>                                   
-                              </div>
-                              
-                               <div class="form-group row">
-                                        <label class="col-sm-12 control-label"><?php echo $output ?></label>                                   
-                              </div>
-                                                            
-                              <div class="form-group row">
-                                        <label class="col-lg-12 control-label"><?php echo $output1 ?></label>                                   
-                              </div>
-                             
-                             
-                             <div class="form-group row">
-                                        <label class="col-sm-12 control-label"> -- Save user info to MongoDB --</label>                                   
-                              </div>                              
-                              
-                             <div class="form-group row">
-                                        <label class="col-sm-12 control-label">Result: "<?php echo $output2 ?>"</label>                                   
-                             </div>                                                     
+                               <form id='deleteUserForm' class="form-horizontal" name="deleteUserForm" action='deleteUser.php' method='post' accept-charset='UTF-8'> 
+                                  <input id="email" type="hidden" name="email" value="<?php echo $matches[0][$i] ?>" >
+                                
+                                 <div class="form-group row">
+                                        <label  class="col-sm-8 control-label"><?php echo $matches[0][$i] ?></label>                                   
+                                 </div>
+                                 
+                                <div class="form-group row">
+                                   <div class="col-sm-offset-3 col-sm-8">
+                                            <input id="submitButton" type="submit" value="Delete Above User" class="btn btn-sm btn-block btn-success" title="Delete Above User">              
+                                   </div>
+                                </div>                    
+                               
+                              </form>
+                             <?php } ?>           
+                                                         
                           
                         </div>
                     </div>
@@ -169,4 +160,5 @@
     </div>
     
    </body>
- </html>
+ </html>	
+	
