@@ -1,21 +1,72 @@
-
 <?php
 
-include_once('htpasswd.php');
+  require '../authenticate.php';
 
-$htpasswd = new htpasswd('/etc/apache2/.htpasswd'); // path to your .htpasswd file
+  include_once("RestRequest.php");
+  require_once 'HTTP/Request2.php';
+  include_once('htpasswd.php');
 
-$user=$_POST['username'];
-$youpassword=$_POST['youpassword']; 
+  //$config = require '../camicroscope/api/Configuration/config.php';
+
+  //$findAdmin   = $config['findAdmin']; 
+
+  if (!empty($_SESSION['api_key'])) {
+    $api_key = $_SESSION['api_key'];
+  }  
+
+  //echo shell_exec('htpasswd -bc /etc/apache2/.htpasswd admin quip2017');
+
+  $htpasswd = new htpasswd('/etc/apache2/.htpasswd'); // path to your .htpasswd file
+
+  $oldpasswd=$_POST['oldpasswd'];
+  $newpasswd=$_POST['newpasswd'];
+  $newpasswd2=$_POST['newpasswd2'];
+  $returnvalue =  strcmp($newpasswd,$newpasswd2);
   
-// Trying to remove user 'admin'
-$htpasswd->user_delete('admin'); 
+  //print_r($newpasswd);
+  //print_r($newpasswd2);
+ //print_r($returnvalue);
 
-// add new user 
-$newpassword = $htpasswd->crypt_apr1_md5($youpassword);
+  if ($returnvalue != 0) 
+  { $message = "Your new password is NOT the same! Please enter same new password twice.";
+    header('Location: error.php?message=' . $message);
+    exit;
+  }
 
-$htpasswd->user_add($user,$newpassword)
+ 
+  //echo "user: $user \n"; 
+  //echo "password: $youpassword \n";  
+  //Trying to remove user 'admin'
+  //echo "Removing user 'admin' \n";
 
+  $htpasswd->user_delete('admin'); 
+
+  $user="admin";
+  //add new user 
+  //echo "add new user \n";
+  $newpassword = $htpasswd->crypt_apr1_md5($newpasswd);
+  //echo $newpassword ;
+
+  $htpasswd->user_add($user,$newpassword)
+ 
+  // A list of random user names
+  //$users = array('$username');
+
+  // Checking to see which users exist
+  //foreach($users as $user)
+	//echo "The username $user does ".($htpasswd->user_exists($user) ? 'exist' : 'not exist')."\n";
+ 
+  // Trying to add all usernames with password 'apples'
+	//foreach($users as $user)
+  //echo "The username $user ".($htpasswd->user_add($user,'$youpassword') ? 'has been added' : 'already exists')."\n";
+ 
+  // Trying to remove user 'santa'
+  //echo "Removing user 'santa' if present\n";
+  //$htpasswd->user_delete('santa');
+
+  // Trying to update user innvo with new password 'oranges', will add user if they do not exist
+  //if($htpasswd->user_update('innvo','oranges'))
+  //echo "Updated password for 'innvo'\n";
 
 ?>
 
@@ -40,8 +91,16 @@ $htpasswd->user_add($user,$newpassword)
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
             <a title="caMicroscope" href="/FlexTables/index.php" class="toolLink">caMicroscope</a>            
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
-            <a title="caMicroscope" href="/camicSignup/index.html" class="toolLink">caMicroscope User Signup</a>
+            
+            <a title="caMicroscope" href="/camicSignup/adminUpdate.html" class="toolLink">Admin Credential Update</a>
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
+            
+             <a title="caMicroscope" href="/camicSignup/user_list.php" class="toolLink">User List</a>
+             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
+            
+            <a title="caMicroscope" href="/camicSignup/index.html" class="toolLink">camicSignup</a>
+            <img src="/camicroscope/images/spacer.svg" class="spacerButton">
+            
             <p class="titleButton">caMicroscope Admin Credential Update</p>
         </div>
         <div class="container">
@@ -57,15 +116,15 @@ $htpasswd->user_add($user,$newpassword)
                             <div class="col-md-12">
                           
                              <div class="form-group row">
-                                        <label  class="col-sm-8 control-label">Your user Name: "<?php echo $_POST['username'] ?>"</label>                                   
+                                        <label  class="col-sm-8 control-label">Your user Name: "<?php echo $user ?>"</label>                                   
                              </div>  
                              
                               <div class="form-group row">
-                                        <label  class="col-sm-8 control-label">Your password: "<?php echo $_POST['youpassword'] ?>"</label>                                   
+                                        <label  class="col-sm-8 control-label">Your new password: "<?php echo $_POST['newpasswd'] ?>"</label>                                   
                              </div> 
                              
                              <div class="form-group row">
-                                        <label  class="col-sm-8 control-label">Your crypted password: "<?php echo $newpassword ?>"</label>                                   
+                                        <label  class="col-sm-8 control-label">Your crypted new password: "<?php echo $newpassword ?>"</label>                                   
                              </div>
                              
                              
@@ -78,9 +137,7 @@ $htpasswd->user_add($user,$newpassword)
                 </div>            
             </div>
         </div>
-    </div>  
-
-
+    </div>
+    
  </body>
- </html>	
- 
+ </html>
