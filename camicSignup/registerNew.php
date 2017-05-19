@@ -92,8 +92,16 @@
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
             <a title="caMicroscope" href="/FlexTables/index.php" class="toolLink">caMicroscope</a>
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
+            
+            <a title="caMicroscope" href="/camicSignup/adminUpdate.html" class="toolLink">Admin Credential Update</a>
+            <img src="/camicroscope/images/spacer.svg" class="spacerButton">
+            
+             <a title="caMicroscope" href="/camicSignup/user_list.php" class="toolLink">User List</a>
+             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
+            
             <a title="caMicroscope" href="/camicSignup/index.html" class="toolLink">camicSignup</a>
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
+            
             <p class="titleButton">caMicroscope User Signup</p>
     </div>
         
@@ -161,5 +169,4 @@
     </div>
     
    </body>
- </html>	
- 
+ </html>
