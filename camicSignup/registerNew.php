@@ -2,7 +2,8 @@
 
   require '../authenticate.php';
 
-  include_once("RestRequest.php");
+  //include_once("RestRequest.php");
+
   require_once 'HTTP/Request2.php';
 
   $config = require '../camicroscope/api/Configuration/config.php';
@@ -19,7 +20,7 @@
   $username=$fname . $lname;
   $expirationDate='01/01/2020';
 
-  $command='sh createAPIKey.sh' . ' ' . $username . ' ' . $email . ' ' .  $expirationDate ; 
+  $command='sh add_user.sh' . ' ' . $username . ' ' . $email . ' ' .  $expirationDate ; 
 
   $output1 =shell_exec($command);
   $output1 = str_replace('"', "'", $output1);
