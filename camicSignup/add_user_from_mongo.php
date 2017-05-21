@@ -37,10 +37,7 @@
      $findUser=false;    
   
  
-  if($findUser){
-    // Convert JSON string to Array
-   // $someArray = json_decode($emailList, true);
-    //print_r($someArray);        // Dump all data of the Array
+  if($findUser){   
     echo $emailList[0]["email"]; // Access Array data
 
     foreach ($emailList as $key => $value) {
@@ -64,13 +61,10 @@
          $output = "done sucessfully.";         
       } else {
         $output = "done sucessfully.";    
-      }
-      
+      }      
     echo $output ;
-   }
-   
-  }
- 
+   }   
+ } 
  
  header('Location: user_list.php');
  exit; 
