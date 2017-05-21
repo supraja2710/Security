@@ -1,18 +1,8 @@
 <?php
 
   require '../authenticate.php';
-
-  include_once("RestRequest.php");
-  require_once 'HTTP/Request2.php';
-  include_once('htpasswd.php');
-
-  //$config = require '../camicroscope/api/Configuration/config.php';
-
-  //$findAdmin   = $config['findAdmin']; 
-
-  if (!empty($_SESSION['api_key'])) {
-    $api_key = $_SESSION['api_key'];
-  }  
+ 
+  include_once('htpasswd.php');  
 
   //echo shell_exec('htpasswd -bc /etc/apache2/.htpasswd admin quip2017');
 
@@ -21,23 +11,13 @@
   $oldpasswd=$_POST['oldpasswd'];
   $newpasswd=$_POST['newpasswd'];
   $newpasswd2=$_POST['newpasswd2'];
-  $returnvalue =  strcmp($newpasswd,$newpasswd2);
-  
-  //print_r($newpasswd);
-  //print_r($newpasswd2);
- //print_r($returnvalue);
+  $returnvalue =  strcmp($newpasswd,$newpasswd2); 
 
   if ($returnvalue != 0) 
   { $message = "Your new password is NOT the same! Please enter same new password twice.";
     header('Location: error.php?message=' . $message);
     exit;
-  }
-
- 
-  //echo "user: $user \n"; 
-  //echo "password: $youpassword \n";  
-  //Trying to remove user 'admin'
-  //echo "Removing user 'admin' \n";
+  } 
 
   $htpasswd->user_delete('admin'); 
 
