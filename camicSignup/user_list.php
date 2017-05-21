@@ -1,16 +1,7 @@
 <?php 
 
-  require '../authenticate.php';
-  include_once("RestRequest.php");
+  require '../authenticate.php';  
   require_once 'HTTP/Request2.php';
-
-  $config = require '../camicroscope/api/Configuration/config.php';
-
-  $postUrl   = $config['postUser']; 
-
-  if (!empty($_SESSION['api_key'])) {
-    $api_key = $_SESSION['api_key'];
-  }
 
   $command='sh list_user.sh'; 
 
@@ -149,12 +140,32 @@
                                 </div>                    
                                
                               </form>
-                             <?php } ?>           
-                                                         
-                          
+                             <?php } ?>  
                         </div>
                     </div>
-                </div>            
+                </div>  
+			
+			<div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                           
+                              <div class="form-group row">
+                                        <label class="col-sm-3 control-label">Add User From Mongodb:</label>                                   
+                              </div> 
+                              
+                               <form id='addUserForm' class="form-horizontal" name="addUserForm" action='add_user_from_mongo.php' method='post' accept-charset='UTF-8'> 
+                                <div class="form-group row">
+                                   <div class="col-sm-offset-3 col-sm-8">
+                                            <input id="submitButton" type="submit" value="Add User From MongoDB" class="btn btn-sm btn-block btn-success" title="Add User From MongoDB">              
+                                   </div>
+                                </div>                    
+                               
+                              </form>
+                              
+                        </div>
+                    </div>
+                </div> 
+			
             </div>
         </div>
     </div>
