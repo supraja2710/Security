@@ -2,7 +2,8 @@
 
   require '../authenticate.php';
 
-  include_once("RestRequest.php");
+  //include_once("RestRequest.php");
+
   require_once 'HTTP/Request2.php';
 
   $config = require '../camicroscope/api/Configuration/config.php';
@@ -19,7 +20,7 @@
   $username=$fname . $lname;
   $expirationDate='01/01/2020';
 
-  $command='sh createAPIKey.sh' . ' ' . $username . ' ' . $email . ' ' .  $expirationDate ; 
+  $command='sh add_user.sh' . ' ' . $username . ' ' . $email . ' ' .  $expirationDate ; 
 
   $output1 =shell_exec($command);
   $output1 = str_replace('"', "'", $output1);
@@ -92,8 +93,16 @@
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
             <a title="caMicroscope" href="/FlexTables/index.php" class="toolLink">caMicroscope</a>
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
+            
+            <a title="caMicroscope" href="/camicSignup/adminUpdate.html" class="toolLink">Admin Credential Update</a>
+            <img src="/camicroscope/images/spacer.svg" class="spacerButton">
+            
+             <a title="caMicroscope" href="/camicSignup/user_list.php" class="toolLink">User List</a>
+             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
+            
             <a title="caMicroscope" href="/camicSignup/index.html" class="toolLink">camicSignup</a>
             <img src="/camicroscope/images/spacer.svg" class="spacerButton">
+            
             <p class="titleButton">caMicroscope User Signup</p>
     </div>
         
@@ -161,5 +170,4 @@
     </div>
     
    </body>
- </html>	
- 
+ </html>
