@@ -1,26 +1,55 @@
 <?php
 
   require '../authenticate.php';
- 
-  include_once('htpasswd.php');  
+  
+  include_once('htpasswd.php');
+  
+  require_once 'HTTP/Request2.php';
+  include_once("../camicroscope/api/Data/RestRequest.php");
+  $config = require '../camicroscope/api/Configuration/config.php';
+  
+  
+  $getUrl   = $config['findAdmin']; 
 
-  //echo shell_exec('htpasswd -bc /etc/apache2/.htpasswd admin quip2017');
+  if (!empty($_SESSION['api_key'])) {
+    $api_key = $_SESSION['api_key'];
+  }
+
+  $getUrl  = $getUrl . "api_key=" . $api_key;
+  $url=$getUrl;
+  //echo $url;
+  
+  $getRequest = new RestRequest($url,'GET');  
+  $response=$getRequest->execute();      
+  $admin = $getRequest->responseBody ;  
+  $admin2 = json_decode($admin,true);   
+  //print_r($admin2);
+  
+  $oldPasswordStored = $admin2[0]['password'];
+  //echo $oldPasswordStored; 
 
   $htpasswd = new htpasswd('/etc/apache2/.htpasswd'); // path to your .htpasswd file
 
   $oldpasswd=$_POST['oldpasswd'];
   $newpasswd=$_POST['newpasswd'];
   $newpasswd2=$_POST['newpasswd2'];
-  $returnvalue =  strcmp($newpasswd,$newpasswd2); 
-
-  if ($returnvalue != 0) 
-  { $message = "Your new password is NOT the same! Please enter same new password twice.";
+  $returnvalue =  strcmp($newpasswd,$newpasswd2);  
+  $returnvalue0 =  strcmp($oldpasswd,$oldPasswordStored); 
+  
+  if ($returnvalue0 != 0) 
+  { $message = "Your old password does NOT match the password in the database.";
     header('Location: error.php?message=' . $message);
     exit;
-  } 
+  }  
+ 
 
-  $htpasswd->user_delete('admin'); 
+  if ($returnvalue != 0) 
+  { $message = "Your new password is NOT the same! Please enter the same new password twice.";
+    header('Location: error.php?message=' . $message);
+    exit;
+  }  
 
+  $htpasswd->user_delete('admin');
   $user="admin";
   //add new user 
   //echo "add new user \n";
@@ -120,4 +149,4 @@
     </div>
     
  </body>
- </html>
+ </html>	
