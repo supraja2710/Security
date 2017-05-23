@@ -2,10 +2,11 @@
 
   require '../authenticate.php';
   
-  include_once("../camicroscope/api/Data/RestRequest.php");
-  
+  ini_set('display_errors', 'On');
+  error_reporting(E_ALL | E_STRICT);
+    
   require_once 'HTTP/Request2.php';
-
+  include_once("../camicroscope/api/Data/RestRequest.php");
   $config = require '../camicroscope/api/Configuration/config.php';
 
   $getUrl   = $config['findAllBindaasUsers']; 
@@ -16,55 +17,72 @@
 
   $getUrl  = $getUrl . "api_key=" . $api_key;
   $url=$getUrl;
-  echo $url;
+  //echo $url;
   
   $getRequest = new RestRequest($url,'GET');
   
   $response=$getRequest->execute();
-  echo $response;
-  print_r($response);
+      
+  $emailList = $getRequest->responseBody ;
+  //echo $emailList;
+  //print_r($emailList);  
+  $emaillist2 = json_decode($emailList,true);  
   
-  //Figure out how to parse reponse
-  $emailList = json_decode($getRequest->responseBody);
-  echo $emailList;
-  print_r($emailList[0]);
+  //echo "\r\n";  
+  print_r($emaillist2);
+ // echo "\r\n";
+  //print_r($emailList[0]["email"]);
+  //echo "\r\n";
    
   $findUser=true;
 
-  if($emailList) 
+  if($emaillist2) 
      $findUser=true; 
   else  
-     $findUser=false;    
+     $findUser=false;  
+     
+ // existing user in bindaas
+  $command='sh list_user.sh'; 
+  $output1 =shell_exec($command);   
+  preg_match_all("/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/", $output1, $matches,PREG_PATTERN_ORDER);   
+  $user_count= sizeof($matches[0]);        
   
  
-  if($findUser){   
-    echo $emailList[0]["email"]; // Access Array data
+  if($findUser){    
+     foreach ($emaillist2 as $person) {
+          
+      $mongo_email = $person["email"] ;  
+      $oldEmail=false;           
+      for( $i = 0; $i<$user_count; $i++ ) {
+         $bindaas_email= $matches[0][$i] ;
+         if ( $mongo_email == $bindaas_email){
+           $oldEmail=true;         
+         }
+       }
+         
+      if(!$oldEmail){    
+        $fname=$person["fname"];
+        $lname=$person['lname'];
+        $username=$person['username']; 
+        $expirationDate='01/01/2020';         
+        $command='sh add_user.sh' . ' ' . $username . ' ' . $mongo_email . ' ' .  $expirationDate ; 
+        $output1 =shell_exec($command);
+        $output1 = str_replace('"', "'", $output1);
+        $errorPosition = strpos($output1, "error");
 
-    foreach ($emailList as $key => $value) {
-      echo $value["email"] ;
-    
-      $email = $value["email"] ;
-      $fname=$value["fname"];
-      $lname=$value['lname'];
-      $username=$value['username']; 
-      $expirationDate='01/01/2020';
-
-      $command='sh add_user.sh' . ' ' . $username . ' ' . $email . ' ' .  $expirationDate ; 
-
-      $output1 =shell_exec($command);
-      $output1 = str_replace('"', "'", $output1);
-      $errorPosition = strpos($output1, "error");
-
-      if ($errorPosition > -1 ){
-        $output = "error occured.";    
-      } else if ($errorPosition == false ) {
-         $output = "done sucessfully.";         
-      } else {
-        $output = "done sucessfully.";    
-      }      
-    echo $output ;
-   }   
- } 
+        if ($errorPosition > -1 ){
+          $output = "error occured.";    
+        } else if ($errorPosition == false ) {
+           $output = "done sucessfully.";         
+        } else {
+          $output = "done sucessfully.";    
+        }      
+        echo $output ;
+      }
+   }
+   
+  }
+ 
  
  header('Location: user_list.php');
  exit; 

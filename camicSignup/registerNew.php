@@ -2,8 +2,7 @@
 
   require '../authenticate.php';
 
-  //include_once("RestRequest.php");
-
+  include_once("../camicroscope/api/Data/RestRequest.php");
   require_once 'HTTP/Request2.php';
 
   $config = require '../camicroscope/api/Configuration/config.php';
@@ -19,6 +18,7 @@
   $email=$_POST['email'];
   $username=$fname . $lname;
   $expirationDate='01/01/2020';
+  $category="bindaas_user" ;
 
   $command='sh add_user.sh' . ' ' . $username . ' ' . $email . ' ' .  $expirationDate ; 
 
@@ -39,10 +39,14 @@
      'fname' => $fname,
      'lname' => $lname,
 	   'username' =>$username,
-	   'email' => $email
+	   'email' => $email,
+     'category' => $category
   );
 
-	$url = $postUrl . "?api_key=".$api_key;    
+	$url = $postUrl . "?api_key=".$api_key; 
+  echo "posting data\n";
+  echo $url;
+  print_r($url);   
 		
   $ch = curl_init();
   $headers= array('Accept: application/json','Content-Type: application/json'); 
@@ -52,12 +56,16 @@
   curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
   curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($u24_user, JSON_NUMERIC_CHECK));
 
-  $result = curl_exec($ch);
-
+  $result = curl_exec($ch);  
+  echo $result;
+  
   if($result === false){
      $result =  curl_error($ch);
   }
   curl_close($ch);
+  
+  echo $result; 
+  echo "done"; 
       
   $rightposition = strpos($result, "{ 'count':'1'}");
 
@@ -170,4 +178,4 @@
     </div>
     
    </body>
- </html>
+ </html>	
