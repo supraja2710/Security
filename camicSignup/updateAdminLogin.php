@@ -9,6 +9,19 @@
   $config = require '../camicroscope/api/Configuration/config.php';
   
   
+  if(!function_exists('hash_equals')) {
+    function hash_equals($str1, $str2) {
+    if(strlen($str1) != strlen($str2)) {
+      return false;
+    } else {
+      $res = $str1 ^ $str2;
+      $ret = 0;
+      for($i = strlen($res) - 1; $i >= 0; $i--) $ret |= ord($res[$i]);
+      return !$ret;
+      }
+    }
+  } 
+  
   $getUrl   = $config['findAdmin']; 
 
   if (!empty($_SESSION['api_key'])) {
@@ -26,15 +39,34 @@
   //print_r($admin2);
   
   $oldPasswordStored = $admin2[0]['password'];
-  //echo $oldPasswordStored; 
-
-  $htpasswd = new htpasswd('/etc/apache2/.htpasswd'); // path to your .htpasswd file
-
+  //echo $oldPasswordStored;   
+  
+  //$hashed_password = crypt('quip2017'); // let the salt be automatically generated
+  //echo $hashed_password;  
+  //$encrpt_passwd='$1$JvoSPkuO$koIXFbLOxXkS4qjfPkChc1';
+  
   $oldpasswd=$_POST['oldpasswd'];
+  //$user_input='quip2016';
+  //echo phpversion();  
+
+  /* You should pass the entire results of crypt() as the salt for comparing a
+   password, to avoid problems when different hashing algorithms are used. (As
+   it says above, standard DES-based password hashing uses a 2-character salt,
+   but MD5-based hashing uses 12.) */
+  
+ $returnvalue0='';   
+ if (hash_equals($oldPasswordStored, crypt($oldpasswd, $oldPasswordStored)))
+     $returnvalue0=0;
+ else  $returnvalue0 = -1;
+
+  // path to your .htpasswd file
+  $htpasswd = new htpasswd('/etc/apache2/.htpasswd');
+ 
   $newpasswd=$_POST['newpasswd'];
   $newpasswd2=$_POST['newpasswd2'];
-  $returnvalue =  strcmp($newpasswd,$newpasswd2);  
-  $returnvalue0 =  strcmp($oldpasswd,$oldPasswordStored); 
+  
+  $returnvalue =  strcmp($newpasswd,$newpasswd2);    
+  //$returnvalue0 =  strcmp($oldpasswd,$oldPasswordStored); 
   
   if ($returnvalue0 != 0) 
   { $message = "Your old password does NOT match the password in the database.";
@@ -150,3 +182,4 @@
     
  </body>
  </html>	
+ 
