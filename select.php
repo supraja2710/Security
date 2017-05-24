@@ -61,7 +61,7 @@ $_SESSION["name"] = "quip";
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#"><abbr title="QuIP Home"><img src="/camicroscope/img/home_rest.png" alt="">Home</abbr></a></li>
-                    <li><a href="/imageformuploader.htm" data-toggle="tooltip" data-placement="bottom" title="Upload images">Image Loader</a></li>
+                    <li><a href="/imageformuploader.php" data-toggle="tooltip" data-placement="bottom" title="Upload images">Image Loader</a></li>
                     <li><a href="/FlexTables/index.php" data-toggle="tooltip" data-placement="bottom" title="Image and Results Viewer">caMicroscope</a></li>
                     <li><a href="/featurescapeapps/featurescape/u24Preview.html" data-toggle="tooltip" data-placement="bottom" title="Visual Feature Analytics">FeatureScape</a></li>
                     <li><a href="https://github.com/SBU-BMI/quip_distro" data-toggle="tooltip" data-placement="bottom" title="Distribution and Installation" target="_blank">Repository</a></li>
@@ -93,7 +93,7 @@ $_SESSION["name"] = "quip";
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-4"><a class="btn btn-success btn-block" href="/imageformuploader.htm" data-toggle="tooltip" data-placement="bottom" title="Upload whole slide tissue images to QuIP">Upload Images</a></div>
+                    <div class="col-md-4"><a class="btn btn-success btn-block" href="/imageformuploader.php" data-toggle="tooltip" data-placement="bottom" title="Upload whole slide tissue images to QuIP">Upload Images</a></div>
                     <div class="col-md-8">Web application for loading whole slide tissue images to QuIP.</div>
                 </div>
                 <div class="row"><br /></div>
