@@ -1,6 +1,13 @@
 <?php
 require_once('config/security_config.php');
 // start sessions
+
+/*
+ * Disable authentication
+ $_SESSION["api_key"] = "xxx"; //Get this information by creating a user
+ $_SESSION["email"] = "viewer@quip"; //dummy user. 
+ */
+
 session_start();
 if (!isset($_SESSION["api_key"])) {
     session_unset();
