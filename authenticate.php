@@ -4,7 +4,7 @@ require_once('config/security_config.php');
 
 /*
  * Disable authentication
- $_SESSION["api_key"] = "xxx"; //Get this information by creating a user
+ $_SESSION["api_key"] = "xxx"; //Get this information by creating a user using CreaterUser.py script
  $_SESSION["email"] = "viewer@quip"; //dummy user. 
  */
 
