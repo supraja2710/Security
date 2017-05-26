@@ -1,4 +1,4 @@
-# Security
+# Security + Landing page for QuIP
 Security, user authentication for caMicroscope 
 
 
