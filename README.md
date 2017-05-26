@@ -26,8 +26,7 @@ Edit `config/security_config.php`.
 
 ## Step 4. Default super user account
 
-Super user account: Default user name is admin and 'quip2017' as password.
-  Super user can list all users,remove users and add users to the system from URL yourhost/camicSignup/index.html.
+Super user account: Default user name is admin and 'quip2017' as password. Super user can change his/her password,list all users,remove users and add users from UI and MongoDB to the system from URL yourhost/camicSignup/index.html.
  
  
 	   
