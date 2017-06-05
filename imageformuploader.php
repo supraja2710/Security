@@ -20,18 +20,38 @@
         <script src="http://malsup.github.com/jquery.form.js"></script>
         <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
         <script src="js/vendor/bootstrap-filestyle.min.js"></script>
+        <link rel="stylesheet" href="/css/header.css">
     </head>
     <body>
         <!--<a id="back" href="/">Back to Home</a>-->
-        <div class="annotools">
-            <a href="/" title="Home">
-                <img src="/camicroscope/images/ic_home_white_24px.svg" class="toolButton firstToolButtonSpace" alt="home">
-            </a>
-            <img src="/camicroscope/images/spacer.svg" class="spacerButton">
-            <a title="caMicroscope" href="/FlexTables/index.php" class="toolLink">caMicroscope</a>
-            <img src="/camicroscope/images/spacer.svg" class="spacerButton">
-            <p class="titleButton">caMicroscope Image Loader</p>
-        </div>
+        <nav class="navbar navbar-default">
+          <div class="navbar_conent">
+            <ul class="nav navbar-nav">
+
+              <li class="nav-item">
+                <a class="nav-link" href="/select.php">
+                  <div class="icon">
+                    <span class="ico glyphicon glyphicon-home"></span>
+                    <span class="icolabel">Home</span>
+                  </div>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/FlexTables/index.php">
+                  <div class="icon">
+                    <div class="microscope">
+                        <img src="svg/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"></svg>
+                    </div>
+                    <span class="icolabel">CAMIC</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <h1>caMicroscope Image Loader</h1>
         <div class="container">
             <div class="spacerTop"></div>
             <!--<h3>caMicroscope Image Loader</h3>-->
@@ -58,7 +78,7 @@
                                             <div class="input-group">
                                                 <input id="imageid" type="text" name="case_id" label="Image ID: " class="form-control inputstl"  placeholder="Enter an image ID" pattern="^[a-zA-Z0-9-_]+$" title="An image ID can only contain the following characters (A-Z, a-z, 0-9, -, _)" required>
                                                 <div class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-star" alt="Required Control" title="Required"></span> 
+                                                    <span class="glyphicon glyphicon-star" alt="Required Control" title="Required"></span>
                                                 </div>
                                             </div>
                                            <span class="help-block"><span class="glyphicon glyphicon-star red" alt="Required Control" title="Required"></span>An image ID can only contain the following characters (A-Z, a-z, 0-9, -, _)</span>
@@ -69,7 +89,7 @@
                                         <div class="col-sm-8" title="Please select an image file">
                                             <input type="file" name="upload_image" id="upload_image" class="filestyle" data-buttonName="btn-primary" data-size="sm" data-placeholder="No file chosen" data-buttonText="Choose File">
                                             <span class="help-block"><span class="glyphicon glyphicon-star red" alt="Required Control" title="Required"></span>Image Loader uploads whole slide tissue images</span>
-                                        </div> 
+                                        </div>
                                     </div>
                                     <div class="row"><br /></div>
                                     <div class="form-group row">
@@ -79,7 +99,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-offset-3 col-sm-8">
-                                            <input id="submitButton" type="submit" value="Upload Image" class="btn btn-sm btn-block btn-success" title="Upload image file to QuIP">              
+                                            <input id="submitButton" type="submit" value="Upload Image" class="btn btn-sm btn-block btn-success" title="Upload image file to QuIP">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -93,11 +113,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form><br> 
+                            </form><br>
                             <!--end form-->
                         </div>
                     </div>
-                </div>            
+                </div>
             </div>
         </div>
     </div>
@@ -151,7 +171,7 @@
                  if(imageid.search(regexp) == -1){
                    document.getElementById("estatus").innerHTML = "Image ID can only contain characters (A-Z,a-z,0-9,-,_)!";
                    return false;
-                 } 
+                 }
                  if($("#upload_image").val()==""){
                    document.getElementById("estatus").innerHTML = "Please select an image file!";
                    return false;
