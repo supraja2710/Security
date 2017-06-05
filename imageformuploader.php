@@ -65,7 +65,7 @@
             <div class="col-md-offset-1 col-md-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title" title="Web application for loading whole slide tissue images to QuIP."><span class="glyphicon glyphicon-file"></span>caMicroscope Image Loader</h3>
+                        <h3 class="panel-title" title="caMicroscope Image Loader"><span class="glyphicon glyphicon-file"></span>Load whole slide tissue images</h3>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -75,33 +75,34 @@
                                     <div class="form-group row">
                                         <label for="imageid" class="col-sm-3 control-label">Image ID:</label>
                                         <div class="col-sm-8">
-                                            <div class="input-group">
-                                                <input id="imageid" type="text" name="case_id" label="Image ID: " class="form-control inputstl"  placeholder="Enter an image ID" pattern="^[a-zA-Z0-9-_]+$" title="An image ID can only contain the following characters (A-Z, a-z, 0-9, -, _)" required>
-                                                <div class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-star" alt="Required Control" title="Required"></span>
-                                                </div>
-                                            </div>
+                                           <input id="imageid" type="text" name="case_id" label="Image ID: " class="form-control"  placeholder="Enter an image ID" pattern="^[a-zA-Z0-9-_]+$" title="An image ID can only contain the following characters (A-Z, a-z, 0-9, -, _)" required>
                                            <span class="help-block"><span class="glyphicon glyphicon-star red" alt="Required Control" title="Required"></span>An image ID can only contain the following characters (A-Z, a-z, 0-9, -, _)</span>
                                         </div>
                                     </div>
+
                                     <div class="form-group row">
-                                        <label for="upload_image" class="col-sm-3 control-label">Select a file to upload:</label>
-                                        <div class="col-sm-8" title="Please select an image file">
-                                            <input type="file" name="upload_image" id="upload_image" class="filestyle" data-buttonName="btn-primary" data-size="sm" data-placeholder="No file chosen" data-buttonText="Choose File">
-                                            <span class="help-block"><span class="glyphicon glyphicon-star red" alt="Required Control" title="Required"></span>Image Loader uploads whole slide tissue images</span>
-                                        </div>
+                                      <label for="upload_image" class="col-sm-3 control-label">Select a file to upload:</label>
+                                      <div class="col-sm-8">
+                                        <label class="btn btn-default btn-file">
+                                            <b>Choose a File</b><input name="upload_image" id="upload_image" type="file">
+                                        </label>
+                                        <span class="help-block"><span class="glyphicon glyphicon-star red" alt="Required Control" title="Required"></span>Image Loader uploads whole slide tissue images</span>
+                                      </div>
                                     </div>
+
                                     <div class="row"><br /></div>
                                     <div class="form-group row">
                                         <div class="col-sm-offset-3 col-sm-9">
                                             <h5 id="estatus" class="msg"></h5>
                                         </div>
                                     </div>
+
                                     <div class="form-group row">
                                         <div class="col-sm-offset-3 col-sm-8">
-                                            <input id="submitButton" type="submit" value="Upload Image" class="btn btn-sm btn-block btn-success" title="Upload image file to QuIP">
+                                            <input id="submitButton" type="submit" value="Upload Image" class="btn btn-lg btn-block btn-success" title="Upload image file to QuIP">
                                         </div>
                                     </div>
+
                                     <div class="form-group row">
                                         <label for="progressBar" class="col-sm-3 control-label">&nbsp;</label>
                                         <div class="col-sm-8" id="progressBar">
