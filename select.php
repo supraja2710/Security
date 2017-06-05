@@ -29,7 +29,6 @@ $_SESSION["name"] = "quip";
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="featurescapeapps/js/findapi_config.js"></script>
     <script>
         function logOut() {
             $.post("security/server.php?logOut", {},
@@ -63,7 +62,7 @@ $_SESSION["name"] = "quip";
                     <li class="active"><a href="#"><abbr title="QuIP Home"><img src="/camicroscope/img/home_rest.png" alt="">Home</abbr></a></li>
                     <li><a href="/imageformuploader.php" data-toggle="tooltip" data-placement="bottom" title="Upload images">Image Loader</a></li>
                     <li><a href="/FlexTables/index.php" data-toggle="tooltip" data-placement="bottom" title="Image and Results Viewer">caMicroscope</a></li>
-                    <li><a href="/featurescapeapps/featurescape/u24Preview.html" data-toggle="tooltip" data-placement="bottom" title="Visual Feature Analytics">FeatureScape</a></li>
+                    <li><a href="/featurescapeapps/featurescape/u24Preview.php" data-toggle="tooltip" data-placement="bottom" title="Visual Feature Analytics">FeatureScape</a></li>
                     <li><a href="https://github.com/SBU-BMI/quip_distro" data-toggle="tooltip" data-placement="bottom" title="Distribution and Installation" target="_blank">Repository</a></li>
                     <li><a onclick="logOut(); return false;" href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo $_SESSION["email"]; ?>">Logout</a></li>
                 </ul>
