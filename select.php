@@ -46,7 +46,7 @@ $_SESSION["name"] = "quip";
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default">
     <div class="navbar_conent">
       <ul class="nav navbar-nav">
 
