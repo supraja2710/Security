@@ -47,6 +47,12 @@
                   </div>
                 </a>
               </li>
+
+              <li>
+                <li class="nav-item">
+                    <div class="pagetitle">Image Loader</div>
+                </li>
+              </li>
             </ul>
           </div>
         </nav>

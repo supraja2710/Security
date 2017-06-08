@@ -21,6 +21,7 @@ require_once('config/security_config.php');
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/frontPage.css">
+    <link rel="stylesheet" href="/css/header.css">
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -63,29 +64,51 @@ require_once('config/security_config.php');
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-   <div class="container">
-   <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-         <div>
-            <div class="header">
-               <ul class="nav nav-pills pull-right">
-                  <li class="active">
-                     <a href="#">Home</a>
-                  </li>
-                  <li>
-                     <a href="#">About</a>
-                  </li>
-                  <li>
-                     <a href="#">Downloads</a>
-                  </li>
-               </ul>
-               <h3 class="text-muted"><br></h3>
-            </div>
-         </div>
-      </div>
-   </div>
 
-    <div class="jumbotron">
+   <nav class="navbar navbar-default">
+     <div class="navbar_conent">
+       <ul class="nav navbar-nav">
+
+         <li class="nav-item">
+           <a class="nav-link" href="/FlexTables/index.php">
+             <div class="icon">
+               <div class="microscope">
+                   <img src="svg/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"></svg>
+               </div>
+               <span class="icolabel">Home</span>
+             </div>
+           </a>
+         </li>
+
+         <li class="nav-item">
+           <a class="nav-link" href="#">
+             <div class="icon">
+               <span class="ico glyphicon glyphicon-question-sign"></span>
+               <span class="icolabel">About</span>
+             </div>
+           </a>
+         </li>
+
+         <li class="nav-item">
+           <a class="nav-link" href="#">
+             <div class="icon">
+               <span class="ico glyphicon glyphicon-download-alt"></span>
+               <span class="icolabel">Downloads</span>
+             </div>
+           </a>
+         </li>
+
+         <li>
+           <li class="nav-item">
+               <div class="pagetitle">caMicroscope</div>
+           </li>
+         </li>
+
+       </ul>
+     </div>
+   </nav>
+   <div class="container">
+   <div class="jumbotron">
         <h1>caMicroscope</h1>
 
         <p class="lead">A digital pathology data management, visualization and analysis platform. It consists of a set
