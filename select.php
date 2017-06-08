@@ -60,7 +60,7 @@ $_SESSION["name"] = "quip";
               <div class="microscope">
                   <img src="svg/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"></svg>
               </div>
-              <span class="icolabel">caMic</span>
+              <span class="icolabel">caMicroscope</span>
             </div>
           </a>
         </li>
@@ -87,7 +87,7 @@ $_SESSION["name"] = "quip";
           <a class="nav-link" href="https://github.com/SBU-BMI/quip_distro">
             <div class="icon">
               <span class="ico glyphicon glyphicon-wrench"></span>
-              <span class="icolabel">Distro</span>
+              <span class="icolabel">Distribution</span>
             </div>
           </a>
         </li>
