@@ -24,6 +24,7 @@ $_SESSION["name"] = "quip";
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/selectPage.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
@@ -45,31 +46,64 @@ $_SESSION["name"] = "quip";
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-    <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#" class="navbar-brand"><abbr title="Quantitative Imaging for Pathology">QuIP</abbr></a>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar_conent">
+      <ul class="nav navbar-nav">
+
+        <li class="nav-item">
+          <div class="pagetitle"><abbr title="Quantitative Imaging for Pathology">QuIP</abbr></div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/FlexTables/index.php">
+            <div class="icon">
+              <div class="microscope">
+                  <img src="svg/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"></svg>
+              </div>
+              <span class="icolabel">caMic</span>
             </div>
-            <!-- Collection of nav links and other content for toggling -->
-            <div id="navbarCollapse" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#"><abbr title="QuIP Home"><img src="/camicroscope/img/home_rest.png" alt="">Home</abbr></a></li>
-                    <li><a href="/imageformuploader.php" data-toggle="tooltip" data-placement="bottom" title="Upload images">Image Loader</a></li>
-                    <li><a href="/FlexTables/index.php" data-toggle="tooltip" data-placement="bottom" title="Image and Results Viewer">caMicroscope</a></li>
-                    <li><a href="/featurescapeapps/featurescape/u24Preview.html" data-toggle="tooltip" data-placement="bottom" title="Visual Feature Analytics">FeatureScape</a></li>
-                    <li><a href="https://github.com/SBU-BMI/quip_distro" data-toggle="tooltip" data-placement="bottom" title="Distribution and Installation" target="_blank">Repository</a></li>
-                    <li><a onclick="logOut(); return false;" href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo $_SESSION["email"]; ?>">Logout</a></li>
-                </ul>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/imageformuploader.php">
+            <div class="icon">
+              <span class="ico glyphicon glyphicon-picture"></span>
+              <span class="icolabel">Upload</span>
             </div>
-        </div>
-    </nav>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/featurescapeapps/featurescape/u24Preview.html">
+            <div class="icon">
+              <span class="ico glyphicon glyphicon-th"></span>
+              <span class="icolabel">FeatureScape</span>
+            </div>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/SBU-BMI/quip_distro">
+            <div class="icon">
+              <span class="ico glyphicon glyphicon-wrench"></span>
+              <span class="icolabel">Distro</span>
+            </div>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" onclick="logOut(); return false;" title="<?php echo $_SESSION["email"]; ?>" href="#">
+            <div class="icon">
+              <span class="ico glyphicon glyphicon-log-out"></span>
+              <span class="icolabel">Log Out</span>
+            </div>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
     <div class="container">
         <div class="panel">
             <div class="panel-body">
@@ -112,17 +146,17 @@ $_SESSION["name"] = "quip";
                 <div class="row">
                     <div class="col-md-4"><a class="btn btn-info btn-block" href="/FlexTables/index.php" data-toggle="tooltip" data-placement="bottom" title="Access caMicroscope">caMicroscope</a></div>
                     <div class="col-md-8">You can view whole slide tissue images and nuclear segmentations. Click on the magnifier icon to choose algorithm results. <b>You may zoom in, zoom out, and pan the images. Mouse Click: Zoom in, Shift-Click: Zoom out.</b></div>
-                </div> 
+                </div>
                 <!--
                 <div class="row">
                      <div class="col-md-12">
                          <p></p>
                      </div>
-                 </div>                
+                 </div>
                  <div class="row">
                      <div class="col-md-4"><a class="btn btn-info btn-block" href="/camicSignup/index.html" data-toggle="tooltip" data-placement="bottom" title="Access caMicroscope">camicSignup</a></div>
                      <div class="col-md-8">You can add yourself or other user gmail account to the sytem, so you or other user can view image with caMicroscope tool.</div>
-                 </div>  
+                 </div>
                 -->
                 <div class="row"><br /></div>
             </div>
@@ -160,10 +194,10 @@ $_SESSION["name"] = "quip";
 </div>
 <!-- /container -->
 <script src="js/main.js"></script>
-    
+
 <script>
     $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();   
+        $('[data-toggle="tooltip"]').tooltip();
     });
 </script>
 
