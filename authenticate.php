@@ -1,6 +1,7 @@
 <?php
 require_once('config/security_config.php');
 // start sessions
+session_start();
 
 /*
  * Disable authentication
@@ -8,7 +9,6 @@ require_once('config/security_config.php');
  $_SESSION["email"] = "viewer@quip"; //dummy user. 
  */
 
-session_start();
 if (!isset($_SESSION["api_key"])) {
     session_unset();
     header("Location:http://".$_SERVER["HTTP_HOST"].$folder_path."index.php");
