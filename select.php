@@ -149,6 +149,18 @@ $_SESSION["name"] = "quip";
                 </div>
               </div>
             </div>
+
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img alt="100%x200" data-src="" style="height: 200px; width: 100%; display: block;" src="" data-holder-rendered="true">
+                <div class="caption">
+                  <h3>QuIP distribution and installation</h3>
+                  <a class="btn btn-default btn-block"  href="https://github.com/SBU-BMI/quip_distro" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Information on  QuIP Distribution and Installation">DISTR &amp INST</a>
+                  Report issues on QuIP or Install/Distribute this software.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="panel panel-default" id="repository">
             <div class="panel-heading">
