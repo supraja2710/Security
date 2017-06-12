@@ -10,6 +10,7 @@
         <style>
         .progress { position:relative; border: 1px solid #ddd; padding: 1px; border-radius: 3px; }
         .bar { background-color: #B4F5B4; width:0%; height:20px; border-radius: 3px; }
+        .errorbar{ background-color: #e03535; width:0%; height:20px; border-radius: 3px; }
         .percent { position:absolute; display:inline-block; top:3px; left:48%; }
         </style>
         <!--<link rel="stylesheet" href="css/style.css">-->
@@ -99,7 +100,7 @@
                                     <div class="row"><br /></div>
                                     <div class="form-group row">
                                         <div class="col-sm-offset-3 col-sm-9">
-                                            <h5 id="estatus" class="msg"></h5>
+                                            <h2 id="estatus" class="msg"></h2>
                                         </div>
                                     </div>
 
@@ -113,7 +114,7 @@
                                         <label for="progressBar" class="col-sm-3 control-label">&nbsp;</label>
                                         <div class="col-sm-8" id="progressBar">
                                             <div class="progress" >
-                                                <div class="bar"></div >
+                                                <div id ="progressbar" class="bar"></div >
                                                 <div class="percent">0%</div >
                                             </div>
                                             <div id="status"></div><br>
@@ -140,6 +141,8 @@
                 beforeSend: function() {
                         document.getElementById("submitButton").disabled = true;
                         document.getElementById("estatus").innerHTML = "Uploading...";
+                        document.getElementById("progressbar").classList.add("bar");
+                        document.getElementById("progressbar").classList.remove("errorbar");
                         status.empty();
                         var percentVal = '0%';
                         bar.width(percentVal);
@@ -159,6 +162,8 @@
                                 console.log(response.status);
                                 console.log("Call Tahsin...");
                                 document.getElementById("estatus").innerHTML = "Problem with uploading.";
+                                document.getElementById("progressbar").classList.remove("bar");
+                                document.getElementById("progressbar").classList.add("errorbar");
                                       },
                 success: function(response) {
                                 document.getElementById("submitButton").disabled = false;
