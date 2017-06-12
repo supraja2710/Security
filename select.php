@@ -115,7 +115,7 @@ $_SESSION["name"] = "quip";
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-3">
               <div class="thumbnail">
                 <img alt="100%x200" data-src="" style="height: 200px; width: 100%; display: block;" src="" data-holder-rendered="true">
                 <div class="caption">
@@ -126,7 +126,7 @@ $_SESSION["name"] = "quip";
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-3">
               <div class="thumbnail">
                 <img alt="100%x200" data-src="" style="height: 200px; width: 100%; display: block;" src="" data-holder-rendered="true">
                 <div class="caption">
@@ -137,7 +137,7 @@ $_SESSION["name"] = "quip";
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-3">
               <div class="thumbnail">
                 <img alt="100%x200" data-src="" style="height: 200px; width: 100%; display: block;" src="" data-holder-rendered="true">
                 <div class="caption">
@@ -150,7 +150,7 @@ $_SESSION["name"] = "quip";
               </div>
             </div>
 
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-3">
               <div class="thumbnail">
                 <img alt="100%x200" data-src="" style="height: 200px; width: 100%; display: block;" src="" data-holder-rendered="true">
                 <div class="caption">
@@ -159,20 +159,6 @@ $_SESSION["name"] = "quip";
                   Report issues on QuIP or Install/Distribute this software.
                   </p>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="panel panel-default" id="repository">
-            <div class="panel-heading">
-              <h3 class="panel-title"><a data-toggle="collapse" href="#collapse1"><abbr title="QuIP Distribution and Installation">QuIP Repository</abbr></a></h3>
-            </div>
-            <div id="collapse1" class="panel-collapse collapse">
-              <div class="panel-body">
-                <div class="row">
-                  <div class="col-md-4"><a class="btn btn-default btn-block"  href="https://github.com/SBU-BMI/quip_distro" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Information on  QuIP Distribution and Installation">DISTR &amp INST</a></div>
-                  <div class="col-md-8">QuIP distribution and installation</div>
-                </div>
-                <div class="row"><br /></div>
               </div>
             </div>
           </div>
