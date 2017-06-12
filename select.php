@@ -105,22 +105,6 @@ $_SESSION["name"] = "quip";
     </div>
   </nav>
     <div class="container">
-        <div class="panel">
-            <div class="panel-body">
-                <div class="row">
-                <div class="col-md-12">
-                    <p>&nbsp;</p>
-                </div>
-            </div>
-                <div class="row">
-                    <div class="col-md-12">Welcome to <span data-toggle="tooltip" title="Quantitative Imaging for Pathology" style="font-size:16px;"><strong>QuIP:
-                        Quantitative Imaging for Pathology</strong></span> &ndash; a web accessible tool set designed to support analysis, management, and exploration of whole slide tissue images for cancer research.  QuIP is under active development.  Stay tuned for more tools and applications!  The full QuIP suite will enable cancer researchers to assemble and visualize detailed, multi-scale descriptions of tissue morphologic changes and to identify and analyze features across individuals and cohorts. This is an NIH funded multi-site collaborative effort between Stony Brook University, Emory University, Oak Ridge National Labs, and Yale University. Click on any of the colored buttons to launch the associated tool.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
       <div class="panel">
         <div class="panel-body">
           <div class="row">
