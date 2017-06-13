@@ -22,6 +22,7 @@
         <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
         <script src="js/vendor/bootstrap-filestyle.min.js"></script>
         <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
         <!--<a id="back" href="/">Back to Home</a>-->
@@ -58,8 +59,9 @@
           </div>
         </nav>
 
-        <h1>caMicroscope Image Loader</h1>
+
         <div class="container">
+          <h1>caMicroscope Image Loader</h1>
             <div class="spacerTop"></div>
             <!--<h3>caMicroscope Image Loader</h3>-->
             <!--<form id="uploadme" action="/quip-loader/submitData" method="post" enctype="multipart/form-data">
