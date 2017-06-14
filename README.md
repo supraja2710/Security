@@ -27,5 +27,5 @@ To disable authentication
 * Log in to the `quip-viewer` container
 * Open `/var/www/html/authenticate.php`
 * Uncomment lines 7 and 8 https://github.com/camicroscope/Security/blob/release/authenticate.php#L6 which would be populated with the right api key.
-
+* Copy the api key from above and set the $apiKey for flex tables too. (https://github.com/camicroscope/ViewerDockerContainer/blob/release/html/FlexTables/index.php#L227).
 
