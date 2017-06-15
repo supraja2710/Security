@@ -2,7 +2,6 @@
 require_once('config/security_config.php');
 //$enable_security = true;
 // start sessions
-
 session_start();
 
 if(!$enable_security){
