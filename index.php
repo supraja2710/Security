@@ -1,6 +1,6 @@
 <?php
-  require_once('config/security_config.php');
-  ?>
+require_once('config/security_config.php');
+?>
 <!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="">
@@ -59,16 +59,15 @@
                 <a href="#!" class="brand-logo">
                 <i class="microscope">
                 <img src="svg/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"/>
-                </i>
-                caMicroscope
-                </a>
+                </i>caMicroscope</a>
                 <a class="btn-floating btn-large halfway-fab waves-effect waves-light green darken-2" onclick="$('#___signin_0').children()[0].click();">
                 <i class="material-icons">perm_identity</i>
                 </a>
               </div>
             </nav>
           </div>
-          <row>
+          <div class="container">
+          <div class="row">
           <div class="col s12">
             <div class="card" id="view">
               <div class="card-image">
@@ -86,7 +85,7 @@
                 <b>Log in:</b><br/>
                 <span class="g-signin"
                   data-scope="email"
-                  data-clientid="<?php echo $client_id ?>"
+                  data-clientid=<?php echo $client_id ?>
                   data-redirecturi="postmessage"
                   data-cookiepolicy="single_host_origin"
                   data-callback="logInCallback"
@@ -96,11 +95,32 @@
             </div>
           </div>
           </div>
+        </div>
           <div class="page-footer blue darken-4">
             <p style="color:white;">U24 CA18092401A1, <b>Tools to Analyze Morphology and Spatially Mapped Molecular Data</b>; <i>Joel Saltz
               PI</i> Stony Brook/Emory/Oak Ridge/Yale<br>NCIP/Leidos 14X138, <b>caMicroscope &ndash; A Digital Pathology
               Integrative Query System</b>; <i>Ashish Sharma PI</i> Emory/WUSTL/Stony Brook<br />
             </p>
           </div>
-        </body>
-      </html>
+
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function (b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function () {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = '//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-46271588-1', 'auto');
+    ga('send', 'pageview');
+</script>
+</body>
+</html>
