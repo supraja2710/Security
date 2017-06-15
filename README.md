@@ -25,7 +25,7 @@ Edit `config/security_config.php`:
 
 To disable authentication:
 
-* Log in to the `quip-viewer` container
+* Connect to the docker shell of the running docker-container `quip-viewer`
 * Edit `/var/www/html/authenticate.php`
 	* Uncomment the [Disable authentication](https://github.com/camicroscope/Security/blob/release/authenticate.php#L6-L10) section
 	* Save and close.
