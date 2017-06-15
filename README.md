@@ -5,7 +5,7 @@
 
 ### Step 1. Setting up Google Sign-In
 
-In order to use Google's authentication service, you will need to let Google know the URL where you will be running QuIP.  Please follow the (3) steps, and then set up Configuration.  If testing on localhost, please see "Disabling Authentication", below.
+In order to use Google's authentication service, you will need to let Google know the URL where you will be running QuIP.  Please follow the (3) steps, and then set up Configuration.  If testing on localhost, please see [Disabling Authentication](https://github.com/camicroscope/Security/blob/release/README.md#disabling-authentication).
 
 * First, [Set up Google Sign-In](https://developers.google.com/+/web/signin/#set_up_google_sign-in_for_google)
 * Then, [Enable the Google+ API](https://developers.google.com/+/web/signin/#enable_the_google_api)
