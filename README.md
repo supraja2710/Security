@@ -23,17 +23,8 @@ Edit `config/security_config.php`:
 
 ### Disabling Authentication
 
-To disable authentication:
+To disable authentication edit `config/security_config.php`:
 
-* Connect to the docker shell of the running docker-container `quip-viewer`
-* Edit `/var/www/html/authenticate.php`
-	* Uncomment the [Disable authentication](https://github.com/camicroscope/Security/blob/release/authenticate.php#L6-L10) section
-	* Save and close.
-	* Open the file again, and now `$_SESSION["api_key"]` should be populated with the correct API key.
-	* Copy this key; you will need it for the next step
-* Edit `/var/www/html/FlexTables/index.php`
-	* Go to this section in the file: [FlexTables](https://github.com/camicroscope/ViewerDockerContainer/blob/release/html/FlexTables/index.php#L227)
-	* Set `$apiKey` to the API key you copied from `authenticate.php`
-	* Remove the if block shown [here](https://github.com/camicroscope/ViewerDockerContainer/blob/release/html/FlexTables/index.php#L57-L62), starting with `if (!isset($_SESSION["api_key"])) { ... }`
-	* Save and close
-* Now, going directly to `/select.php`, you will be able to access the application
+* Set `$enable_security=false`
+* You should be able to see the `/select.php` now when you launch the application from the browser.
+
