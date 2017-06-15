@@ -6,7 +6,7 @@ session_start();
 
 if(!$enable_security){
 	 /* Disable authentication*/
-	 $_SESSION["api_key"] = "7191a986-ee9b-49a3-b2e6-d838746945ed"; //Don't change this string, we do a find and replace to populate the actual api key here.
+	 $_SESSION["api_key"] = "APIKEY312"; //Don't change this string, we do a find and replace to populate the actual api key here.
 	 $_SESSION["email"] = "viewer@quip"; //dummy user. 
 } else {
 	if (!isset($_SESSION["api_key"])) {
