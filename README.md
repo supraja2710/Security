@@ -8,7 +8,7 @@ If you do not wish to sign in users, please see [Disabling Authentication](https
 
 ### Step 1. Setting up Google Sign-In
 
-* First, go to <a href="https://console.developers.google.com/project/_/apiui/apis/library" target="_blank">Google API Console</a>
+* First, go to [Google API Console](https://console.developers.google.com/project/_/apiui/apis/library)
 * From the drop-down in the top left corner, create a new project
 * Next, select Credentials in the left side-bar, then select "OAuth Client ID" in the drop-down, and then "Configure Consent Screen"
 * Fill in your URL, etc, and click "Save"
@@ -16,7 +16,7 @@ If you do not wish to sign in users, please see [Disabling Authentication](https
 * Finally, copy your **"client ID"** and **"client secret"**
 
 
-**Ref: [Google](https://developers.google.com/identity/sign-in/web/devconsole-project)**
+**Ref: [Google Sign-In for Websites](https://developers.google.com/identity/sign-in/web/devconsole-project)**
 
 ### Step 2. Configuration
 
