@@ -29,26 +29,101 @@
         </div>
         <div class="container">
           <h1> Upload Images </h1>
-          <form id="uploadform" action="#">
+          <form id="uploadme" action="#">
             <div class="input-field col s12">
-              <input id="iid" type="text" pattern="[A-Za-z0-9\-\_]*" class="validate">
-              <label for="iid">Image ID</label>
+              <input id="imageid" name="case_id" type="text" pattern="^[a-zA-Z0-9-_]+$" class="validate">
+              <label for="imageid">Image ID</label>
             </div>
             <div class="file-field input-field">
               <div class="btn">
                 <span>File</span>
-                <input type="file">
+                <input id="upload_image" name="upload_image" type="file">
               </div>
               <div class="file-path-wrapper">
                 <input class="file-path validate" type="text">
               </div>
             </div>
-            <div class="waves-effect waves-light btn" action="submit">Upload</div>
+            <div id="submitButton" class="waves-effect waves-light btn" action="submit">Upload</div>
           </form>
           <div class="progress">
-            <div class="determinate" style="width: 70%"></div>
+            <div id="progressbar" class="determinate" style="width: 70%"></div>
         </div>
+        <div id="status"></div><br>
         </div>
     <!--End container-->
+    <script>
+        $(document).ready(function(){
+            var bar = $('#progressbar');
+            var status = $('#status');
+            var options = {
+                url: '/quip-loader/submitData',
+                dataType : 'json',
+                beforeSend: function() {
+                        document.getElementById("submitButton").disabled = true;
+                        document.getElementById("estatus").innerHTML = "Uploading...";
+                        document.getElementById("progressbar").classList.remove("red");
+                        status.empty();
+                        var percentVal = '0%';
+                        bar.width(percentVal);
+                },
+                uploadProgress: function(event, position, total, percentComplete) {
+                        var percentVal = percentComplete + '%';
+                        bar.width(percentVal);
+                },
+                complete: function(xhr) {
+                        //status.html(xhr.responseText);
+                },
+                error: function(response) {
+                                document.getElementById("submitButton").disabled = false;
+                                //console.log(document.getElementById("imageid").innerHTML);
+                                console.log(response.status);
+                                console.log("Call Tahsin...");
+                                document.getElementById("estatus").innerHTML = "Problem with uploading.";
+                                document.getElementById("progressbar").classList.add("red");
+                                      },
+                success: function(response) {
+                                document.getElementById("submitButton").disabled = false;
+                                console.log(response.status);
+                                document.getElementById("uploadme").reset();
+                                document.getElementById("estatus").innerHTML = "Image file is uploaded.";
+                                        }
+        };
+        $('#uploadme').submit(function() {
+                var imageid = document.getElementById("imageid").value;
+                imageid = imageid.trim()
+                if(imageid==""){
+                   document.getElementById("status").innerHTML = "Please enter an image ID!";
+                   return false;
+                 }
+                var regexp = /^[a-zA-Z0-9-_]+$/;
+                 if(imageid.search(regexp) == -1){
+                   document.getElementById("status").innerHTML = "Image ID can only contain characters (A-Z,a-z,0-9,-,_)!";
+                   return false;
+                 }
+                 if($("#upload_image").val()==""){
+                   document.getElementById("status").innerHTML = "Please select an image file!";
+                   return false;
+                 }
+                // remove space
+                imageid = imageid.split(' ').join('_');
+                document.getElementById("imageid").value = imageid;
+                $.ajax({
+                        dataType: "JSON",
+                        url: "/quip-findapi/?limit=100&find={'subject_id':'"+imageid+"'}&db=quip&collection=images",
+                        success: function(response) {
+                                        if (response.length==0) {
+                                                $('#uploadme').ajaxSubmit(options);
+                                        } else {
+                                                document.getElementById("estatus").innerHTML = "Image ID already exists!";
+                                        }
+                                },
+                        error: function(response) {
+                                console.log("error on post");
+                        }
+                });
+                return false;
+        });
+    });
+</script>
 
 </body></html>
