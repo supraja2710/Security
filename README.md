@@ -2,14 +2,21 @@
 ## User authentication for caMicroscope 
 
 ### Enabling Authentication
+In order to sign in your users with their Google Accounts, you will need to integrate Google Sign-In into your app.
+
+If you do not wish to sign in users, please see [Disabling Authentication](https://github.com/camicroscope/Security/blob/release/README.md#disabling-authentication).
 
 ### Step 1. Setting up Google Sign-In
 
-In order to use Google's authentication service, you will need to let Google know the URL where you will be running QuIP.  Please follow the (3) steps, and then set up Configuration.  If testing on localhost, please see [Disabling Authentication](https://github.com/camicroscope/Security/blob/release/README.md#disabling-authentication).
+* First, go to <a href="https://console.developers.google.com/project/_/apiui/apis/library" target="_blank">Google API Console</a>
+* From the drop-down in the top left corner, create a new project
+* Next, select Credentials in the left side-bar, then select "OAuth Client ID" in the drop-down, and then "Configure Consent Screen"
+* Fill in your URL, etc, and click "Save"
+* Then, select "Web application", and fill in the fields
+* Finally, copy your **"client ID"** and **"client secret"**
 
-* First, [Set up Google Sign-In](https://developers.google.com/+/web/signin/#set_up_google_sign-in_for_google)
-* Then, [Enable the Google+ API](https://developers.google.com/+/web/signin/#enable_the_google_api)
-* Take note of the *client ID* and *client secret*
+
+**Ref: [Google](https://developers.google.com/identity/sign-in/web/devconsole-project)**
 
 ### Step 2. Configuration
 
