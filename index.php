@@ -1,5 +1,17 @@
 <?php
+//require_once('config/security_config.php');
+session_start();
 require_once('config/security_config.php');
+
+if (!$enable_security) {
+    header("Location:http://".$_SERVER["HTTP_HOST"].$folder_path."select.php");
+} else {
+    if(isset($_SESSION["api_key"])){
+            header("Location:http://".$_SERVER["HTTP_HOST"].$folder_path."select.php");
+    }
+}
+
+
 ?>
 <!doctype html>
 <!--[if lt IE 7]>
