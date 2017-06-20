@@ -16,6 +16,7 @@ $_SESSION["name"] = "quip";
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
     <!--<link rel="stylesheet" href="css/style.css">-->
     <link rel="stylesheet" href="css/style.css">
   </head>
