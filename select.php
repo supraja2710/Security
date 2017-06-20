@@ -1,6 +1,7 @@
 <?php
 session_start();
-//require 'authenticate.php';
+require 'authenticate.php';
+
 require_once 'config/security_config.php';
 $_SESSION["name"] = "quip";
 ?>
@@ -26,6 +27,7 @@ $_SESSION["name"] = "quip";
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 
+
     <div class="navbar-fixed">
       <nav class="blue darken-3">
         <div class="nav-wrapper">
@@ -45,6 +47,7 @@ $_SESSION["name"] = "quip";
             <li><a href="#understand">Understand</a></li>
             <li><a href="#distribute">Distribute</a></li>
           </ul>
+
         </div>
       </nav>
     </div>
