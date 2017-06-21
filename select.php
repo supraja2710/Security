@@ -9,7 +9,7 @@ $_SESSION["name"] = "quip";
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -18,13 +18,14 @@ $_SESSION["name"] = "quip";
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <!--<link rel="stylesheet" href="css/style.css">-->
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
 
     <div class="navbar-fixed">
       <nav class="blue darken-3">
