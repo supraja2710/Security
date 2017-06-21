@@ -10,7 +10,7 @@ $_SESSION["name"] = "quip";
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -19,13 +19,14 @@ $_SESSION["name"] = "quip";
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <!--<link rel="stylesheet" href="css/style.css">-->
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+
 
 
     <div class="navbar-fixed">
@@ -152,92 +153,6 @@ $_SESSION["name"] = "quip";
         Integrative Query System</b>; <i>Ashish Sharma PI</i> Emory/WUSTL/Stony Brook<br />
       </p>
     </div>
-    <script>
-      $(document).ready(function() {
-        $('.modal').modal();
-        var bar = $('#progressbar');
-        var status = $('#status');
-        var options = {
-          url: '/quip-loader/submitData',
-          dataType: 'json',
-          beforeSend: function() {
-            document.getElementById("submitButton").disabled = true;
-            document.getElementById("status").innerHTML = "Uploading...";
-            document.getElementById("progressbar").classList.remove("red");
-            document.getElementById("progressbar").classList.remove("green");
-            status.empty();
-            var percentVal = '0%';
-            bar.width(percentVal);
-          },
-          uploadProgress: function(event, position, total, percentComplete) {
-            var percentVal = percentComplete + '%';
-            bar.width(percentVal);
-          },
-          complete: function(xhr) {
-            document.getElementById("progressbar").classList.remove("red");
-            document.getElementById("progressbar").classList.add("green");
-          },
-          error: function(response) {
-            document.getElementById("submitButton").disabled = false;
-            //console.log(document.getElementById("imageid").innerHTML);
-            console.log(response.status);
-            console.log("Call Tahsin...");
-            document.getElementById("status").innerHTML =
-              "Problem with uploading.";
-            Materialize.toast('Problem with uploading.', 4000);
-            document.getElementById("progressbar").classList.add("red");
-          },
-          success: function(response) {
-            document.getElementById("submitButton").disabled = false;
-            console.log(response.status);
-            document.getElementById("uploadme").reset();
-            document.getElementById("status").innerHTML =
-              "Image file is uploaded.";
-            Materialize.toast('Upload Complete', 4000);
-          }
-        };
-        $('#uploadme').submit(function() {
-          var imageid = document.getElementById("imageid").value;
-          imageid = imageid.trim()
-          if (imageid == "") {
-            document.getElementById("status").innerHTML =
-              "Please enter an image ID!";
-            return false;
-          }
-          var regexp = /^[a-zA-Z0-9-_]+$/;
-          if (imageid.search(regexp) == -1) {
-            document.getElementById("status").innerHTML =
-              "Image ID can only contain characters (A-Z,a-z,0-9,-,_)!";
-            return false;
-          }
-          if ($("#upload_image").val() == "") {
-            document.getElementById("status").innerHTML =
-              "Please select an image file!";
-            return false;
-          }
-          // remove space
-          imageid = imageid.split(' ').join('_');
-          document.getElementById("imageid").value = imageid;
-          $.ajax({
-            dataType: "JSON",
-            url: "/quip-findapi/?limit=100&find={'subject_id':'" +
-              imageid + "'}&db=quip&collection=images",
-            success: function(response) {
-              if (response.length == 0) {
-                $('#uploadme').ajaxSubmit(options);
-              } else {
-                document.getElementById("status").innerHTML =
-                  "Image ID already exists!";
-              }
-            },
-            error: function(response) {
-              console.log("error on post");
-              Materialize.toast('Form Error!', 4000);
-            }
-          });
-          return false;
-        });
-      });
-    </script>
+    <script src="js/uploader.js"></script>
   </body>
 </html>
