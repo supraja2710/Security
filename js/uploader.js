@@ -65,18 +65,14 @@ $(document).ready(function() {
     document.getElementById("imageid").value = imageid;
     $.ajax({
       dataType: "JSON",
-      //url: "/camicroscope/api/Data/osdMetadataRetriever.php?imageId=" +
-      //  imageid,
-      url: "/camicroscope/api/Data/osdMetadataRetriever.php?imageId=h2",
+      url: "/camicroscope/api/Data/osdMetadataRetriever.php?imageId=" +
+        imageid,
       success: function(response) {
-        console.log(response)
-        if (response){
-          if (response[0] == null) {
-            $('#uploadme').ajaxSubmit(options);
-          } else {
-            document.getElementById("status").innerHTML =
-              "Image ID already exists!";
-          }
+        if (response.toString() === ",") {
+          $('#uploadme').ajaxSubmit(options);
+        } else {
+          document.getElementById("status").innerHTML =
+            "Image ID already exists!";
         }
       },
       error: function(response) {
