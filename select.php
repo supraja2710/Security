@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'authenticate.php';
+require 'branding.php';
 
 require_once 'config/security_config.php';
 $_SESSION["name"] = "quip";
@@ -22,6 +23,7 @@ $_SESSION["name"] = "quip";
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <title><?php print $branding_title; ?></title>
   </head>
 
   <body>
@@ -35,7 +37,7 @@ $_SESSION["name"] = "quip";
             <i class="microscope">
               <img src="svg/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"/>
             </i>
-            caMicroscope
+            <?php print $branding_title; ?>
 
           </a>
           <a class="btn-floating btn-large halfway-fab waves-effect waves-light green darken-2" href="#modal1">
