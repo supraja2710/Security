@@ -4,6 +4,7 @@ require_once('config/security_config.php');
 // start sessions
 session_start();
 
+
 if(!$enable_security){
 	 /* Disable authentication*/
 	 $_SESSION["api_key"] = "APIKEY312"; //Don't change this string, we do a find and replace to populate the actual api key here.
@@ -30,6 +31,3 @@ require('authenticate.php');
 </html>
 
 */
-
-
-

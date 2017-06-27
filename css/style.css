@@ -1,8 +1,19 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.darkimg{
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* msie */
+  background-color: #000;
 }
 
-a {
-  color: #00B7FF;
+.card-title{
+      color: white;
+      text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+}
+
+.microscope{
+  height: 2em;
+  width: 2em;
 }
