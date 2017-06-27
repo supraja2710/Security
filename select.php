@@ -1,6 +1,7 @@
 <?php
 session_start();
-//require 'authenticate.php';
+require 'authenticate.php';
+
 require_once 'config/security_config.php';
 $_SESSION["name"] = "quip";
 ?>
