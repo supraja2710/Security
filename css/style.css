@@ -22,3 +22,7 @@
   padding-left: 5%;
   padding-right: 5%;
 }
+
+a {
+  color: inherit;
+}
