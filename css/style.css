@@ -17,3 +17,25 @@
   height: 2em;
   width: 2em;
 }
+
+.container{
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.card-text {
+  color: black !important;
+}
+
+.camic_logo{
+  margin-left: 15px;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
