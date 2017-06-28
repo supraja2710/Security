@@ -140,6 +140,23 @@ $_SESSION["name"] = "quip";
               </div>
             </div>
           </a>
+
+          <a href="http://imaging.cci.emory.edu/wiki/display/CAMIC/Home">
+            <div class="col s12 m6 l4 xl3">
+              <div class="card" id="help">
+                <div class="card-image">
+                  <div class="darkimg">
+                    <img src="img/view.png">
+                  </div>
+                  <span class="card-title">About &amp; Help</span>
+                </div>
+                <div class="card-content">
+                  <p class="card-text"><b>CAMIC Wiki</b>: Documentation and user guide for caMicroscope.</p>
+                </div>
+              </div>
+            </div>
+          </a>
+
         </div>
       </div>
     </main>
