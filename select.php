@@ -81,7 +81,7 @@ $_SESSION["name"] = "quip";
       <div class="container">
         <div class="row">
           <a href="#modal1">
-            <div class="col s12 l4">
+            <div class="col s12 m6 l4 xl3">
               <div class="card" id="upload">
                 <div class="card-image">
                   <div class="darkimg">
@@ -96,7 +96,7 @@ $_SESSION["name"] = "quip";
             </div>
           </a>
           <a href="/FlexTables/index.php">
-            <div class="col s12 l4">
+            <div class="col s12 m6 l4 xl3">
               <div class="card" id="view">
                 <div class="card-image">
                   <div class="darkimg">
@@ -111,7 +111,7 @@ $_SESSION["name"] = "quip";
             </div>
           </a>
           <a href="/featurescapeapps/featurescape/u24Preview.php">
-            <div class="col s12 l4">
+            <div class="col s12 m6 l4 xl3">
               <div class="card" id="understand">
                 <div class="card-image">
                   <div class="darkimg">
@@ -126,7 +126,7 @@ $_SESSION["name"] = "quip";
             </div>
           </a>
           <a href="https://github.com/SBU-BMI/quip_distro">
-            <div class="col s12 l4">
+            <div class="col s12 m6 l4 xl3">
               <div class="card" id="distribute">
                 <div class="card-image">
                   <div class="darkimg">
