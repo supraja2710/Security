@@ -116,6 +116,7 @@ if (isset($_SESSION['access_token'])) {
     foreach($PlusPersonEMails as $em) {
         if($em->type === "account") {
             $user_email = $em->value;
+            $user_email = strtolower($user_email);
         }
     }
     $user_id = $me->id;
