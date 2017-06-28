@@ -17,3 +17,8 @@
   height: 2em;
   width: 2em;
 }
+
+#container{
+  padding-left: 5%;
+  padding-right: 5%;
+}

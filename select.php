@@ -78,7 +78,7 @@ $_SESSION["name"] = "quip";
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="container">
       <a href="#modal1">
         <div class="col s12 l4">
           <div class="card" id="upload">
