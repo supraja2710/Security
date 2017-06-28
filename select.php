@@ -35,7 +35,7 @@ $_SESSION["name"] = "quip";
         <div class="nav-wrapper">
           <a href="#!" class="brand-logo">
             <i class="microscope">
-              <img src="svg/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"/>
+              <img src="svg/camic_vector.svg" id="svg1" class="camic" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"/>
             </i>
             <?php print $branding_title; ?>
           </a>

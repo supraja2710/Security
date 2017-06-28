@@ -24,9 +24,9 @@
 }
 
 a {
-  color: black;
+  color: black !important;
 }
 
-#svg1{
+.camic_logo{
   margin-left: 15px;
 }
