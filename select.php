@@ -100,7 +100,7 @@ $_SESSION["name"] = "quip";
               <div class="card" id="view">
                 <div class="card-image">
                   <div class="darkimg">
-                    <img src="img/view.jpg">
+                    <img src="img/view.png">
                   </div>
                   <span class="card-title">View</span>
                 </div>
