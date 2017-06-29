@@ -1,13 +1,14 @@
 var findAPIConfig = {
-	findAPI: location.protocol+"//" + location.host+"/quip-findapi",
-	dbSize: "small"
+  findAPI: location.protocol + "//" + location.host + "/quip-findapi",
+  dbSize: "small"
 }
 
 var dataLoaderConfig = {
-	dataLoaderAPI: location.protocol+"//"+location.host+"/quip-loader/submitData"
+  dataLoaderAPI: location.protocol + "//" + location.host +
+    "/quip-loader/submitData"
 }
 
 var execIdSubstring = {
-    lymphHeatmap: 'lym_v',
-    lymphHumanmark: 'humanmark'
+  lymphHeatmap: 'lym_v',
+  lymphHumanmark: 'humanmark'
 };

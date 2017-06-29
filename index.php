@@ -27,8 +27,7 @@ if (!$enable_security) {
         <!--<![endif]-->
         <head>
           <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-          <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-          <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+          <script src="js/modernizr-2.8.3.min.js"></script>
           <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
           <!--Import Google Icon Font-->
           <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -37,31 +36,7 @@ if (!$enable_security) {
           <link type="text/css" rel="stylesheet" href="css/style.css">
           <!--Let browser know website is optimized for mobile-->
           <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-          <script>
-            function logInCallback(authResult) {
-                console.log("calling log in");
-                if (authResult['code']) {
-                    // Send the code to the server
-                    $.post("security/server.php?logIn", {code: authResult['code']},
-                            function (response) {
-                                console.log(response);
-                                if ('logIn' == response) {
-                                    window.location = 'select.php';
-                                } else if ('signUp' == response) {
-                                    window.location = 'security/request.php?doAction=signUp';
-                                }
-                            }
-                    );
-                } else if (authResult['error']) {
-                    // There was an error.
-                    // Possible error codes:
-                    //   "access_denied" - User denied access to your app
-                    //   "immediate_failed" - Could not automatially log in the user
-                    console.log('There was an error: ' + authResult['error']);
-                }
-            }
-
-          </script>
+          <script src="js/login.js"></script>
         </head>
         <body>
           <div class="navbar-fixed">
