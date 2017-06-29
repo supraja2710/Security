@@ -1,9 +1,9 @@
 <?php
 session_start();
-require 'authenticate.php';
-require 'branding.php';
+require '../authenticate.php';
+require '../branding.php';
 
-require_once 'config/security_config.php';
+require_once '../config/security_config.php';
 $_SESSION["name"] = "quip";
 ?>
 <!DOCTYPE html>
