@@ -44,8 +44,9 @@
   );
 
 	$url = $postUrl . "?api_key=".$api_key;
-  echo "posting data\n";
-  echo $url;
+  $printres = "";
+  $printres .= "posting data\n";
+  $printres .=  $url;
   print_r($url);
 
   $ch = curl_init();
@@ -57,15 +58,15 @@
   curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($u24_user, JSON_NUMERIC_CHECK));
 
   $result = curl_exec($ch);
-  echo $result;
+  $printres .=  $result;
 
   if($result === false){
      $result =  curl_error($ch);
   }
   curl_close($ch);
 
-  echo $result;
-  echo "done";
+  $printres .=  $result;
+  $printres .=  "done";
 
   $rightposition = strpos($result, "{ 'count':'1'}");
 
@@ -122,52 +123,23 @@
                      <h3 class="panel-title" title="Web Interface for Signup New users to QuIP."><span class="glyphicon glyphicon-file"></span>caMicroscope User Signup</h3>
                  </div>
                  <div class="panel-body">
+                   <code>
+                     <?php echo $printres?>
+                   </code>
                      <div class="row">
                          <div class="col-md-12">
+                            Input Data:
+                            User's First Name: "<?php echo $_POST["fname"] ?>"
+                            User's Last Name: "<?php echo $_POST["lname"] ?>"
+                            User's Gmail Address: "<?php echo $_POST["email"] ?>"
+                            User Name: "<?php echo $username ?>"
+                            Expiration Date: "<?php echo $expirationDate ?>"
+                             -- Save user info to Bindaas --
+                            <?php echo $output ?>
+                            <?php echo $output1 ?>
+                             -- Save user info to MongoDB --
+                            Result: "<?php echo $output2 ?>"
 
-                           <div class="form-group row">
-                                     <label class="col-sm-3 control-label">Input Data:</label>
-                           </div>
-
-                          <div class="form-group row">
-                                     <label  class="col-sm-8 control-label">User's First Name: "<?php echo $_POST["fname"] ?>"</label>
-                          </div>
-
-                           <div class="form-group row">
-                                     <label  class="col-sm-8 control-label">User's Last Name: "<?php echo $_POST["lname"] ?>"</label>
-                          </div>
-
-                          <div class="form-group row">
-                                     <label  class="col-sm-8 control-label">User's Gmail Address: "<?php echo $_POST["email"] ?>"</label>
-                          </div>
-
-                           <div class="form-group row">
-                                     <label class="col-sm-8 control-label">User Name: "<?php echo $username ?>"</label>
-                          </div>
-
-                          <div class="form-group row">
-                                     <label class="col-sm-8 control-label">Expiration Date: "<?php echo $expirationDate ?>"</label>
-                          </div>
-
-                          <div class="form-group row">
-                                     <label class="col-sm-12 control-label"> -- Save user info to Bindaas --</label>
-                           </div>
-
-                            <div class="form-group row">
-                                     <label class="col-sm-12 control-label"><?php echo $output ?></label>
-                           </div>
-
-                           <div class="form-group row">
-                                     <label class="col-lg-12 control-label"><?php echo $output1 ?></label>
-                           </div>
-
-
-                          <div class="form-group row">
-                                     <label class="col-sm-12 control-label"> -- Save user info to MongoDB --</label>
-                           </div>
-
-                          <div class="form-group row">
-                                     <label class="col-sm-12 control-label">Result: "<?php echo $output2 ?>"</label>
                           </div>
 
                      </div>

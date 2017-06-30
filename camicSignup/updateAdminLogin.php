@@ -157,24 +157,11 @@
                  <div class="panel-body">
                      <div class="row">
                          <div class="col-md-12">
-
-                          <div class="form-group row">
-                                     <label  class="col-sm-8 control-label">Your user Name: "<?php echo $user ?>"</label>
+                            Your user Name: "<?php echo $user ?>"
+                            Your new password: "<?php echo $_POST['newpasswd'] ?>"
+                            Your crypted new password: "<?php echo $newpassword ?>"
+                            Your login credential has been updated!
                           </div>
-
-                           <div class="form-group row">
-                                     <label  class="col-sm-8 control-label">Your new password: "<?php echo $_POST['newpasswd'] ?>"</label>
-                          </div>
-
-                          <div class="form-group row">
-                                     <label  class="col-sm-8 control-label">Your crypted new password: "<?php echo $newpassword ?>"</label>
-                          </div>
-
-
-                           <div class="form-group row">
-                                     <label  class="col-sm-8 control-label">Your login credential has been updated!</label>
-                          </div>
-
                      </div>
                  </div>
              </div>
