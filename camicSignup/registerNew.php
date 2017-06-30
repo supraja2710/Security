@@ -47,7 +47,7 @@
   $printres = "";
   $printres .= "posting data\n";
   $printres .=  $url;
-  print_r($url);
+  //print_r($url);
 
   $ch = curl_init();
   $headers= array('Accept: application/json','Content-Type: application/json');
@@ -128,17 +128,17 @@
                    </code>
                      <div class="row">
                          <div class="col-md-12">
-                            Input Data:
-                            User's First Name: "<?php echo $_POST["fname"] ?>"
-                            User's Last Name: "<?php echo $_POST["lname"] ?>"
-                            User's Gmail Address: "<?php echo $_POST["email"] ?>"
-                            User Name: "<?php echo $username ?>"
-                            Expiration Date: "<?php echo $expirationDate ?>"
-                             -- Save user info to Bindaas --
-                            <?php echo $output ?>
-                            <?php echo $output1 ?>
-                             -- Save user info to MongoDB --
-                            Result: "<?php echo $output2 ?>"
+                            Input Data:<br/>
+                            User's First Name: "<?php echo $_POST["fname"] ?>"<br/>
+                            User's Last Name: "<?php echo $_POST["lname"] ?>"<br/>
+                            User's Gmail Address: "<?php echo $_POST["email"] ?>"<br/>
+                            User Name: "<?php echo $username ?>"<br/>
+                            Expiration Date: "<?php echo $expirationDate ?>"<br/>
+                             -- Save user info to Bindaas --<br/>
+                            <?php echo $output ?><br/>
+                            <?php echo $output1 ?><br/>
+                             -- Save user info to MongoDB --<br/>
+                            Result: "<?php echo $output2 ?>"<br/>
 
                           </div>
 

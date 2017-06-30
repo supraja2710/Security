@@ -157,10 +157,10 @@
                  <div class="panel-body">
                      <div class="row">
                          <div class="col-md-12">
-                            Your user Name: "<?php echo $user ?>"
-                            Your new password: "<?php echo $_POST['newpasswd'] ?>"
-                            Your crypted new password: "<?php echo $newpassword ?>"
-                            Your login credential has been updated!
+                            Your user Name: "<?php echo $user ?>"<br/>
+                            Your new password: "<?php echo $_POST['newpasswd'] ?>"<br/>
+                            Your crypted new password: "<?php echo $newpassword ?>"<br/>
+                            Your login credential has been updated!<br/>
                           </div>
                      </div>
                  </div>
