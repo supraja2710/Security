@@ -104,7 +104,7 @@
      <div class="navbar-fixed">
        <nav class="blue darken-3">
          <div class="nav-wrapper">
-           <a href="#!" class="brand-logo">
+           <a href="index.php" class="brand-logo">
              <i class="microscope">
                <img src="../svg/camic_vector.svg" id="svg1" class="camic_logo" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"/>
              </i>
@@ -141,7 +141,7 @@
                             Result: "<?php echo $output2 ?>"<br/>
 
                           </div>
-
+                        <a href="index.php" class="waves-effect waves-light btn-large">Back to Admin Panel</a>
                      </div>
                  </div>
              </div>

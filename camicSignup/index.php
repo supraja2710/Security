@@ -64,7 +64,7 @@ $_SESSION["name"] = "quip";
         </div>
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+        <a href="../index.php" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
       </div>
     </div>
 
