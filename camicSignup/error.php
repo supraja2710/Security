@@ -46,7 +46,7 @@
                     <div class="row">
                         <div class="col-md-12">
                            <h1>ERROR</h1>
-                           <?php $_GET["message"]?>
+                           <?php echo $_GET["message"]?>
                          </div>
                        <a href="index.php" class="waves-effect waves-light btn-large">Back to Admin Panel</a>
                     </div>
