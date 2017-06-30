@@ -57,7 +57,7 @@ $_SESSION["name"] = "quip";
                   <input id="email" name="email" type="text" class="validate">
                   <label for="email">User's Gmail Address</label>
                 </div>
-                <button id="submitButton" type="submit" value="Upload Image" class="btn-large blue waves-effect waves-light btn" action="submit">
+                <button id="submitButton" type="submit" value="Add User" class="btn-large blue waves-effect waves-light btn" action="submit">
                 Sign Up User <i class="material-icons right">person_add</i>
                 </button>
           </form>
@@ -72,7 +72,7 @@ $_SESSION["name"] = "quip";
       <div class="modal-content">
         <div class="container">
           <h4> Change Admin Password </h4>
-          <form id='registerForm2' class="form-horizontal" name="registerForm" action='updateAdminLogin.php' method='post' accept-charset='UTF-8'>
+          <form id='registerForm2' class="form-horizontal" name="registerForm2" action='updateAdminLogin.php' method='post' accept-charset='UTF-8'>
                 <div class="input-field col s12">
                   <input id="oldpasswd" name="newpasswd" type="password">
                   <label for="oldpasswd">Current Password</label>
@@ -85,7 +85,7 @@ $_SESSION["name"] = "quip";
                   <input id="newpasswd2" name="newpasswd2" type="password">
                   <label for="newpasswd2">Confirm New Password</label>
                 </div>
-                <button id="submitButton" type="submit" value="Upload Image" class="btn-large blue waves-effect waves-light btn" action="submit">
+                <button id="submitButton" type="submit" value="Change Password" class="btn-large blue waves-effect waves-light btn" action="submit">
                 Change Password <i class="material-icons right">person_add</i>
                 </button>
           </form>
