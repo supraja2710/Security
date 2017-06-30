@@ -72,9 +72,9 @@ $_SESSION["name"] = "quip";
       <div class="modal-content">
         <div class="container">
           <h4> Change Admin Password </h4>
-          <form id='registerForm2' class="form-horizontal" name="registerForm2" action='updateAdminLogin.php' method='post' accept-charset='UTF-8'>
+          <form id='adminpw' class="form-horizontal" name="adminpw" action='updateAdminLogin.php' method='post' accept-charset='UTF-8'>
                 <div class="input-field col s12">
-                  <input id="oldpasswd" name="newpasswd" type="password">
+                  <input id="oldpasswd" name="oldpasswd" type="password">
                   <label for="oldpasswd">Current Password</label>
                 </div>
                 <div class="input-field col s12">
