@@ -41,11 +41,18 @@ $_SESSION["name"] = "quip";
           <a class="btn-floating btn-large halfway-fab waves-effect waves-light green darken-2" href="#modal1">
             <i class="material-icons">file_upload</i>
           </a>
-          <ul class="right hide-on-med-and-down">
+          <ul class="right hide-on-med-and-down"><!--
             <li><a href="#upload">Upload</a></li>
             <li><a href="#view">View</a></li>
             <li><a href="#understand">Understand</a></li>
             <li><a href="#distribute">Distribute</a></li>
+            -->
+              
+              <li><a href="#modal1">Upload</a></li>
+              <li><a href="/FlexTables/index.php">View</a></li>
+              <li><a href="/featurescapeapps/featurescape/u24Preview.php">Understand</a></li>
+              <li><a href="https://github.com/SBU-BMI/quip_distro">Distribute</a></li>
+
           </ul>
         </div>
       </nav>
