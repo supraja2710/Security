@@ -113,7 +113,7 @@
               <a class="nav-link" href="/FlexTables/index.php">
                 <div class="icon">
                   <div class="microscope">
-                      <img src="svg/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"></svg>
+                      <img src="/svg/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"></svg>
                   </div>
                   <span class="icolabel">CAMIC</span>
                 </div>
