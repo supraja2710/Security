@@ -57,6 +57,15 @@ $cSession = curl_init();
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        function logOut() {
+            $.post("security/server.php?logOut", {},
+                    function () {
+                        window.location = "index.php";
+                    });
+            gapi.auth.signOut();
+        }
+    </script>
   </head>
 
   <body>
@@ -87,6 +96,7 @@ $cSession = curl_init();
               <li><a href="/FlexTables/index.php">View</a></li>
               <li><a href="/featurescapeapps/featurescape/u24Preview.php">Understand</a></li>
               <li><a href="https://github.com/SBU-BMI/quip_distro">Distribute</a></li>
+              <li><a onclick="logOut(); return false;" href="#" data-toggle="tooltip" data-placement="bottom" title="<?php echo $_SESSION["email"]; ?>">Logout</a></li>
 
           </ul>
         </div>
