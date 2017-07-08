@@ -83,11 +83,11 @@
             <div class="spacerTop"></div>
 
             <div class="col-md-offset-1 col-md-10">
-              <h2>Manage caMic Lymphocyte Superuser</h2>
+              <h2>Manage Superusers For Lymphocyte App</h2>
               <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-user"></span> Assign caMic Lymphocyte Superuser</a></h3>
+                        <h3 class="panel-title" title="Assign superuser rights to the user for a Lymphocyte App"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-user"></span> Assign caMic Lymphocyte App Superuser</a></h3>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
                     <div class="panel-body">
@@ -95,13 +95,13 @@
                         <div class="row">
                             <div class="col-md-12">
                            <!-- start form -->
-                            <form id='lymphForm' class="form-horizontal" name="lymphSuperuserForm" action='assignLymphSuperuser.php' method='post' accept-charset='UTF-8'>
+                            <form id='lymphFormAssign' class="form-horizontal" name="lymphFormAssign" action='../camicroscope/api/Data/lymphocyteSuperusers.php' method='post' accept-charset='UTF-8' onsubmit="return confirm('Are you sure you want to assign superuser rights to this user for a Lymphocyte App?')">
                                 
                                  <div class="form-group row">
                                         <label for="email" class="col-sm-3 control-label">User's Gmail Address:</label>
                                         <div class="col-sm-7">
                                             <div class="input-group">
-                                               <input id="email" type="text" name="email" label="User's Gmail Address: " class="form-control input"  placeholder="Enter User's Gmail Address" title="Enter a valid email address" required>
+                                               <input id="emailAssign" type="email" name="emailAssign" label="User's Gmail Address: " class="form-control input"  placeholder="Enter User's Gmail Address" title="Enter a valid email address" required>
                                                 <div class="input-group-addon">
                                                     <span class="glyphicon glyphicon-envelope" alt="Required Control" style="color:black;font-size:14px;"></span> 
                                                 </div>
@@ -112,13 +112,13 @@
                                 
                             <div class="form-group row">
                                 <div class="col-sm-offset-3 col-sm-9">
-                                    <h5 id="estatus" class="msg"></h5>
+                                    <h5 id="msgAssign" class="msg"></h5>
                                 </div>
                             </div>
                                 
                             <div class="form-group row">
                                    <div class="col-sm-offset-3 col-sm-7">
-                                            <input id="submitButton" type="submit" class="btn btn-md btn-block btn-success" title="Assign Lymphocyte App Superuser">
+                                            <input id="submitButtonAssign" type="submit" class="btn btn-md btn-block btn-success" title="Assign superuser rights to this user for a Lymphocyte App">
                                    </div>
                              </div>
                        </form>
@@ -131,9 +131,9 @@
                 </div>
             </div>
             <!-- start delete section -->
-            <div class="panel panel-default">
+            <div class="panel panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="glyphicon glyphicon-user"></span> Delete caMic Lymphocyte Superuser</a></h3>
+                        <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="glyphicon glyphicon-user"></span> Remove caMic Lymphocyte Superuser</a></h3>
                     </div>
                    <div id="collapse2" class="panel-collapse collapse" >
                     <div class="panel-body">
@@ -141,13 +141,13 @@
                         <div class="row">
                             <div class="col-md-12">
                            <!-- start form -->
-                            <form id='lymphFormDelete' class="form-horizontal" name="lymphSuperuserFormDelete" action='deleteLymphSuperuser.php' method='post' accept-charset='UTF-8' onsubmit="return confirm('Are you sure you want to delete?')">
+                            <form id='lymphFormDelete' class="form-horizontal" name="lymphSuperuserFormDelete" action='deleteLymphSuperuser.php' method='post' accept-charset='UTF-8' onsubmit="return confirm('Are you sure you want to remove this user from superusers for Lymphocyte App?')">
                                 
                                  <div class="form-group row">
                                         <label for="email" class="col-sm-3 control-label">User's Gmail Address:</label>
                                         <div class="col-sm-7">
                                             <div class="input-group">
-                                               <input id="email" type="text" name="email" label="User's Gmail Address: " class="form-control input"  placeholder="Enter User's Gmail Address" title="Enter a valid email address" required>
+                                               <input id="email" type="email" name="email" label="User's Gmail Address: " class="form-control input"  placeholder="Enter User's Gmail Address" title="Enter a valid email address" required>
                                                 <div class="input-group-addon">
                                                     <span class="glyphicon glyphicon-envelope" alt="Required Control" style="color:black;font-size:14px;"></span> 
                                                 </div>
@@ -164,7 +164,7 @@
                                 
                              <div class="form-group row">
                                    <div class="col-sm-offset-3 col-sm-7">
-                                            <input id="deleteButton" type="submit"  value="Delete Lymphocyte Superuser" class="btn btn-md btn-block btn-danger" title="Delete Lymphocyte App Superuser" onsubmit="return confirm('Are you sure you want to delete?')">
+                                            <input id="deleteButton" type="submit"  value="Remove Lymphocyte Superuser" class="btn btn-md btn-block btn-danger" title="Delete Lymphocyte App Superuser" >
                                    </div>
                              </div>
                        </form>
@@ -183,15 +183,15 @@
    <script>
       $(document).ready(function() {
           
-        var frmvalidator  = new Validator("lymphForm");
+        var frmvalidator  = new Validator("lymphFormAssign");
 
-         frmvalidator.addValidation("email","req","Please enter the gmail address");
-         frmvalidator.addValidation("email","maxlen=50", "Max length for Email is 50");
-         frmvalidator.addValidation("email","email");
+         frmvalidator.addValidation("emailAssign","req","Please enter the gmail address");
+         frmvalidator.addValidation("emailAssign","maxlen=50", "Max length for Email is 50");
+         frmvalidator.addValidation("emailAssign","email");
         
-        $('#submitButton').click(function() {
+        $('#submitButtonAssign').click(function() {
             
-          var email = document.getElementById("email").value;
+          var email = document.getElementById("emailAssign").value;
           email = email.trim().toLowerCase();
             
           var superuserData = {
@@ -200,20 +200,19 @@
           };
             
           if (email == "") {
-            document.getElementById("estatus").innerHTML = "Please enter the gmail address";
+            document.getElementById("msgAssign").innerHTML = "Please enter the gmail address";
                return false;
           }
         
           var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
           if(!(email).match(emailPattern)) {
-              document.getElementById("estatus").innerHTML = "The value is not a valid email address";
+              document.getElementById("msgAssign").innerHTML = "The value is not a valid email address";
               return false;
           } 
           
-          
           $.ajax({
             dataType: "JSON",
-            url: "/quip-findapi/?limit=1&find={'email':'" + email + "'}&db=quip&collection=lymphusers",
+            url: "/quip-findapi/?limit=10&find={'email':'" + email + "'}&db=quip&collection=lymphusers",
             success: function(response) {
               if (response.length == 0) {
                   
@@ -229,13 +228,13 @@
                     console.log(err)
 
                     console.log('successfully posted')
-                    document.getElementById('estatus').innerHTML = 'User ' + email + ' was assigned rights as a lymphocyte project superuser';
+                    document.getElementById('msgAssign').innerHTML = 'User ' + email + ' was assigned rights as a Lymphocyte App superuser';
                     }
                  }) 
                   
               } else {
-                document.getElementById("estatus").innerHTML =
-                  "This lymphocyte superuser already exists!";
+                document.getElementById("msgAssign").innerHTML =
+                  "This lymphocyte superuser already exists.";
               }
             },
             error: function(response) {
