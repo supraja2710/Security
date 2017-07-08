@@ -2,19 +2,52 @@
 
   require '../authenticate.php';
 
-  $command='sh list_user.sh';
+  include_once("../camicroscope/api/Data/RestRequest.php");
+  require_once 'HTTP/Request2.php';
 
-  $output1 =shell_exec($command);
+  $config = require '../camicroscope/api/Configuration/config.php';
+  
+  $deleteUrl = $config['deleteLymphocyteSuperuser'];
 
-  preg_match_all("/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]{2,4}/", $output1, $matches,PREG_PATTERN_ORDER);
+  if (!empty($_SESSION['api_key'])) {
+    $api_key = $_SESSION['api_key'];
+  }
 
-  $user_count= sizeof($matches[0]);
+  $email=$_POST['email'];
+  $email = strtolower($email);
+
+  $role = 'lymph_superuser';
+
+  echo "PHP Deleting";
+  //$d = file_get_contents("php://input");
+  //print_r($d);
+    
+  //$data = [];
+  //parse_str($d, $data); 
+   
+  //$data = json_decode($data);
+  //print_r($data);
+    
+  //$email = $data['email'];
+    
+  $delUrl = $deleteUrl . "api_key=".$api_key . "&email=".$email . "&role=".$role;
+  //echo $delUrl;
+  $curl = curl_init($delUrl);
+  //Delete request
+  curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+  curl_setopt($curl, CURLOPT_HEADER, false);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json',"OAuth-Token: $token"));
+  // Make the REST call, returning the result
+  $response = curl_exec($curl);
+  print_r($response);
+
+  //header('Location: lymphSuperuser.html');
+  //exit; 
 
 ?>
 
-
-
- <!DOCTYPE html>
+<!DOCTYPE html>
     <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
     <head>
         <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
@@ -46,7 +79,7 @@
               <a class="nav-link" href="/FlexTables/index.php">
                 <div class="icon">
                   <div class="microscope">
-                      <img src="/svg/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"></svg>
+                      <img src="/camicroscope/images/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax">
                   </div>
                   <span class="icolabel">CAMIC</span>
                 </div>
@@ -79,7 +112,7 @@
                 </div>
               </a>
             </li>
-          
+              
             <li class="nav-item">
               <a class="nav-link" href="/camicSignup/lymphSuperuser.php" title="Assign Lymphocyte App Superuser">
                 <div class="icon">
@@ -89,7 +122,8 @@
                   <span class="icolabel">Lymph</span>
                 </div>
               </a>
-            </li> 
+            </li>  
+          
           </ul>
         </div>
       </nav>
@@ -99,58 +133,23 @@
             <div class="col-md-offset-1 col-md-10">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title" title="Web Interface for Signup New users to QuIP."><span class="glyphicon glyphicon-file"></span>caMicroscope User List</h3>
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Delete caMic Lymphocyte Superuser</h3>
                     </div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
 
-                              <div class="form-group row">
-                                        <label class="col-sm-3 control-label">Current User List:</label>
-                              </div>
-
-                             <?php   for( $i = 0; $i<$user_count; $i++ ) { ?>
-
-                               <form id='deleteUserForm' class="form-horizontal" name="deleteUserForm" action='deleteUser.php' method='post' accept-charset='UTF-8'>
-                                  <input id="email" type="hidden" name="email" value="<?php echo $matches[0][$i] ?>" >
-
-                                 <div class="form-group row">
-                                        <label  class="col-sm-8 control-label"><?php echo $matches[0][$i] ?></label>
-                                 </div>
-
-                                <div class="form-group row">
-                                   <div class="col-sm-offset-3 col-sm-8">
-                                            <input id="submitButton" type="submit" value="Delete Above User" class="btn btn-sm btn-block btn-success" title="Delete Above User">
-                                   </div>
-                                </div>
-
-                              </form>
-                             <?php } ?>
-                        </div>
-                    </div>
-                </div>
-
-			<div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-
-                              <div class="form-group row">
-                                        <label class="col-sm-3 control-label">Add User From Mongodb:</label>
-                              </div>
-
-                               <form id='addUserForm' class="form-horizontal" name="addUserForm" action='add_user_from_mongo.php' method='post' accept-charset='UTF-8'>
-                                <div class="form-group row">
-                                   <div class="col-sm-offset-3 col-sm-8">
-                                            <input id="submitButton" type="submit" value="Add User From MongoDB" class="btn btn-sm btn-block btn-success" title="Add User From MongoDB">
-                                   </div>
-                                </div>
-
-                              </form>
+                             <div class="form-group row">
+                                        <label  class="col-sm-8 control-label">User's Gmail Address: "<?php echo $_POST["email"] ?>"</label>
+                             </div><hr>
+                                
+                             <div class="form-group row">
+                                        <label class="col-sm-12 control-label">Result: "<?php echo $response ?>"</label>
+                             </div>
 
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
