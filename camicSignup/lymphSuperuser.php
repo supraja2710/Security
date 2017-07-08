@@ -180,72 +180,79 @@
         </div>
     </div>
 
-   <script>
-      $(document).ready(function() {
+    <script>
+        $(document).ready(function() {
           
-        var frmvalidator  = new Validator("lymphFormAssign");
+        //var frmvalidator  = new Validator("lymphFormAssign");
 
-         frmvalidator.addValidation("emailAssign","req","Please enter the gmail address");
-         frmvalidator.addValidation("emailAssign","maxlen=50", "Max length for Email is 50");
-         frmvalidator.addValidation("emailAssign","email");
+        //frmvalidator.addValidation("emailAssign","req","Please enter the gmail address");
+        //frmvalidator.addValidation("emailAssign","maxlen=50", "Max length for Email is 50");
+        //frmvalidator.addValidation("emailAssign","email");
         
-        $('#submitButtonAssign').click(function() {
+            $('#submitButtonAssign').click(function() {
             
-          var email = document.getElementById("emailAssign").value;
-          email = email.trim().toLowerCase();
+                var email = document.getElementById("emailAssign").value;
+                email = email.trim().toLowerCase();
             
-          var superuserData = {
-              'email': email,
-              'role': lymphUser.superuserRole
-          };
+                var superuserData = {
+                    'email': email,
+                    'role': lymphUser.superuserRole
+                };
             
-          if (email == "") {
-            document.getElementById("msgAssign").innerHTML = "Please enter the gmail address";
-               return false;
-          }
+                if (email == "") {
+                    document.getElementById("msgAssign").innerHTML = "Please enter the gmail address";
+                    return false;
+                }
         
-          var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-          if(!(email).match(emailPattern)) {
-              document.getElementById("msgAssign").innerHTML = "The value is not a valid email address";
-              return false;
-          } 
-          
-          $.ajax({
-            dataType: "JSON",
-            url: "/quip-findapi/?limit=10&find={'email':'" + email + "'}&db=quip&collection=lymphusers",
-            success: function(response) {
-              if (response.length == 0) {
-                  
-                console.log('superuserData: ' + superuserData.email)
-                  
+                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                if(!(email).match(emailPattern)) {
+                    document.getElementById("msgAssign").innerHTML = "The value is not a valid email address";
+                    return false;
+                 } 
+            
                  $.ajax({
-                'type': 'POST',
-                 url: '../camicroscope/api/Data/lymphocyteSuperusers.php',
-                 data: superuserData,
-                 success: function (res, err) {
-                    //console.log("response: ")
-                    console.log(res)
-                    console.log(err)
-
-                    console.log('successfully posted')
-                    document.getElementById('msgAssign').innerHTML = 'User ' + email + ' was assigned rights as a Lymphocyte App superuser';
-                    }
-                 }) 
-                  
-              } else {
-                document.getElementById("msgAssign").innerHTML =
-                  "This lymphocyte superuser already exists.";
-              }
-            },
-            error: function(response) {
-              console.log("error on post");
-              document.getElementById("estatus").innerHTML = "Error on post.  Your session could not be established.  Please login to QuIP to meet access policy requirements.";
-              //Materialize.toast('Form Error!', 4000);
-            }
-          });
-          return false;
-        });
-      });
+                     'type': 'GET',
+                     url: "../camicroscope/api/Data/lymphocyteSuperusers.php?email=" + email,
+                     success: function(response) {
+                     var data = JSON.parse(response);
+                     console.log("Fetched data users length: " + data.length);
+                     if (data.length == 0) {
+                         //console.log('superuserData: ' + superuserData.email)
+                         $.ajax({
+                             'type': 'POST',
+                             url: '../camicroscope/api/Data/lymphocyteSuperusers.php',
+                             data: superuserData,
+                             success: function (res, err) {
+                             //console.log("response: ");
+                             console.log(res);
+                             console.log(err);
+                             console.log('successfully posted');
+                             document.getElementById('msgAssign').innerHTML = 'User ' + email + ' was assigned rights as a Lymphocyte App superuser';
+                             }
+                        }) 
+                     } else {
+                         for ( var j = 0; j < data.length; j++ ) {
+                             console.log(data);
+                             console.log("email: " + data[0].email);
+                             console.log("role: " + data[0].role);
+                    
+                             if (data[j].email.toLowerCase() === email.toLowerCase() && data[j].role.toLowerCase() === lymphUser.superuserRole.toLowerCase()) {
+                                 document.getElementById("msgAssign").innerHTML = "This lymphocyte superuser already exists.";
+                                 break;
+                             }
+                         }
+                      }
+                     },  //end success
+                     error: function(response) {
+                         console.log("error on post");
+                         document.getElementById("msgAssign").innerHTML = "Error on post.  Your session could not be established.  Please login to QuIP to meet access policy requirements. ";
+                         //Materialize.toast('Form Error!', 4000);
+                      }
+                  });
+          
+                 return false;
+              });  // end click
+           });  //end ready
     </script>
 
  </body>
