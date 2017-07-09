@@ -153,31 +153,31 @@
                                             </div>
                                            <span class="help-block"><span class="glyphicon glyphicon-star red" alt="Required Control" title="Required"></span>Enter a valid gmail address</span>
                                         </div>
-                              </div>
+                                  </div>
 
-                            <div class="form-group row">
-                                <div class="col-sm-offset-3 col-sm-9">
-                                    <h5 id="msgRemove" class="msg"></h5>
-                                </div>
+                                  <div class="form-group row">
+                                      <div class="col-sm-offset-3 col-sm-9">
+                                          <h5 id="msgRemove" class="msg"></h5>
+                                      </div>
+                                  </div>
+
+                                  <div class="form-group row">
+                                     <div class="col-sm-offset-3 col-sm-7">
+                                            <input id="submitButtonRemove" type="submit"  value="Remove Lymphocyte Superuser" class="btn btn-md btn-block btn-danger" title="Remove Lymphocyte App Superuser" >
+                                       </div>
+                                  </div>
+                                </form>
+                                <!--end form-->
+                                <br>
                             </div>
-
-                             <div class="form-group row">
-                                 <div class="col-sm-offset-3 col-sm-7">
-                                        <input id="submitButtonRemove" type="submit"  value="Remove Lymphocyte Superuser" class="btn btn-md btn-block btn-danger" title="Remove Lymphocyte App Superuser" >
-                                   </div>
-                             </div>
-                       </form>
-                       <!--end form-->
-                        <br>
                         </div>
                     </div>
-                   </div>
                 </div>
             </div>
             <!-- end delete section -->
            </div>
-        </div>
+         </div>
        </div>
     <script src="/js/lymph-superusers.js"></script>
- </body>
- </html>
+  </body>
+</html>
