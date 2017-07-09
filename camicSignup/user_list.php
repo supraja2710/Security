@@ -79,6 +79,17 @@
                 </div>
               </a>
             </li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/camicSignup/lymphSuperuser.php" title="Assign Lymphocyte App Superuser">
+                <div class="icon">
+                  <div class="microscope">
+                      <img src="/camicroscope/images/Heatmap.svg" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax">
+                  </div>
+                  <span class="icolabel">Lymph</span>
+                </div>
+              </a>
+            </li> 
           </ul>
         </div>
       </nav>
