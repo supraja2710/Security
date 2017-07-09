@@ -95,10 +95,10 @@
                         <div class="row">
                             <div class="col-md-12">
                            <!-- start form -->
-                            <form id='lymphFormAssign' class="form-horizontal" name="lymphFormAssign" action='../camicroscope/api/Data/lymphocyteSuperusers.php' method='post' accept-charset='UTF-8' onsubmit="return confirm('Are you sure you want to assign superuser rights to this user for a Lymphocyte App?')">
+                            <form id='lymphFormAssign' class="form-horizontal" name="lymphFormAssign" action='../camicroscope/api/Data/lymphocyteSuperusers.php' method='post' accept-charset='UTF-8'>
                                 
                                  <div class="form-group row">
-                                        <label for="email" class="col-sm-3 control-label">User's Gmail Address:</label>
+                                        <label for="emailAssign" class="col-sm-3 control-label">User's Gmail Address:</label>
                                         <div class="col-sm-7">
                                             <div class="input-group">
                                                <input id="emailAssign" type="email" name="emailAssign" label="User's Gmail Address: " class="form-control input"  placeholder="Enter User's Gmail Address" title="Enter a valid email address" required>
@@ -130,7 +130,7 @@
                     </div>
                 </div>
             </div>
-            <!-- start delete section -->
+            <!-- start remove section -->
             <div class="panel panel-danger">
                     <div class="panel-heading">
                         <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="glyphicon glyphicon-user"></span> Remove caMic Lymphocyte Superuser</a></h3>
@@ -141,13 +141,13 @@
                         <div class="row">
                             <div class="col-md-12">
                            <!-- start form -->
-                            <form id='lymphFormDelete' class="form-horizontal" name="lymphSuperuserFormDelete" action='deleteLymphSuperuser.php' method='post' accept-charset='UTF-8' onsubmit="return confirm('Are you sure you want to remove this user from superusers for Lymphocyte App?')">
+                            <form id='lymphFormRemove' class="form-horizontal" name="lymphFormRemove" action='../camicroscope/api/Data/lymphocyteSuperusers.php'  method='post' accept-charset='UTF-8'>
                                 
                                  <div class="form-group row">
-                                        <label for="email" class="col-sm-3 control-label">User's Gmail Address:</label>
+                                        <label for="emailRemove" class="col-sm-3 control-label">User's Gmail Address:</label>
                                         <div class="col-sm-7">
                                             <div class="input-group">
-                                               <input id="email" type="email" name="email" label="User's Gmail Address: " class="form-control input"  placeholder="Enter User's Gmail Address" title="Enter a valid email address" required>
+                                               <input id="emailRemove" type="email" name="emailRemove" label="User's Gmail Address: " class="form-control input"  placeholder="Enter User's Gmail Address" title="Enter a valid email address" required>
                                                 <div class="input-group-addon">
                                                     <span class="glyphicon glyphicon-envelope" alt="Required Control" style="color:black;font-size:14px;"></span> 
                                                 </div>
@@ -158,13 +158,13 @@
                                 
                             <div class="form-group row">
                                 <div class="col-sm-offset-3 col-sm-9">
-                                    <h5 id="estatusDelete" class="msg"></h5>
+                                    <h5 id="msgRemove" class="msg"></h5>
                                 </div>
                             </div>
                                 
                              <div class="form-group row">
                                    <div class="col-sm-offset-3 col-sm-7">
-                                            <input id="deleteButton" type="submit"  value="Remove Lymphocyte Superuser" class="btn btn-md btn-block btn-danger" title="Delete Lymphocyte App Superuser" >
+                                            <input id="submitButtonRemove" type="submit"  value="Remove Lymphocyte Superuser" class="btn btn-md btn-block btn-danger" title="Remove Lymphocyte App Superuser" >
                                    </div>
                              </div>
                        </form>
@@ -191,9 +191,10 @@
             var msgEnterEmail = 'Please enter the gmail address.';
             var msgNotValidEmail = 'The value is not a valid email address.';
             var msgSuperuserExists = 'This lymphocyte superuser already exists.';
+            var msgSuperuserNotExists = "This lymphocyte superuser does not exist.";
             var msgSessionNotEstablished = 'Error on post.  Your session could not be established.  Please login to QuIP to meet access policy requirements. ';
             var msgFormError = 'Form Error';
-            var msgResponseNoData = 'No lymphocyte superuser data';
+            var msgResponseNoData = 'No data';
             var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         
             $('#submitButtonAssign').click(function() {
@@ -226,7 +227,7 @@
                          if (response.trim().toLowerCase() !== msgResponseNoData.toLowerCase()) {
                              var data = JSON.parse(response);
                              console.log("Fetched data users length: " + data.length);
-                             if (data.length == 0 && (confirm(msgConfirmAssign))) {
+                             if (data.length === 0 && (confirm(msgConfirmAssign))) {
                                      //console.log('superuserData: ' + superuserData.email)
                                      $.ajax({
                                          'type': 'POST',
@@ -266,6 +267,70 @@
           
                  return false;
               });  // end 'submitButtonAssign' click
+            
+            
+            
+              // start remove superuser
+              $('#submitButtonRemove').click(function() {
+            
+                var email = document.getElementById("emailRemove").value;
+                email = email.trim().toLowerCase();
+                role = lymphUser.superuserRole;
+            
+                if (email === "") {
+                    document.getElementById("msgRemove").innerHTML = msgEnterEmail;
+                    return false;
+                }
+        
+                if(!(email).match(emailPattern)) {
+                    document.getElementById("msgRemove").innerHTML = msgNotValidEmail;
+                    return false;
+                 } 
+            
+                 $.ajax({
+                     'type': 'GET',
+                     url: "../camicroscope/api/Data/lymphocyteSuperusers.php?email=" + email,
+                     success: function(response) {
+                         var msgConfirmRemove = 'Are you sure you want to remove ' + email + ' as a Lymphocyte App superuser?';
+                         var msgUserRemoved  = 'User ' + email + ' was successfully removed as a Lymphocyte App superuser.';
+                         
+                         if (response.trim().toLowerCase() !== msgResponseNoData.toLowerCase()) {
+                             var data = JSON.parse(response);
+                             console.log("Fetched data users length: " + data.length);
+                             if (data.length !== 0 && (confirm(msgConfirmRemove))) {
+                                     //console.log('superuserData: ' + superuserData.email)
+                                     $.ajax({
+                                         'type': 'DELETE',
+                                         url: '../camicroscope/api/Data/lymphocyteSuperusers.php?email='+ email + '&role=' + role,
+                                         success: function (res, err) {
+                                         //console.log("response: ");
+                                         console.log(res);
+                                         console.log(err);
+                                         console.log('successfully deleted');
+                                         document.getElementById('msgRemove').innerHTML = msgUserRemoved;
+                                         }
+                                    });
+                             } else if (data.length === 0) {
+                                 document.getElementById("msgRemove").innerHTML = msgSuperuserNotExists;          
+                             } else {
+                                 return false;
+                             }
+                             
+                          } else {
+                              document.getElementById("msgRemove").innerHTML = msgSessionNotEstablished;
+                          }
+                     },  //end success
+                     error: function(response) {
+                         console.log("error on delete: " + response);
+                         document.getElementById("msgAssign").innerHTML = msgFormError;
+                         //Materialize.toast('Form Error!', 4000);
+                      }
+                  });
+          
+                 return false;
+              });  
+            
+              // end remove superuser
            });  //end ready
     </script>
 
