@@ -188,6 +188,13 @@
         //frmvalidator.addValidation("emailAssign","req","Please enter the gmail address");
         //frmvalidator.addValidation("emailAssign","maxlen=50", "Max length for Email is 50");
         //frmvalidator.addValidation("emailAssign","email");
+            var msgEnterEmail = 'Please enter the gmail address.';
+            var msgNotValidEmail = 'The value is not a valid email address.';
+            var msgSuperuserExists = 'This lymphocyte superuser already exists.';
+            var msgSessionNotEstablished = 'Error on post.  Your session could not be established.  Please login to QuIP to meet access policy requirements. ';
+            var msgFormError = 'Form Error';
+            var msgResponseNoData = 'No lymphocyte superuser data';
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         
             $('#submitButtonAssign').click(function() {
             
@@ -199,14 +206,13 @@
                     'role': lymphUser.superuserRole
                 };
             
-                if (email == "") {
-                    document.getElementById("msgAssign").innerHTML = "Please enter the gmail address";
+                if (email === "") {
+                    document.getElementById("msgAssign").innerHTML = msgEnterEmail;
                     return false;
                 }
         
-                var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
                 if(!(email).match(emailPattern)) {
-                    document.getElementById("msgAssign").innerHTML = "The value is not a valid email address";
+                    document.getElementById("msgAssign").innerHTML = msgNotValidEmail;
                     return false;
                  } 
             
@@ -214,44 +220,52 @@
                      'type': 'GET',
                      url: "../camicroscope/api/Data/lymphocyteSuperusers.php?email=" + email,
                      success: function(response) {
-                     var data = JSON.parse(response);
-                     console.log("Fetched data users length: " + data.length);
-                     if (data.length == 0) {
-                         //console.log('superuserData: ' + superuserData.email)
-                         $.ajax({
-                             'type': 'POST',
-                             url: '../camicroscope/api/Data/lymphocyteSuperusers.php',
-                             data: superuserData,
-                             success: function (res, err) {
-                             //console.log("response: ");
-                             console.log(res);
-                             console.log(err);
-                             console.log('successfully posted');
-                             document.getElementById('msgAssign').innerHTML = 'User ' + email + ' was assigned rights as a Lymphocyte App superuser';
-                             }
-                        }) 
-                     } else {
-                         for ( var j = 0; j < data.length; j++ ) {
-                             console.log(data);
-                             console.log("email: " + data[0].email);
-                             console.log("role: " + data[0].role);
-                    
-                             if (data[j].email.toLowerCase() === email.toLowerCase() && data[j].role.toLowerCase() === lymphUser.superuserRole.toLowerCase()) {
-                                 document.getElementById("msgAssign").innerHTML = "This lymphocyte superuser already exists.";
-                                 break;
-                             }
-                         }
-                      }
+                         var msgConfirmAssign = 'Are you sure you want to assign ' + email + ' as a Lymphocyte App superuser?';
+                         var msgUserAssigned  = 'User ' + email + ' was assigned rights as a Lymphocyte App superuser';
+                         
+                         if (response.trim().toLowerCase() !== msgResponseNoData.toLowerCase()) {
+                             var data = JSON.parse(response);
+                             console.log("Fetched data users length: " + data.length);
+                             if (data.length == 0 && (confirm(msgConfirmAssign))) {
+                                     //console.log('superuserData: ' + superuserData.email)
+                                     $.ajax({
+                                         'type': 'POST',
+                                         url: '../camicroscope/api/Data/lymphocyteSuperusers.php',
+                                         data: superuserData,
+                                         success: function (res, err) {
+                                         //console.log("response: ");
+                                         console.log(res);
+                                         console.log(err);
+                                         console.log('successfully posted');
+                                         document.getElementById('msgAssign').innerHTML = msgUserAssigned;
+                                         }
+                                    });
+
+                             } else {
+                                 for ( var j = 0; j < data.length; j++ ) {
+                                     console.log(data);
+                                     console.log("email: " + data[0].email);
+                                     console.log("role: " + data[0].role);
+
+                                     if (data[j].email.toLowerCase() === email.toLowerCase() && data[j].role.toLowerCase() === lymphUser.superuserRole.toLowerCase()){
+                                         document.getElementById("msgAssign").innerHTML = msgSuperuserExists;
+                                         break;
+                                     }
+                                 }
+                              }
+                          } else {
+                              document.getElementById("msgAssign").innerHTML = msgSessionNotEstablished;
+                          }
                      },  //end success
                      error: function(response) {
-                         console.log("error on post");
-                         document.getElementById("msgAssign").innerHTML = "Error on post.  Your session could not be established.  Please login to QuIP to meet access policy requirements. ";
+                         console.log("error on post: " + response);
+                         document.getElementById("msgAssign").innerHTML = msgFormError;
                          //Materialize.toast('Form Error!', 4000);
                       }
                   });
           
                  return false;
-              });  // end click
+              });  // end 'submitButtonAssign' click
            });  //end ready
     </script>
 
