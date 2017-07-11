@@ -83,11 +83,11 @@
             <div class="spacerTop"></div>
 
             <div class="col-md-offset-1 col-md-10">
-              <h2>Manage Superusers For Lymphocyte App</h2>
+              <h2>Manage Superusers For caMic Lymphocyte App</h2>
               <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title" title="Assign superuser rights to the user for a Lymphocyte App"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-user"></span> Assign caMic Lymphocyte App Superuser</a></h3>
+                        <h3 class="panel-title" title="Assign superuser rights to the user for a Lymphocyte App"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-user"></span> Assign Superuser for caMic Lymphocyte App</a></h3>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
                     <div class="panel-body">
@@ -118,7 +118,7 @@
 
                               <div class="form-group row">
                                    <div class="col-sm-offset-3 col-sm-7">
-                                        <input id="submitButtonAssign" type="submit" class="btn btn-md btn-block btn-success" title="Assign superuser rights to this user for a Lymphocyte App">
+                                        <input id="submitButtonAssign" type="submit" value="Assign Lymphocyte App Superuser" class="btn btn-md btn-block btn-success" title="Assign superuser rights to this user for a Lymphocyte App">
                                    </div>
                               </div>
                             </form>
@@ -132,7 +132,7 @@
             <!-- start remove section -->
             <div class="panel panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="glyphicon glyphicon-user"></span> Remove caMic Lymphocyte Superuser</a></h3>
+                        <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="glyphicon glyphicon-user"></span> Remove Superuser for caMic Lymphocyte App</a></h3>
                     </div>
                    <div id="collapse2" class="panel-collapse collapse" >
                     <div class="panel-body">
@@ -163,7 +163,7 @@
 
                                   <div class="form-group row">
                                      <div class="col-sm-offset-3 col-sm-7">
-                                            <input id="submitButtonRemove" type="submit"  value="Remove Lymphocyte Superuser" class="btn btn-md btn-block btn-danger" title="Remove Lymphocyte App Superuser" >
+                                            <input id="submitButtonRemove" type="submit"  value="Remove Lymphocyte App Superuser" class="btn btn-md btn-block btn-danger" title="Remove Lymphocyte App Superuser" >
                                        </div>
                                   </div>
                                 </form>
