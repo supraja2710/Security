@@ -128,5 +128,19 @@ $(document).ready(function() {
           
         return false;
 	});  // end remove superuser
+    
+    $('[data-toggle="tooltip"]').tooltip({
+        placement : 'bottom'
+    });
 });  //end ready
+
+$('.closeall').click(function(){
+  $('.panel-collapse.in')
+    .collapse('hide');
+});
+
+$('.openall').click(function(){
+  $('.panel-collapse:not(".in")')
+    .collapse('show');
+});
     

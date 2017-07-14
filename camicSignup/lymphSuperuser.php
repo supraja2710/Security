@@ -84,10 +84,11 @@
 
             <div class="col-md-offset-1 col-md-10">
               <h2>Manage Superusers For caMic Lymphocyte App</h2>
+              <a href="#" class="btn btn-default openall" data-toggle="tooltip" title="Open all panels">open all</a> <a href="#" class="btn btn-default closeall" data-toggle="tooltip" title="Close all panels">close all</a>
               <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title" title="Assign superuser rights to the user for a Lymphocyte App"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-user"></span> Assign Superuser for caMic Lymphocyte App</a></h3>
+                        <h3 class="panel-title" data-toggle="tooltip" title="Assign superuser rights to the user for a Lymphocyte App"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-user"></span> Assign Superuser for caMic Lymphocyte App</a></h3>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
                     <div class="panel-body">
@@ -101,7 +102,7 @@
                                      <label for="emailAssign" class="col-sm-3 control-label">User's Gmail Address:</label>
                                      <div class="col-sm-7">
                                          <div class="input-group">
-                                               <input id="emailAssign" type="email" name="emailAssign" label="User's Gmail Address: " class="form-control input"  placeholder="Enter User's Gmail Address" title="Enter a valid email address" required>
+                                               <input id="emailAssign" type="email" name="emailAssign" label="User's Gmail Address: " class="form-control input"  placeholder="Enter User's Gmail Address" data-toggle="tooltip" title="Enter a valid email address" required>
                                                 <div class="input-group-addon">
                                                     <span class="glyphicon glyphicon-envelope" alt="Required Control" style="color:black;font-size:14px;"></span> 
                                                 </div>
@@ -118,7 +119,7 @@
 
                               <div class="form-group row">
                                    <div class="col-sm-offset-3 col-sm-7">
-                                        <input id="submitButtonAssign" type="submit" value="Assign Lymphocyte App Superuser" class="btn btn-md btn-block btn-success" title="Assign superuser rights to this user for a Lymphocyte App">
+                                        <input id="submitButtonAssign" type="submit" value="Assign Lymphocyte App Superuser" class="btn btn-md btn-block btn-success" data-toggle="tooltip" title="Assign superuser rights to this user for a Lymphocyte App">
                                    </div>
                               </div>
                             </form>
@@ -132,7 +133,7 @@
             <!-- start remove section -->
             <div class="panel panel-danger">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="glyphicon glyphicon-user"></span> Remove Superuser for caMic Lymphocyte App</a></h3>
+                        <h3 class="panel-title" data-toggle="tooltip" title="Remove superuser for caMic Lymphocyte App"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="glyphicon glyphicon-user"></span> Remove Superuser for caMic Lymphocyte App</a></h3>
                     </div>
                    <div id="collapse2" class="panel-collapse collapse" >
                     <div class="panel-body">
@@ -146,7 +147,7 @@
                                         <label for="emailRemove" class="col-sm-3 control-label">User's Gmail Address:</label>
                                         <div class="col-sm-7">
                                             <div class="input-group">
-                                               <input id="emailRemove" type="email" name="emailRemove" label="User's Gmail Address: " class="form-control input"  placeholder="Enter User's Gmail Address" title="Enter a valid email address" required>
+                                               <input id="emailRemove" type="email" name="emailRemove" label="User's Gmail Address: " class="form-control input"  placeholder="Enter User's Gmail Address" data-toggle="tooltip" title="Enter a valid email address" required>
                                                 <div class="input-group-addon">
                                                     <span class="glyphicon glyphicon-envelope" alt="Required Control" style="color:black;font-size:14px;"></span> 
                                                 </div>
@@ -163,7 +164,7 @@
 
                                   <div class="form-group row">
                                      <div class="col-sm-offset-3 col-sm-7">
-                                            <input id="submitButtonRemove" type="submit"  value="Remove Lymphocyte App Superuser" class="btn btn-md btn-block btn-danger" title="Remove Lymphocyte App Superuser" >
+                                            <input id="submitButtonRemove" type="submit"  value="Remove Lymphocyte App Superuser" class="btn btn-md btn-block btn-danger" data-toggle="tooltip" title="Remove this Lymphocyte App Superuser" >
                                        </div>
                                   </div>
                                 </form>
