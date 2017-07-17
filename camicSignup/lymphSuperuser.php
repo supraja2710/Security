@@ -18,6 +18,7 @@
         <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>-->
         <script src="http://malsup.github.com/jquery.form.js"></script>
         <script src="/js/vendor/bootstrap/bootstrap.min.js"></script>
+        <script src="http://bootboxjs.com/bootbox.js"></script>
         <script src="/js/vendor/bootstrap-filestyle.min.js"></script>
         <script src="/js/config.js"></script>
 
@@ -88,7 +89,7 @@
               <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title" data-toggle="tooltip" title="Assign superuser rights for a Lymphocyte App to the user"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-user"></span> Assign Superuser for caMic Lymphocyte App</a></h3>
+                        <h3 class="panel-title" data-toggle="tooltip" title="Assign superuser rights for a Lymphocyte App"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-user"></span> Assign Superuser for caMic Lymphocyte App</a></h3>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
                     <div class="panel-body">

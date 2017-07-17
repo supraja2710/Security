@@ -41,23 +41,25 @@ $(document).ready(function() {
                     var data = JSON.parse(response);
                     console.log("Fetched data users length: " + data.length);
                     if (data.length === 0 ) {
-                        if(confirm(msgConfirmAssign)) {
+                        bootbox.confirm(msgConfirmAssign, function (confirmed) {
                             //console.log('superuserData: ' + superuserData.email)
-                            $.ajax({
-                                'type': 'POST',
-                                url: '../camicroscope/api/Data/lymphocyteSuperusers.php',
-                                data: superuserData,
-                                success: function (res, err) {
-                                    //console.log("response: ");
-                                    console.log(res);
-                                    console.log(err);
-                                    console.log('successfully posted');
-                                    document.getElementById('msgAssign').innerHTML = msgUserAssigned;
-                                }
-                            });
-                        }else{
-                            document.getElementById("msgAssign").innerHTML = "";
-                        }
+                            if (confirmed) {
+                                $.ajax({
+                                    'type': 'POST',
+                                    url: '../camicroscope/api/Data/lymphocyteSuperusers.php',
+                                    data: superuserData,
+                                    success: function (res, err) {
+                                        //console.log("response: ");
+                                        console.log(res);
+                                        console.log(err);
+                                        console.log('successfully posted');
+                                        document.getElementById('msgAssign').innerHTML = msgUserAssigned;
+                                    }
+                                });
+                            }else{
+                                document.getElementById("msgAssign").innerHTML = "";
+                            }
+                         });
                     } else {
                         document.getElementById("msgAssign").innerHTML = msgSuperuserExists;
                     }
@@ -102,22 +104,24 @@ $(document).ready(function() {
                     var data = JSON.parse(response);
                     console.log("Fetched data users length: " + data.length);
                     if (data.length !== 0) {
-                        if (confirm(msgConfirmRemove)) {
+                        bootbox.confirm(msgConfirmRemove, function (confirmed) {
                             //console.log('superuserData: ' + superuserData.email)
-                            $.ajax({
-                                'type': 'DELETE',
-                                url: '../camicroscope/api/Data/lymphocyteSuperusers.php?email='+ email + '&role=' + role,
-                                success: function (res, err) {
-                                    //console.log("response: ");
-                                    console.log(res);
-                                    console.log(err);
-                                    console.log('successfully deleted');
-                                    document.getElementById('msgRemove').innerHTML = msgUserRemoved;
-                                }
-                            });
-                        }else {
-                            document.getElementById("msgAssign").innerHTML = "";
-                        }
+                            if (confirmed) {
+                                $.ajax({
+                                    'type': 'DELETE',
+                                    url: '../camicroscope/api/Data/lymphocyteSuperusers.php?email='+ email + '&role=' + role,
+                                    success: function (res, err) {
+                                        //console.log("response: ");
+                                        console.log(res);
+                                        console.log(err);
+                                        console.log('successfully deleted');
+                                        document.getElementById('msgRemove').innerHTML = msgUserRemoved;
+                                    }
+                                });
+                            }else {
+                                document.getElementById("msgAssign").innerHTML = "";
+                            }
+                        });
 					} else if (data.length === 0) {
 						document.getElementById("msgRemove").innerHTML = msgSuperuserNotExists;          
 					} else {
