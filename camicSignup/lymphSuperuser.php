@@ -84,11 +84,11 @@
 
             <div class="col-md-offset-1 col-md-10">
               <h2>Manage Superusers For caMic Lymphocyte App</h2>
-              <a href="#" class="btn btn-default openall" data-toggle="tooltip" title="Open all panels">open all</a> <a href="#" class="btn btn-default closeall" data-toggle="tooltip" title="Close all panels">close all</a>
+              <a href="#" class="btn btn-default openall" data-toggle="tooltip" title="Open all panels">Open All</a> <a href="#" class="btn btn-default closeall" data-toggle="tooltip" title="Close all panels">Close All</a>
               <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title" data-toggle="tooltip" title="Assign superuser rights to the user for a Lymphocyte App"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-user"></span> Assign Superuser for caMic Lymphocyte App</a></h3>
+                        <h3 class="panel-title" data-toggle="tooltip" title="Assign superuser rights for a Lymphocyte App to the user"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-user"></span> Assign Superuser for caMic Lymphocyte App</a></h3>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
                     <div class="panel-body">
@@ -119,7 +119,7 @@
 
                               <div class="form-group row">
                                    <div class="col-sm-offset-3 col-sm-7">
-                                        <input id="submitButtonAssign" type="submit" value="Assign Lymphocyte App Superuser" class="btn btn-md btn-block btn-success" data-toggle="tooltip" title="Assign superuser rights to this user for a Lymphocyte App">
+                                        <input id="submitButtonAssign" type="submit" value="Assign Lymphocyte App Superuser" class="btn btn-md btn-block btn-success" data-toggle="tooltip" title="Assign superuser rights for a Lymphocyte App to this user">
                                    </div>
                               </div>
                             </form>
