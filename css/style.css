@@ -40,5 +40,9 @@ main {
     flex: 1 0 auto;
 }
 .blue.darken-3{
-    #1565C0 !important
+    color: #1565C0 !important
+}
+
+.limited_img{
+  max-height: 50%;
 }

@@ -45,30 +45,27 @@ if (!$enable_security) {
                 <a href="#!" class="brand-logo">
                 <i class="microscope">
                 <img src="svg/camic_vector.svg" id="svg1" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"/>
-                </i>caMicroscope</a>
-                <a class="btn-floating btn-large halfway-fab waves-effect waves-light green darken-2" onclick="$('#___signin_0').children()[0].click();">
-                <i class="material-icons">perm_identity</i>
-                </a>
+                </i><?php echo $branding_title?></a>
               </div>
             </nav>
           </div>
           <div class="container">
           <div class="row">
           <div class="col s12">
-            <div class="card" id="view">
+            <div class="card" id="view" onclick="$('#___signin_0').children()[0].click();">
               <div class="card-image">
                 <div class="darkimg">
-                  <img src="img/view.jpg">
+                  <img src="svg/camic_vector.svg" id="svg1" width="80%" height="80%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"/>
                 </div>
-                <span class="card-title">caMicroscope</span>
               </div>
               <div class="card-content">
-                <p><b>caMicroscope</b>: A digital pathology data management, visualization and analysis platform. It consists of a set
+                <h1>Log In to <?php echo $branding_title?></h1>
+                <p class="flow-text"><b>caMicroscope</b>: A digital pathology data management, visualization and analysis platform. It consists of a set
                   of web services to manage pathology images, associated clinical and imaging metadata, and human/machine
                   generated annotations and markups.
                 </p>
                 <br/>
-                <b>Log in:</b><br/>
+                <b>Authentication via Google</b><br/>
                 <span class="g-signin"
                   data-scope="email"
                   data-clientid=<?php echo $client_id ?>
