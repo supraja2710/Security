@@ -178,7 +178,7 @@ $_SESSION["name"] = "quip";
                   <div class="darkimg">
                     <img src="img/view.png">
                   </div>
-                  <span class="card-title">About &amp; Help</span>
+                  <span class="card-title">Documentation &amp; Help</span>
                 </div>
                 <div class="card-content">
                   <p class="card-text"><b>CAMIC Wiki</b>: Documentation and user guide for caMicroscope.</p>
