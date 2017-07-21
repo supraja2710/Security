@@ -128,6 +128,10 @@ require_once('config/security_config.php');
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
+    $(document).ready(function(){
+      // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+      $('.modal').modal();
+    });
     (function (b, o, i, l, e, r) {
         b.GoogleAnalyticsObject = l;
         b[l] || (b[l] =
