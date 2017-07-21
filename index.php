@@ -13,19 +13,18 @@ require_once('config/security_config.php');
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>caMicroscope Login</title>
+    <title><?php print $branding_title; ?> Login</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="css/frontPage.css">
-
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script src="js/jquery.form.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
-    <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <script>
         function logInCallback(authResult) {
             console.log("calling log in");
