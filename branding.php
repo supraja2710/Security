@@ -1,4 +1,4 @@
 <?php
 // defaults
 
-$branding_title = "caMicroscope - QUiP";
+$branding_title = "caMicroscope";
