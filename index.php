@@ -51,10 +51,10 @@ if (!$enable_security) {
           </div>
           <div class="container">
           <div class="row">
-          <div class="col s12">
+          <div class="col s12 xl6">
             <div class="card" id="view" onclick="$('#___signin_0').children()[0].click();">
               <div class="card-image">
-                <div class="darkimg">
+                <div class="darkimg limited_img">
                   <img src="svg/camic_vector.svg" id="svg1" width="80%" height="80%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"/>
                 </div>
               </div>
