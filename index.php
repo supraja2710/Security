@@ -1,5 +1,6 @@
 <?php
   require_once('config/security_config.php');
+  require 'branding.php';
   ?>
 <!doctype html>
 <!--[if lt IE 7]>
