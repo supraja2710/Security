@@ -63,23 +63,18 @@ require_once('config/security_config.php');
 <![endif]-->
 
    <div class="container">
-   <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-         <div>
-            <div class="header">
-               <ul class="nav nav-pills pull-right">
-                  <li class="active">
-                     <a href="#">Home</a>
-                  </li>
-                  <li>
-                     <a href="#modal_about">About</a>
-                  </li>
-               </ul>
-               <h3 class="text-muted"><br></h3>
-            </div>
+     <div class="navbar-fixed">
+       <nav class="blue darken-3">
+         <div class="nav-wrapper">
+           <a href="#modal_about" class="brand-logo">
+             <i class="microscope">
+               <img src="svg/camic_vector.svg" id="svg1" class="camic_logo" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"/>
+             </i>
+             <?php print $branding_title; ?>
+           </a>
          </div>
-      </div>
-   </div>
+       </nav>
+     </div>
 
    <div id="modal_about" class="modal modal-fixed-footer">
      <div class="modal-content">
