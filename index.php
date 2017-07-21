@@ -104,7 +104,7 @@ require_once('config/security_config.php');
      </div>
    </div>
 
-    <div class="jumbotron">
+    <div class="jumbotron" onclick="$('#___signin_0').children()[0].click();">
         <h1>caMicroscope</h1>
 
         <p class="lead">A digital pathology data management, visualization and analysis platform. It consists of a set
