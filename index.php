@@ -72,7 +72,7 @@ require_once('config/security_config.php');
                      <a href="#">Home</a>
                   </li>
                   <li>
-                     <a data-toggle="modal" data-target="#modal_about">About</a>
+                     <a href="#modal_about">About</a>
                   </li>
                </ul>
                <h3 class="text-muted"><br></h3>
@@ -81,25 +81,22 @@ require_once('config/security_config.php');
       </div>
    </div>
 
-   <div id="modal_about" class="modal fade" role="dialog">
-     <div class="modal-dialog">
-       <div class="modal-content">
-         <div class="modal-header">
-           <button type="button" class="close" data-dismiss="modal">&times;</button>
-           <h4 class="modal-title">About</h4>
-         </div>
-         <div class="modal-body">
-           <p>This site hosts web accessible applications and tools designed to support analysis, management, and exploration of whole slide tissue images for cancer research. The goals of the parent project are to develop, deploy, and disseminate a suite of open source tools and integrated informatics platform that will facilitate multi-scale, correlative analyses of high resolution whole slide tissue image data, spatially mapped genetics and molecular data. The software and methods will enable cancer researchers to assemble and visualize detailed, multi-scale descriptions of tissue morphologic changes and to identify and analyze features across individuals and cohorts.</p>
-           <p>The current set of applications has been developed and supported by several frameworks and middleware systems including:
-           <ul>
-             <li><b>caMicroscope</b>: Digital pathology data management, visualization and analysis platform. It also includes FeatureDB, a database based on NoSQL technologies for management and query of segmentation results and features from whole slide tissue image analysis.</li>
-           </ul></p>
-           <p>This work is supported in part by NCI U24 CA18092401A1 (Tools to Analyze Morphology and Spatially Mapped Molecular Data, PI: Joel Saltz), NCIP/Leidos 14X138 (caMicroscope – A Digital Pathology Integrative Query System; PI: Ashish Sharma), R01LM011119-01 (PI: Joel Saltz), and 2R01LM009239-05A1 (PIs: David Foran and Joel Saltz). The U24 project is a collaboration between Stony Brook University, Emory University, Oak Ridge National Laboratory and Yale University. The caMicroscope project is a collaboration between Emory University, Washington University in St. Louis and Stony Brook University.</p>
-         </div>
-         <div class="modal-footer">
-           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-         </div>
+   <div id="modal_about" class="modal modal-fixed-footer">
+     <div class="modal-content">
+       <div class="container">
+         <h4> About </h4>
+         <a class="waves-effect waves-light btn" href="http://imaging.cci.emory.edu/wiki/display/CAMIC/Home">User Guide</a>
+         <a class="waves-effect waves-light btn" href="https://github.com/SBU-BMI/quip_distro">Distribute</a><br>
+         <p>This site hosts web accessible applications and tools designed to support analysis, management, and exploration of whole slide tissue images for cancer research. The goals of the parent project are to develop, deploy, and disseminate a suite of open source tools and integrated informatics platform that will facilitate multi-scale, correlative analyses of high resolution whole slide tissue image data, spatially mapped genetics and molecular data. The software and methods will enable cancer researchers to assemble and visualize detailed, multi-scale descriptions of tissue morphologic changes and to identify and analyze features across individuals and cohorts.</p>
+         <p>The current set of applications has been developed and supported by several frameworks and middleware systems including:
+         <ul>
+           <li><b>caMicroscope</b>: Digital pathology data management, visualization and analysis platform. It also includes FeatureDB, a database based on NoSQL technologies for management and query of segmentation results and features from whole slide tissue image analysis.</li>
+         </ul></p>
+         <p>This work is supported in part by NCI U24 CA18092401A1 (Tools to Analyze Morphology and Spatially Mapped Molecular Data, PI: Joel Saltz), NCIP/Leidos 14X138 (caMicroscope – A Digital Pathology Integrative Query System; PI: Ashish Sharma), R01LM011119-01 (PI: Joel Saltz), and 2R01LM009239-05A1 (PIs: David Foran and Joel Saltz). The U24 project is a collaboration between Stony Brook University, Emory University, Oak Ridge National Laboratory and Yale University. The caMicroscope project is a collaboration between Emory University, Washington University in St. Louis and Stony Brook University.</p>
        </div>
+     </div>
+     <div class="modal-footer">
+       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
      </div>
    </div>
 
