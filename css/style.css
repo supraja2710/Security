@@ -31,6 +31,13 @@
   margin-left: 15px;
 }
 
+.top_bar{
+  background-color: #1565C0;
+  font-size:12pt;
+  color: white;
+  padding: 5px;
+}
+
 body {
     display: flex;
     min-height: 100vh;
