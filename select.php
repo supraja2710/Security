@@ -96,7 +96,7 @@ $_SESSION["name"] = "quip";
       <div class="container">
         <div class="row">
           <a href="#modal_about">
-            <div class="col s12 m6 l4 xl3">
+            <div class="col s12 l6">
               <div class="card" id="upload">
                 <div class="card-image">
                   <div class="darkimg">
