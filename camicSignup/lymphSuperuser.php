@@ -19,9 +19,20 @@
         <script src="http://malsup.github.com/jquery.form.js"></script>
         <script src="/js/vendor/bootstrap/bootstrap.min.js"></script>
         <script src="http://bootboxjs.com/bootbox.js"></script>
-        <script src="/js/vendor/bootstrap-filestyle.min.js"></script>
         <script src="/js/config.js"></script>
-
+        
+        <style>
+            #emailInput {
+              background-image: url('/svg/searchicon_vector.svg');
+              background-position: 10px 10px;
+              background-repeat: no-repeat;
+              width: 100%;
+              font-size: 16px;
+              padding: 12px 20px 12px 40px;
+              border: 1px solid #ddd;
+              margin-bottom: 12px;
+            }
+        </style>
     </head>
 
     <body>
@@ -71,7 +82,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/camicSignup/adminUpdate.html">
                 <div class="icon">
-                  <span class="ico glyphicon glyphicon-lock"></span>
+                  <span class="ico glyphicon glyphicon-lock"></span>    
                   <span class="icolabel">Password</span>
                 </div>
               </a>
@@ -91,7 +102,7 @@
                     <div class="panel-heading">
                         <h3 class="panel-title" data-toggle="tooltip" title="Assign superuser rights for a Lymphocyte App"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"><span class="glyphicon glyphicon-user"></span> Assign Superuser for caMic Lymphocyte App</a></h3>
                     </div>
-                    <div id="collapse1" class="panel-collapse collapse in">
+                    <div id="collapse1" class="panel-collapse collapse">
                     <div class="panel-body">
                         <div class="spacerTop"></div>
                         <div class="row">
@@ -133,9 +144,9 @@
             </div>
             <!-- start remove section -->
             <div class="panel panel-danger">
-                    <div class="panel-heading">
+                   <div class="panel-heading">
                         <h3 class="panel-title" data-toggle="tooltip" title="Remove superuser for caMic Lymphocyte App"><a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><span class="glyphicon glyphicon-user"></span> Remove Superuser for caMic Lymphocyte App</a></h3>
-                    </div>
+                   </div>
                    <div id="collapse2" class="panel-collapse collapse" >
                     <div class="panel-body">
                         <div class="spacerTop"></div>
@@ -177,9 +188,73 @@
                 </div>
             </div>
             <!-- end delete section -->
+            
+            <!-- start list section -->
+            <div class="panel panel-default">
+                   <div class="panel-heading">
+                        <h3 class="panel-title" data-toggle="tooltip" title="View a List of Superusers for caMic Lymphocyte App"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><span class="glyphicon glyphicon-user"></span> View a List of Superusers for caMic Lymphocyte App</a></h3>
+                   </div>
+                   <div id="collapse3" class="panel-collapse collapse in" >
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                            <!-- start form -->
+                                <input type="text" id="emailInput" onkeyup="myFunction()" placeholder="Search for user's email.." title="Type in an email address">
+                                <form id='lymphFormRemoveFromList' class="form-horizontal" name="lymphFormRemoveFromList" action='/camicSignup/lymphSuperuser.php'  method='post' accept-charset='UTF-8'>
+                                     <div class="form-group row" id="divTable">
+                                         <!--<table id="superusersTable" class="table table-hover" >
+                                             <thead>
+                                                <tr>
+                                                    <th >User's Email</th>
+                                                    <th>Action - Remove</th> 
+                                                </tr>
+                                            </thead>
+                                             <tbody>
+                                              <tr>
+                                                <td width="80%">alina.jasniewski@stonybrook.edu</td>
+                                                <td><input id='user1' type="submit"  value="Remove" class="btn btn-md btn-block btn-danger" data-toggle="tooltip" title="Remove this Lymphocyte App Superuser" ></td>
+                                              </tr>
+                                              <tr>
+                                                <td width="80%">alina.jasniewski2@stonybrook.edu</td>
+                                                <td><input id='user2' type="submit"  value="Remove" class="btn btn-md btn-block btn-danger" data-toggle="tooltip" title="Remove this Lymphocyte App Superuser" ></td>
+                                              </tr>
+                                              <tr>
+                                                <td width="80%">alina.jasniewski3@stonybrook.edu</td>
+                                                <td><input id='user3' type="submit"  value="Remove" class="btn btn-md btn-block btn-danger" data-toggle="tooltip" title="Remove this Lymphocyte App Superuser" ></td>
+                                              </tr>
+                                            </tbody>
+                                         </table>-->
+                                     </div>
+                                </form>
+                                <!--end form-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end list section -->
            </div>
          </div>
        </div>
-    <script src="/js/lymph-superusers.js"></script>
+       <script>
+           function myFunction() {
+               var input, filter, table, tr, td, i;
+               input = document.getElementById("emailInput");
+               filter = input.value.toUpperCase();
+               table = document.getElementById("superusersTable");
+               tr = table.getElementsByTagName("tr");
+               for (i = 0; i < tr.length; i++) {
+                   td = tr[i].getElementsByTagName("td")[0];
+                   if (td) {
+                       if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                           tr[i].style.display = "";
+                        } else {
+                           tr[i].style.display = "none";
+                        }
+                    }       
+                }
+            }
+        </script>
+        <script src="/js/lymph-superusers.js"></script>
   </body>
 </html>

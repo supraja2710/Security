@@ -1,5 +1,59 @@
 $(document).ready(function() {
-          
+    
+    //start table
+    var listSuperusers = [];
+    var role = lymphUser.superuserRole;
+    
+    $.ajax({
+        'type': 'GET',
+        url: '../camicroscope/api/Data/getLymphocyteSuperusers.php?lymph_superuser=' + role,
+        success: function(response) {
+            var data = JSON.parse(response);
+            console.log("Fetched data users length: " + data.length);
+            if (data.length > 0) {
+                for ( var i = 0; i < data.length; i++ ) {
+                    console.log(data[i].email);
+                    listSuperusers.push(data[i].email);
+                }
+                var lenSuperuserData = listSuperusers.length
+                $("#divTable").append("<table id=\"superusersTable\" class=\"table table-hover\"></table>");
+                $("#superusersTable").append("<thead id=\"superusersThead\"></thead>");
+                $("#superusersThead").append("<tr><th width=\"80%\">User's Email</th><th width=\"20%\">Action - Remove</th></tr>");
+                $("#superusersTable").append("<tbody id=\"superusersTbody\"></tbody>");
+
+                for ( var i = 0; i < lenSuperuserData; i++ ) {
+                    $("#superusersTbody").append("<tr><td>" + listSuperusers[i] + "</td><td><input id=" + listSuperusers[i] + " type='submit'  value='Remove' class='btn btn-md btn-block btn-danger' data-toggle='tooltip' title='Remove this Lymphocyte App Superuser'></td></tr>");
+                }
+    
+                $("input").click(function(e){
+                    var idClicked = e.target.id;
+                    var value = document.getElementById(idClicked).value;
+
+                    if (value === 'Remove') {
+                        $.ajax({
+                            'type': 'DELETE',
+                             url: '../camicroscope/api/Data/lymphocyteSuperusers.php?email='+ idClicked + '&role=' + role,
+                             success: function (res, err) {
+                                 //console.log("response: ");
+                                 console.log(res);
+                                 console.log(err);
+                                 console.log('successfully deleted');
+                                 //document.getElementById('msgRemove').innerHTML = msgUserRemoved;
+                                 //alert('deleted');
+                             }
+                        });
+                    }       
+                });
+            }             
+				
+        },  //end success
+        error: function(response) {
+            console.log("error on delete: " + response);
+            document.getElementById("msgAssign").innerHTML = msgFormError;
+        }
+    });
+    //end table
+    
     var msgEnterEmail = 'Please enter the gmail address.';
     var msgNotValidEmail = 'The value is not a valid email address.';
     var msgSuperuserExists = 'This lymphocyte superuser already exists.';
@@ -8,7 +62,7 @@ $(document).ready(function() {
     var msgFormError = 'Form Error';
     var msgResponseNoData = 'No data';
     var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    var role = lymphUser.superuserRole;
+    //var role = lymphUser.superuserRole;
         
     $('#submitButtonAssign').click(function() {
             
@@ -54,6 +108,7 @@ $(document).ready(function() {
                                         console.log(err);
                                         console.log('successfully posted');
                                         document.getElementById('msgAssign').innerHTML = msgUserAssigned;
+                                        window.location.reload();
                                     }
                                 });
                             }else{
@@ -75,8 +130,7 @@ $(document).ready(function() {
 		
         return false;
     });  // end 'submitButtonAssign' click
-            
-                
+                 
     // start remove superuser
     $('#submitButtonRemove').click(function() {
             
