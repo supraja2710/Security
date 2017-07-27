@@ -101,46 +101,46 @@ $_SESSION["name"] = "quip";
       <div class="container">
         <div class="row">
           <a href="#modal1">
-            <div class="col s12 m6 l4 xl3">
-              <div class="card" id="upload">
+            <div class="col s12 l6">
+              <div class="card" id="view">
+                <div class="top_bar">Add User</div>
                 <div class="card-image">
                   <div class="darkimg">
-                    <img src="../img/upload.jpg">
+                    <img src="../img/view.png">
                   </div>
-                  <span class="card-title">Sign up a User</span>
                 </div>
                 <div class="card-content">
-                  <p class="card-text"><b>Add User</b>: Sign up a New User for <?php print $branding_title; ?> </p>
+                  <p class="card-text flow-text">Sign up a New User for caMicroscope</p>
                 </div>
               </div>
             </div>
           </a>
           <a href="#modal2">
-            <div class="col s12 m6 l4 xl3">
-              <div class="card" id="upload">
+            <div class="col s12 l6">
+              <div class="card" id="view">
+                <div class="top_bar">Change Admin Password</div>
                 <div class="card-image">
                   <div class="darkimg">
-                    <img src="../img/upload.jpg">
+                    <img src="../img/view.png">
                   </div>
-                  <span class="card-title">Change Admin Credential</span>
                 </div>
                 <div class="card-content">
-                  <p class="card-text"><b>Update Admin Password:</b> required to access this section. </p>
+                  <p class="card-text flow-text">Change the password required to access this section</p>
                 </div>
               </div>
             </div>
           </a>
           <a href="/camicSignup/user_list.php">
-            <div class="col s12 m6 l4 xl3">
-              <div class="card" id="upload">
+            <div class="col s12 l6">
+              <div class="card" id="view">
+                <div class="top_bar">List Users</div>
                 <div class="card-image">
                   <div class="darkimg">
-                    <img src="../img/upload.jpg">
+                    <img src="../img/view.png">
                   </div>
-                  <span class="card-title">List Users</span>
                 </div>
                 <div class="card-content">
-                  <p class="card-text"><b>User List</b>: A list of users who can access <?php print $branding_title; ?> </p>
+                  <p class="card-text flow-text">A list of users who can access caMicroscope</p>
                 </div>
               </div>
             </div>
