@@ -145,6 +145,21 @@ $_SESSION["name"] = "quip";
               </div>
             </div>
           </a>
+          <a href="/camicSignup/lymphSuperuser.php">
+            <div class="col s12 l6">
+              <div class="card" id="view">
+                <div class="top_bar">Lymph Superusers</div>
+                <div class="card-image">
+                  <div class="darkimg">
+                    <img src="../img/view.png">
+                  </div>
+                </div>
+                <div class="card-content">
+                  <p class="card-text flow-text">Manage users with Lymph Superuser Access</p>
+                </div>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </main>
