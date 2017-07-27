@@ -103,7 +103,7 @@ $_SESSION["name"] = "quip";
                 <div class="top_bar">About</div>
                 <div class="card-image">
                   <div class="darkimg">
-                    <img src="img/about.png">
+                    <img src="img/about.jpg">
                   </div>
                 </div>
                 <div class="card-content">
