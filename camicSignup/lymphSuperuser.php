@@ -38,7 +38,7 @@
       <div class="col-md-offset-1 col-md-10">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title" title="Lymphocyte App Superusers"><span class="glyphicon glyphicon-file"></span>Lymphocyte App Superusers</h3>
+            <h3 class="panel-title" title="Lymphocyte App Superusers">Lymphocyte App Superusers</h3>
           </div>
           <div class="panel-body">
             <div class="row">
@@ -48,10 +48,11 @@
                     <input id="emailAssign" name="emailAssign" type="text" class="validate">
                     <label for="emailAssign">User's Gmail Address</label>
                   </div>
-                  <button id="submitButton" type="submit" value="Add User" class="btn-large blue waves-effect waves-light btn" action="submit">
-                  Add User <i class="material-icons right">person_add</i>
+                  <button id="submitButtonAssign" type="submit" value="Add User" class="btn-large blue waves-effect waves-light btn" action="submit">
+                  Add Superuser <i class="material-icons right">person_add</i>
                   </button>
                 </form>
+                  
                 <div class="col-sm-offset-3 col-sm-9">
                   <h5 id="msgAssign" class="msg"></h5>
                 </div>
@@ -60,8 +61,8 @@
                     <input id="emailRemove" name="emailRemove" type="text" class="validate">
                     <label for="emailRemove">User's Gmail Address</label>
                   </div>
-                  <button id="submitButton" type="submit" value="Add User" class="btn-large blue waves-effect waves-light btn" action="submit">
-                  Remove User <i class="material-icons right">person_remove</i>
+                  <button id="submitButtonRemove" type="submit" value="Remove User" class="btn-large blue waves-effect waves-light btn" action="submit">
+                  Remove Superuser <i class="material-icons right">person_remove</i>
                   </button>
                 </form>
                 <div class="col-sm-offset-3 col-sm-9">
