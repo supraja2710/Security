@@ -55,9 +55,7 @@ $cSession = curl_init();
     <script src="js/jquery.form.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <link rel="stylesheet" href="css/style.css">
-<<<<<<< HEAD
     <title><?php print $branding_title; ?></title>
-=======
     <script>
         function logOut() {
             $.post("security/server.php?logOut", {},
@@ -67,7 +65,6 @@ $cSession = curl_init();
             gapi.auth.signOut();
         }
     </script>
->>>>>>> origin/release
   </head>
 
   <body>
@@ -211,6 +208,7 @@ $cSession = curl_init();
             PI</i> Stony Brook/Emory/Oak Ridge/Yale<br>NCIP/Leidos 14X138, <b>caMicroscope &ndash; A Digital Pathology
             Integrative Query System</b>; <i>Ashish Sharma PI</i> Emory/WUSTL/Stony Brook<br />
           </p>
+          <a class="waves-effect waves-light btn" onclick="logOut()">Log Out</a>
         </div>
       </div>
     </main>
