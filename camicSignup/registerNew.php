@@ -16,6 +16,7 @@
   $fname=$_POST['fname'];
   $lname=$_POST['lname'];
   $email=$_POST['email'];
+  $email = strtolower($email);
   $username=$fname . $lname;
   $expirationDate='01/01/2020';
   $category="bindaas_user" ;

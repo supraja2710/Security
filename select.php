@@ -5,6 +5,41 @@ require 'branding.php';
 
 require_once 'config/security_config.php';
 $_SESSION["name"] = "quip";
+
+//try to fix bug
+$dataUrl="http://quip-data:9099/services/Camicroscope_DataLoader/DataLoader/query/getAll" ;
+$apiKey = $_SESSION["api_key"];
+$dataUrl = $dataUrl . "?api_key=".$apiKey;
+$cSession = curl_init();
+ try {
+          $ch = curl_init();
+
+          if (FALSE === $ch)
+              throw new Exception('failed to initialize');
+
+          curl_setopt($ch,CURLOPT_URL, $dataUrl);
+          curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+          curl_setopt($ch,CURLOPT_HEADER, false);
+
+          $content = curl_exec($ch);
+
+          if (FALSE === $content)
+              throw new Exception(curl_error($ch), curl_errno($ch));
+
+          // ...process $content now
+     } catch(Exception $e) {
+          $content = "Error";
+         }
+
+    if (empty($content)) {
+             // list is empty.
+             //session_unset();
+             //die();
+      header('Location: forceLogout.php');
+      exit;
+     }
+  //end of bug fix
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +55,19 @@ $_SESSION["name"] = "quip";
     <script src="js/jquery.form.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <link rel="stylesheet" href="css/style.css">
+<<<<<<< HEAD
     <title><?php print $branding_title; ?></title>
+=======
+    <script>
+        function logOut() {
+            $.post("security/server.php?logOut", {},
+                    function () {
+                        window.location = "index.php";
+                    });
+            gapi.auth.signOut();
+        }
+    </script>
+>>>>>>> origin/release
   </head>
 
   <body>
