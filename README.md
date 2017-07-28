@@ -1,31 +1,37 @@
-# Security + Landing page for QuIP
-Security, user authentication for caMicroscope 
+# Security
+## User authentication for caMicroscope 
 
-## Enabling authentication
+### Enabling Authentication
+In order to sign in your users with their Google Accounts, you will need to integrate Google Sign-In into your app.
+
+If you do not wish to sign in users, please see [Disabling Authentication](https://github.com/camicroscope/Security/blob/release/README.md#disabling-authentication).
+
 ### Step 1. Setting up Google Sign-In
 
-* Setup [Google sign-in](https://developers.google.com/+/web/signin/)
+* First, go to [Google API Console](https://console.developers.google.com/project/_/apiui/apis/library)
+* From the drop-down in the top left corner, create a new project
+* Next, select Credentials in the left side-bar, then select "OAuth Client ID" in the drop-down, and then "Configure Consent Screen"
+* Fill in your URL, etc, and click "Save"
+* Then, select "Web application", and fill in the fields
+* Finally, copy your **"client ID"** and **"client secret"**
 
-Make sure you Enable the Google+ APIservice.
-Also take note of the *client ID* and *client secret*
+
+**Ref: [Google Sign-In for Websites](https://developers.google.com/identity/sign-in/web/devconsole-project)**
 
 ### Step 2. Configuration
 
-Edit `config/security_config.php`.
+Edit `config/security_config.php`:
+
 * Set `$client_id` and `$client_secret` obtained from Step1.
 * Set `$bindaas_trusted_id` and `$bindaas_trusted_secret`.
 * Set `$bindaas_trusted_url` as the IP/hostname of the data container.
 * Set `$mongo_client_url` as IP/hostname of data container.  
 
--------
--------
 
+### Disabling Authentication
 
-## Disabling authentication
+To disable authentication edit `config/security_config.php`:
 
-To disable authentication
-* Log in to the `quip-viewer` container
-* Open `/var/www/html/authenticate.php`
-* Uncomment lines 7 and 8 https://github.com/camicroscope/Security/blob/release/authenticate.php#L6 which would be populated with the right api key.
-* Copy the api key from above and set the $apiKey for flex tables too. (https://github.com/camicroscope/ViewerDockerContainer/blob/release/html/FlexTables/index.php#L227).
+* Set `$enable_security=false`
+* You should be able to see the `/select.php` now when you launch the application from the browser.
 
