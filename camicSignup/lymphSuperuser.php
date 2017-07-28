@@ -16,8 +16,8 @@
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <link rel="stylesheet" href="../css/style.css">
     <title>[*]<?php print $branding_title; ?> Lymphocyte Superusers</title>
-    <script src="/js/config.js"></script>
-    <script src="/js/jquery.form.js"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/jquery.form.js"></script>
   </head>
   <body>
     <div class="navbar-fixed">
@@ -52,7 +52,7 @@
                   Add Superuser <i class="material-icons right">person_add</i>
                   </button>
                 </form>
-                  
+
                 <div class="col-sm-offset-3 col-sm-9">
                   <h5 id="msgAssign" class="msg"></h5>
                 </div>
@@ -75,6 +75,6 @@
       </div>
     </div>
   </main>
-  <script src="/js/lymph-superusers.js"></script>
+  <script src="../js/lymph-superusers.js"></script>
   </body>
 </html>
