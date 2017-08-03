@@ -172,8 +172,9 @@ $cSession = curl_init();
               </div>
             </div>
           </a>
-          <a href="FlexTables/index.php">
+
             <div class="col s12 l6">
+              <a href="FlexTables/index.php">
               <div class="card" id="view">
                 <div class="top_bar">caMicroscope</div>
                 <div class="card-image">
@@ -185,8 +186,9 @@ $cSession = curl_init();
                   <p class="card-text flow-text">View and annotate whole slide tissue images and nuclear segmentations.</p>
                 </div>
               </div>
+              </a>
             </div>
-          </a>
+
         </div>
         <div id="grantinfo">
           <p>U24 CA18092401A1, <b>Tools to Analyze Morphology and Spatially Mapped Molecular Data</b>; <i>Joel Saltz
