@@ -22,9 +22,9 @@
           <meta name="description" content="">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <!--Import Google Icon Font-->
-          <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <link href="css/icons.css" rel="stylesheet">
           <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-          <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+          <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
           <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
           <script src="js/jquery.form.js"></script>
           <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
@@ -112,7 +112,6 @@
               <p>NCIP/Leidos 14X138, caMicroscope — A Digital Pathology Integrative Query System<br>Ashish Sharma (ashish.sharma@emory.edu) PI, Emory/WUSTL/StonyBrook</p>
             </div>
           </div>
-          <script src="js/main.js"></script>
           <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
           <script>
             $(document).ready(function(){

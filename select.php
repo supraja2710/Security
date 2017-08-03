@@ -48,9 +48,9 @@ $cSession = curl_init();
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/icons.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
@@ -89,7 +89,7 @@ $cSession = curl_init();
         <div class="container">
           <h4> Upload Images </h4>
           <p>Pick an unique Image ID (Letters, Numbers, Dash(-), and Underscore(_) only) and upload an image file.
-          <form id="uploadme" role="form" action="/quip-loader/submitData" method="post" enctype="multipart/form-data">
+          <form id="uploadme" role="form" action="quip-loader/submitData" method="post" enctype="multipart/form-data">
             <div class="input-field col s12">
               <input id="imageid" name="case_id" type="text" pattern="^[a-zA-Z0-9-_]+$" class="validate">
               <label for="imageid">Image ID</label>
@@ -171,7 +171,7 @@ $cSession = curl_init();
               </div>
             </div>
           </a>
-          <a href="/FlexTables/index.php">
+          <a href="FlexTables/index.php">
             <div class="col s12 l6">
               <div class="card" id="view">
                 <div class="top_bar">caMicroscope</div>
@@ -186,7 +186,7 @@ $cSession = curl_init();
               </div>
             </div>
           </a>
-          <a href="/featurescapeapps/featurescape/u24Preview.php">
+          <a href="featurescapeapps/featurescape/u24Preview.php">
             <div class="col s12 l6">
               <div class="card" id="understand">
                 <div class="top_bar">FeatureScape</div>
