@@ -185,6 +185,7 @@ $cSession = curl_init();
                   <p class="card-text flow-text">View and annotate whole slide tissue images and nuclear segmentations.</p>
                 </div>
               </div>
+              </a>
             </div>
           </a>
           <a href="featurescapeapps/featurescape/u24Preview.php">
