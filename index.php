@@ -85,7 +85,6 @@
               <div class="modal-content">
                 <div class="container">
                   <h4> About </h4>
-                  <a class="waves-effect waves-light btn" href="http://imaging.cci.emory.edu/wiki/display/CAMIC/Home">User Guide</a>
                   <a class="waves-effect waves-light btn" href="https://github.com/SBU-BMI/quip_distro">Distribute</a><br>
                   <p>This site hosts web accessible applications and tools designed to support analysis, management, and exploration of whole slide tissue images for cancer research. The goals of the parent project are to develop, deploy, and disseminate a suite of open source tools and integrated informatics platform that will facilitate multi-scale, correlative analyses of high resolution whole slide tissue image data, spatially mapped genetics and molecular data. The software and methods will enable cancer researchers to assemble and visualize detailed, multi-scale descriptions of tissue morphologic changes and to identify and analyze features across individuals and cohorts.</p>
                   <p>The current set of applications has been developed and supported by several frameworks and middleware systems including:
