@@ -50,7 +50,7 @@ require_once('config/security_config.php');
                      <a href="#">Home</a>
                   </li>
                   <li>
-                     <a href="https://sbu-bmi.github.io/quip_distro/">Downloads</a>
+                     <a href="<?php print $download_link; ?>">Downloads</a>
                   </li>
                </ul>
                <h3 class="text-muted"><br></h3>
