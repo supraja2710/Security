@@ -75,8 +75,8 @@ $cSession = curl_init();
 		<h1><a href="index.html">QuIP</a></h1>
 		<nav id="nav">
 			<ul>
-				<li><a href="index.html">About</a></li>
-				<li><a href="<?php print $download_link; ?>">Feedback</a></li>
+				<li><a href="<?php print $download_link; ?>">About</a></li>
+				<li><a href="https://goo.gl/forms/3LXeLRD4bGERkqFy1">Feedback</a></li>
 				<li><a onclick="logOut()">Logout</a></li>
 			</ul>
 		</nav>
