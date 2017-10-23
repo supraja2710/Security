@@ -63,7 +63,7 @@ require 'branding.php';
     <div class="jumbotron">
         <h1><?php print $branding_title; ?></h1>
 
-        <p class="lead"<?php print $branding_description; ?></p>
+        <p class="lead"><?php print $branding_description; ?></p>
 
         <h4>Login/Signup with:</h4>
             <span class="g-signin"
