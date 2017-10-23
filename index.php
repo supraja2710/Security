@@ -62,6 +62,7 @@ require 'branding.php';
 
     <div class="jumbotron">
         <h1><?php print $branding_title; ?></h1>
+        <?php print $branding_suffix; ?>
 
         <p class="lead"><?php print $branding_description; ?></p>
 
