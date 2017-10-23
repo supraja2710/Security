@@ -75,7 +75,7 @@ $cSession = curl_init();
 		<nav id="nav">
 			<ul>
 				<li><a href="<?php print $download_link; ?>">About</a></li>
-				<li><a href="https://goo.gl/forms/3LXeLRD4bGERkqFy1">Feedback</a></li>
+				<li><a target="_blank" href="https://goo.gl/forms/3LXeLRD4bGERkqFy1">Feedback</a></li>
 				<li><a href="#" onclick="logOut()">Logout</a></li>
 			</ul>
 		</nav>
