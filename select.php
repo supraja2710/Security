@@ -98,7 +98,7 @@ $cSession = curl_init();
 					<div class="content">
 						<h3>caMicroscope</h3>
 						<p>Visualize digitized pathology images, pathomic features, and annotate whole slide tissue images.</p>
-						<a href="FlexTables/index.php" class="button">More</a>
+						<a href="table/table.php" class="button">More</a>
 					</div>
 				</section>
 				<section class="post">
