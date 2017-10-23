@@ -72,7 +72,6 @@ $cSession = curl_init();
 
 	<!-- Header -->
 	<header id="header">
-		<h1>QuIP</h1>
 		<nav id="nav">
 			<ul>
 				<li><a href="<?php print $download_link; ?>">About</a></li>
