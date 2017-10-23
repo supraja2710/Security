@@ -5,8 +5,7 @@ $branding_title = "SEER Pilot Project";
 
 $branding_suffix = "<h4>Powered by caMicroscope and QuIP</h4>";
 
-$branding_footer = "U24 CA18092401A1, Tools to Analyze Morphology and Spatially Mapped Molecular Data; Joel Saltz PI Stony Brook/Emory/Oak Ridge/Yale
-NCIP/Leidos 14X138, caMicroscope �~@~S A Digital Pathology Integrative Query System; Ashish Sharma PI Emory/WUSTL/Stony Brook";
+$branding_footer = "caMicroscope - A Digital Pathology Integrative Query System; Ashish Sharma PI Emory/WUSTL/Stony Brook <br/> U24 CA18092401A1, Tools to Analyze Morphology and Spatially Mapped Molecular Data; Joel Saltz PI Stony Brook/Emory/Oak Ridge/Yale NCIP/Leidos 14X138";
 
 $branding_description = "This is a restricted access dataset consisting of the various
 images and features acquired as part of a pilot project with the cancer registries.
