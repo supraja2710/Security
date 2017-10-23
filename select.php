@@ -72,12 +72,12 @@ $cSession = curl_init();
 
 	<!-- Header -->
 	<header id="header">
-		<h1><a href="index.html">QuIP</a></h1>
+		<h1>QuIP</h1>
 		<nav id="nav">
 			<ul>
 				<li><a href="<?php print $download_link; ?>">About</a></li>
 				<li><a href="https://goo.gl/forms/3LXeLRD4bGERkqFy1">Feedback</a></li>
-				<li><a onclick="logOut()">Logout</a></li>
+				<li><a href="#" onclick="logOut()">Logout</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -94,7 +94,7 @@ $cSession = curl_init();
 			</div>
 			<div class="posts">
 				<section class="post">
-					<a href="FlexTables/index.php" class="image"><img src="images/camic.jpg" alt="" /></a>
+					<a href="table/table.php" class="image"><img src="images/camic.jpg" alt="" /></a>
 					<div class="content">
 						<h3>caMicroscope</h3>
 						<p>Visualize digitized pathology images, pathomic features, and annotate whole slide tissue images.</p>
