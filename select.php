@@ -93,11 +93,11 @@ $cSession = curl_init();
 			</div>
 			<div class="posts">
 				<section class="post">
-					<a href="table/table.php" class="image"><img src="images/camic.jpg" alt="" /></a>
+					<a href="FlexTables/index.php" class="image"><img src="images/camic.jpg" alt="" /></a>
 					<div class="content">
 						<h3>caMicroscope</h3>
 						<p>Visualize digitized pathology images, pathomic features, and annotate whole slide tissue images.</p>
-						<a href="table/table.php" class="button">More</a>
+						<a href="FlexTables/index.php" class="button">More</a>
 					</div>
 				</section>
 				<section class="post">
