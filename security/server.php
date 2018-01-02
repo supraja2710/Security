@@ -7,6 +7,8 @@ if (isset($_REQUEST['logIn'])) {
     $_SESSION['request_type'] = 'logIn';
 } else if (isset($_REQUEST['logOut'])) {
     $_SESSION['request_type'] = 'logOut';
+} else if (isset($_REQUEST['renew'])) {
+    $_SESSION['request_type'] = 'renew';
 } else {
     header('Location:../index.php');
     die();
