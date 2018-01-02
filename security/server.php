@@ -108,8 +108,8 @@ if ('renew' === $_SESSION['request_type']) {
      Requires that there's already an alive session.
     ************************************************/
     if (isset($_SESSION['access_token'])) {
-      //
-        $_SESSION['access_token'] = $_SESSION['access_token']
+        // TODO does this behave right or expire everything else?
+        create_new_session($_SESSION["email"], $_SESSION["name"]);
         error_log("token: ".$_SESSION['access_token']);
     }
 }
