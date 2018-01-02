@@ -56,6 +56,7 @@ function create_new_session($email, $name) {
     die();
 }
 
+
 function get_api_key($email, $client) {
     try{
         $serverResponse = $client -> requestShortLivedKey($email);
@@ -63,9 +64,9 @@ function get_api_key($email, $client) {
         $apiKey = $serverResponse["api_key"];
         return $apiKey;
     }catch(Exception $e) {
-        error_log("Unable to retrieve api_key for $email : " .$e->getMessage());	
+        error_log("Unable to retrieve api_key for $email : " .$e->getMessage());
         return NULL;
-    }	
+    }
 }
 
 if ('logOut' === $_SESSION['request_type']) {
@@ -98,6 +99,17 @@ if ('logIn' === $_SESSION['request_type']) {
     if (isset($_POST['code'])) {
         $google_client->authenticate($_POST['code']);
         $_SESSION['access_token'] = $google_client->getAccessToken();
+        error_log("token: ".$_SESSION['access_token']);
+    }
+}
+if ('renew' === $_SESSION['request_type']) {
+    /************************************************
+     If we need to renew, try to keep the session alive.
+     Requires that there's already an alive session.
+    ************************************************/
+    if (isset($_SESSION['access_token'])) {
+      //
+        $_SESSION['access_token'] = $_SESSION['access_token']
         error_log("token: ".$_SESSION['access_token']);
     }
 }
