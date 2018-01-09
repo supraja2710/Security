@@ -110,7 +110,7 @@ if ('renew' === $_SESSION['request_type']) {
      Requires that there's already an alive session less than an hour hld.
     ************************************************/
     if ($_SESSION["last_seen"] - time() < (60*60)) {
-        // TODO does this behave right or expire everything else?
+        // TODO is this necessary for bindaas, or does session_start(); cover all
         create_new_session($_SESSION["email"], $_SESSION["name"]);
         error_log("token: ".$_SESSION['access_token']);
     }
