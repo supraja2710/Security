@@ -13,7 +13,7 @@ try{
 catch(Exception $e){
 }
 
-// fail if any of following missing from file
+// TODO fail if any of following missing from file
 $api_key;
 $trusted_secret;
 

@@ -7,7 +7,7 @@ $config = require 'config.php';
 session_start();
 if($config['disable_security']){
 	 /* Disable authentication*/
-	 $_SESSION["api_key"] = "APIKEY312"; //Don't change this string, we do a find and replace to populate the actual api key here.
+	 $_SESSION["api_key"] = $config['api_key']; //Don't change this string, we do a find and replace to populate the actual api key here.
 	 $_SESSION["email"] = "viewer@quip"; //dummy user.
 } else {
 	if (!isset($_SESSION["api_key"])) {
