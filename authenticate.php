@@ -1,5 +1,5 @@
 <?php
-$config = require('config.php');
+$config = require 'config.php';
 //require_once('config/security_config.php');
 //$enable_security = true;
 // start sessions

@@ -1,5 +1,5 @@
 <?php
-  $config = require('config.php');
+  $config = require 'config.php';
   //require_once('config/security_config.php');
   //require 'branding.php';
   if ($config['disable_security']) {
