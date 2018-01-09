@@ -34,6 +34,7 @@ $cnf=[
     'description' => get($config_file['description'],"Look at slides."),
     'footer' => get($config_file['footer'],"caMicroscope – A Digital Pathology Integrative Query System; Ashish Sharma PI Emory"),
     'download_link' => get($config_file['download_link'],"https://github.com/camicroscope"),
+    'folder_path' => get($config_file['folder_path'],"/")
   ],
 ];
 

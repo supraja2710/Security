@@ -1,11 +1,12 @@
 <?php
-  require_once('config/security_config.php');
-  require 'branding.php';
-  if (!$enable_security) {
-      header("Location:http://".$_SERVER["HTTP_HOST"].$folder_path."select.php");
+  $config = require('config.php');
+  //require_once('config/security_config.php');
+  //require 'branding.php';
+  if ($config['disable_security']) {
+      header("Location:http://".$_SERVER["HTTP_HOST"].$config['folder_path']."select.php");
   } else {
     if(isset($_SESSION["api_key"])){
-            header("Location:http://".$_SERVER["HTTP_HOST"].$folder_path."select.php");
+            header("Location:http://".$_SERVER["HTTP_HOST"].$config['folder_path']."select.php");
     }
 
   }
@@ -26,7 +27,7 @@
         <head>
           <meta charset="utf-8">
           <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-          <title><?php print $branding_title; ?> Login</title>
+          <title><?php print $config['title']; ?> Login</title>
           <meta name="description" content="">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <!--Import Google Icon Font-->
@@ -94,7 +95,7 @@
                 <i class="microscope">
                 <img src="svg/camic_vector.svg" id="svg1" class="camic_logo" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"/>
                 </i>
-                <?php print $branding_title; ?>
+                <?php print $config['title']; ?>
                 </a>
               </div>
             </nav>
@@ -127,7 +128,7 @@
               <h4>Login/Signup with:</h4>
               <span class="g-signin"
                 data-scope="email"
-                data-clientid=<?php echo $client_id ?>
+                data-clientid=<?php echo $config['client_id'] ?>
                 data-redirecturi="postmessage"
                 data-cookiepolicy="single_host_origin"
                 data-callback="logInCallback"
