@@ -107,9 +107,9 @@ if ('logIn' === $_SESSION['request_type']) {
 if ('renew' === $_SESSION['request_type']) {
     /************************************************
      If we need to renew, try to keep the session alive.
-     Requires that there's already an alive session.
+     Requires that there's already an alive session less than an hour hld.
     ************************************************/
-    if (isset($_SESSION['access_token'])) {
+    if ($_SESSION["last_seen"] - time() < (60*60)) {
         // TODO does this behave right or expire everything else?
         create_new_session($_SESSION["email"], $_SESSION["name"]);
         error_log("token: ".$_SESSION['access_token']);
