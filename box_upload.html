@@ -1,0 +1,19 @@
+<html>
+<script type="text/javascript" src="https://cdn01.boxcdn.net/js/static/select.js"></script>
+<div id="box-select" data-link-type="YOUR_LINK_TYPE" data-multiselect="YOUR_MULTISELECT" data-client-id="YOUR_CLIENT_ID"></div>
+<script>
+    $(document).ready(function() {
+        var boxSelect = new BoxSelect();
+        // Register a success callback handler
+        boxSelect.success(function(response) {
+            // TODO unpack response, pass to imageloader
+            console.log(response);
+        });
+        // Register a cancel callback handler
+        boxSelect.cancel(function() {
+            console.log("The user clicked cancel or closed the popup");
+        });
+    });
+</script>
+
+</html>
