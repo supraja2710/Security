@@ -1,4 +1,5 @@
 <html>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="https://cdn01.boxcdn.net/js/static/select.js"></script>
 <div id="box-select" data-link-type="direct" data-multiselect="false" data-client-id="nlhkmgc7k84xy969rawt86gozmrdfs2a"></div>
 <script>
@@ -8,6 +9,11 @@
         boxSelect.success(function(response) {
             // TODO unpack response, pass to imageloader
             console.log(response);
+            var url = response[0]['url'];
+            var xhttp = new XMLHttpRequest();
+            // TODO api
+            xhttp.open("GET", "boxapi/dl/" + url, true);
+            xhttp.send();
         });
         // Register a cancel callback handler
         boxSelect.cancel(function() {
