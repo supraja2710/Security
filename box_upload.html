@@ -12,7 +12,7 @@
             var url = response[0]['url'];
             var xhttp = new XMLHttpRequest();
             // TODO api
-            xhttp.open("GET", "boxData/" + url, true);
+            xhttp.open("POST", "quip-loader/boxData" + url, true);
             xhttp.send({box_url: response[0]['url'], case_id: response[0]['name']});
         });
         // Register a cancel callback handler
