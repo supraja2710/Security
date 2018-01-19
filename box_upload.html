@@ -12,8 +12,8 @@
             var url = response[0]['url'];
             var xhttp = new XMLHttpRequest();
             // TODO api
-            xhttp.open("GET", "boxapi/dl/" + url, true);
-            xhttp.send();
+            xhttp.open("GET", "boxData/" + url, true);
+            xhttp.send({box_url: response[0]['url'], case_id: response[0]['name']});
         });
         // Register a cancel callback handler
         boxSelect.cancel(function() {
