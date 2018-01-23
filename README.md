@@ -1,32 +1,37 @@
 # Security
-Security, user authentication for caMicroscope 
+## User authentication for caMicroscope 
+
+### Enabling Authentication
+In order to sign in your users with their Google Accounts, you will need to integrate Google Sign-In into your app.
+
+If you do not wish to sign in users, please see [Disabling Authentication](https://github.com/camicroscope/Security/blob/release/README.md#disabling-authentication).
+
+### Step 1. Setting up Google Sign-In
+
+* First, go to [Google API Console](https://console.developers.google.com/project/_/apiui/apis/library)
+* From the drop-down in the top left corner, create a new project
+* Next, select Credentials in the left side-bar, then select "OAuth Client ID" in the drop-down, and then "Configure Consent Screen"
+* Fill in your URL, etc, and click "Save"
+* Then, select "Web application", and fill in the fields
+* Finally, copy your **"client ID"** and **"client secret"**
 
 
-## Step 1. Setting up Google Sign-In
+**Ref: [Google Sign-In for Websites](https://developers.google.com/identity/sign-in/web/devconsole-project)**
 
-* Setup [Google sign-in](https://developers.google.com/+/web/signin/)
+### Step 2. Configuration
 
-Make sure you Enable the Google+ APIservice.
-Also take note of the *client ID* and *client secret*
+Edit `config/security_config.php`:
 
-## Step 2. Configuration
-
-Edit `config/security_config.php`.
 * Set `$client_id` and `$client_secret` obtained from Step1.
 * Set `$bindaas_trusted_id` and `$bindaas_trusted_secret`.
 * Set `$bindaas_trusted_url` as the IP/hostname of the data container.
 * Set `$mongo_client_url` as IP/hostname of data container.  
 
-## Step 3. Enabling authentication in Bindaas
 
-* Login to the `data` container. 
-* Edit `/root/bindaas/bin/bindaas.config.json`. Set `enableAuthentication: true`. (See: https://github.com/camicroscope/DataDockerContainer/blob/master/bindaas.config.json#L5)
-* Restart bindaas. 
+### Disabling Authentication
 
+To disable authentication edit `config/security_config.php`:
 
-## Step 4. Default super user account
+* Set `$enable_security=false`
+* You should be able to see the `/select.php` now when you launch the application from the browser.
 
-Super user account: Default user name is admin and 'quip2017' as password. Super user can change his/her password,list all users,remove users and add users from UI and MongoDB to the system from URL yourhost/camicSignup/index.html.
- 
- 
-	   

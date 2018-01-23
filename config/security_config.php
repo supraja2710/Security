@@ -1,4 +1,7 @@
 <?php
+//Set false for disabling security
+$enable_security = true;
+
 //Google client info
 $client_id = 'xxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com';
 $client_secret = 'xxxxxxxxxxxxxxx';
@@ -13,6 +16,7 @@ $folder_path = '/';
 $mongo_client_url = 'mongodb://quip-data';
 
 $admins = array( "admin@camicroscope.org" );
+/*
 function isAdmin($email) {
 global $admins;
         if (in_array($email, $admins)) {
@@ -26,4 +30,4 @@ function getAdminList() {
 global $admins;
 return $admins;
 }
-
+*/

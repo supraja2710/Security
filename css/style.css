@@ -1,0 +1,19 @@
+.darkimg{
+  opacity: 0.4;
+  filter: alpha(opacity=40); /* msie */
+  background-color: #000;
+}
+
+.card-title{
+      color: white;
+      text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+}
+
+.microscope{
+  height: 2em;
+  width: 2em;
+}
