@@ -1,14 +1,14 @@
 <?php
 
 // null coalesce replacement function
-function get(&$value, $default = null)
+function param_get(&$value, $default = null)
 {
     return isset($value) ? $value : $default;
 }
 
 
 try{
-  $config_file = parse_ini_file('config.ini')
+  $config_file = parse_ini_file('config.ini');
 }
 catch(Exception $e){
 }
@@ -22,18 +22,18 @@ $api_key;
 $cnf=[
   'config' => [
     'api_key' => $config_file['api_key'],
-    'trusted_secret' => get($config_file['trusted_secret'],"9002eaf56-90a5-4257-8665-6341a5f77107"),
-    'disable_security' => get($config_file['disable_security'],False),
-    'mongo_client_url' => get($config_file['mongo_client_url'],"mongodb://quip-data"),
-    'trusted_id' => get($config_file['trusted_id'] ,"camicSignup"),
-    'client_id' => get($config_file['client_id'] ,"xxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com"),
-    'client_secret' => get($config_file['client_secret'],"xxxxxxxxxxxxxxx"),
-    'title' => get($config_file['title'],"caMicroscope"),
-    'suffix' => get($config_file['suffix'],"<div></div>"),
-    'description' => get($config_file['description'],"Look at slides."),
-    'footer' => get($config_file['footer'],"caMicroscope – A Digital Pathology Integrative Query System; Ashish Sharma PI Emory"),
-    'download_link' => get($config_file['download_link'],"https://github.com/camicroscope"),
-    'folder_path' => get($config_file['folder_path'],"/")
+    'trusted_secret' => param_get($config_file['trusted_secret'],"9002eaf56-90a5-4257-8665-6341a5f77107"),
+    'disable_security' => param_get($config_file['disable_security'],False),
+    'mongo_client_url' => param_get($config_file['mongo_client_url'],"mongodb://quip-data"),
+    'trusted_id' => param_get($config_file['trusted_id'] ,"camicSignup"),
+    'client_id' => param_get($config_file['client_id'] ,"xxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com"),
+    'client_secret' => param_get($config_file['client_secret'],"xxxxxxxxxxxxxxx"),
+    'title' => param_get($config_file['title'],"caMicroscope"),
+    'suffix' => param_get($config_file['suffix'],"<div></div>"),
+    'description' => param_get($config_file['description'],"Look at slides."),
+    'footer' => param_get($config_file['footer'],"caMicroscope – A Digital Pathology Integrative Query System; Ashish Sharma PI Emory"),
+    'download_link' => param_get($config_file['download_link'],"https://github.com/camicroscope"),
+    'folder_path' => param_get($config_file['folder_path'],"/")
   ],
 ];
 
