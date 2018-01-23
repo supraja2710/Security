@@ -1,11 +1,7 @@
 <?php
 
-// null coalesce replacement function
-function param_get(&$value, $default = null)
-{
-    return isset($value) ? $value : $default;
-}
 
+require_once('param_get.php')
 
 try{
   $config_file = parse_ini_file('config.ini');
