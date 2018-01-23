@@ -1,7 +1,6 @@
 <?php
 
-
-require_once('param_get.php')
+require_once('param_get.php');
 
 try{
   $config_file = parse_ini_file('config.ini');
