@@ -1,9 +1,10 @@
 <?php
 session_start();
 require 'authenticate.php';
-require 'branding.php';
+//require 'branding.php';
+//require_once 'config/security_config.php';
+$config = require 'config.php';
 
-require_once 'config/security_config.php';
 $_SESSION["name"] = "quip";
 
 //try to fix bug
@@ -55,7 +56,7 @@ $cSession = curl_init();
     <script src="js/jquery.form.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <link rel="stylesheet" href="css/style.css">
-    <title><?php print $branding_title; ?></title>
+    <title><?php print $config['title']; ?></title>
     <script>
         function logOut() {
             $.post("security/server.php?logOut", {},
@@ -79,7 +80,7 @@ $cSession = curl_init();
             <i class="microscope">
               <img src="svg/camic_vector.svg" id="svg1" class="camic_logo" width="100%" height="100%" viewBox="0 0 640 480" preserveAspectRatio="xMaxYMax"/>
             </i>
-            <?php print $branding_title; ?>
+            <?php print $config['title']; ?>
           </a>
         </div>
       </nav>
