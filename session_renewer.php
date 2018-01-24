@@ -1,6 +1,6 @@
 <?php
 $config = require 'config.php';
-require_once('trusted_app_client.php');
+require_once('security/trusted_app_client.php');
 
 // need to duplicate some code from server.php to keep it independent
 function get_api_key($email, $client) {
