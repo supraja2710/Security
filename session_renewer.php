@@ -15,12 +15,9 @@ function get_api_key($email, $client) {
     }
 }
 
-function renew_key($email, $name){
+function renew_key(){
   $client = new TrustedApplicationClient();
   $client->initialize($config['bindaas_trusted_id'], $config['bindaas_trusted_secret'], $config['bindaas_trusted_url']);
-  $_SESSION["email"] = $email;
-  $_SESSION["username"] = $email;
-  $_SESSION["name"] = $name;
   $_SESSION["last_seen"] = time();
   try {
       $api_key = get_api_key($email, $client);
@@ -38,5 +35,5 @@ function renew_key($email, $name){
 $should_renew = ((time() - $_SESSION["last_seen"] < (60*60)) and (time() - $_SESSION["last_seen"] > (30*60)));
 // if last request is over some amount of time ago...
 if ($should_renew) {
-  renew_key($_SESSION["email"], $_SESSION["name"]);
+  renew_key();
 }
