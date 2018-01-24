@@ -35,7 +35,7 @@ function renew_key($email, $name){
 
 
 // renew if last login is between 30 min and an hour old
-$should_renew = (time() - $_SESSION["last_seen"] < (60*60)) and (time() - $_SESSION["last_seen"] > (30*60)));
+$should_renew = (time() - $_SESSION["last_seen"] < (60*60)) and (time() - $_SESSION["last_seen"] > (30*60));
 // if last request is over some amount of time ago...
 if ($should_renew) {
   renew_key($_SESSION["email"], $_SESSION["name"]);
