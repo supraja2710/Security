@@ -1,19 +1,16 @@
 <?php
 $config = require 'config.php';
-//require_once('config/security_config.php');
-//$enable_security = true;
 // start sessions
 
 session_start();
 if($config['disable_security']){
 	 /* Disable authentication*/
-	 $_SESSION["api_key"] = $config['api_key']; //Don't change this string, we do a find and replace to populate the actual api key here.
+	 $_SESSION["api_key"] = $config['api_key'];
 	 $_SESSION["email"] = "viewer@quip"; //dummy user.
 } else {
 	if (!isset($_SESSION["api_key"])) {
 	    session_unset();
 	    header("Location:http://".$_SERVER["HTTP_HOST"].$config['folder_path']."index.php");
-	    //echo "try to redirect";
 	}
 }
 

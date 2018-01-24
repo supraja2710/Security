@@ -33,4 +33,4 @@ $cnf=[
 ];
 
 // get with require()
-return $cnf;
+return $cnf['config'];
