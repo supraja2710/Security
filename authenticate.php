@@ -13,6 +13,9 @@ if($config['disable_security']){
 	    header("Location:http://".$_SERVER["HTTP_HOST"].$config['folder_path']."index.php");
 	}
 }
+// TODO if the last request is more than 30 min ago, renew_session
+
+$_SESSION["last_request"] = time();
 
 /*
 You can use this file to control access to any .php file
