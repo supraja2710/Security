@@ -8,8 +8,6 @@ if (isset($_REQUEST['logIn'])) {
     $_SESSION['request_type'] = 'logIn';
 } else if (isset($_REQUEST['logOut'])) {
     $_SESSION['request_type'] = 'logOut';
-} else if (isset($_REQUEST['renew'])) {
-    $_SESSION['request_type'] = 'renew';
 } else {
     header('Location:../index.php');
     die();
@@ -100,17 +98,6 @@ if ('logIn' === $_SESSION['request_type']) {
     if (isset($_POST['code'])) {
         $google_client->authenticate($_POST['code']);
         $_SESSION['access_token'] = $google_client->getAccessToken();
-        error_log("token: ".$_SESSION['access_token']);
-    }
-}
-if ('renew' === $_SESSION['request_type']) {
-    /************************************************
-     If we need to renew, try to keep the session alive.
-     Requires that there's already an alive session less than an hour hld.
-    ************************************************/
-    if ($_SESSION["last_seen"] - time() < (60*60)) {
-        // TODO is this necessary for bindaas, or does session_start(); cover all
-        create_new_session($_SESSION["email"], $_SESSION["name"]);
         error_log("token: ".$_SESSION['access_token']);
     }
 }
