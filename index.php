@@ -38,9 +38,7 @@
           <script src="js/jquery.form.js"></script>
           <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
           <link rel="stylesheet" href="css/style.css">
-          <script src="js/SessionTracker.js"></script>
           <script>
-            var st = new SessionTracker("camic");
             function logInCallback(authResult) {
                 console.log("calling log in");
                 if (authResult['code']) {
@@ -49,10 +47,8 @@
                             function (response) {
                                 console.log(response);
                                 if ('logIn' == response) {
-                                    st.store();
                                     window.location = 'select.php';
                                 } else if ('signUp' == response) {
-                                    st.store(); // is this right here too?
                                     window.location = 'security/request.php?doAction=signUp';
                                 }
                             }
@@ -65,21 +61,6 @@
                     console.log('There was an error: ' + authResult['error']);
                 }
             }
-          function renew_session(){
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "security/server.php?logIn", true);
-            xhr.onload = function (e) {
-              if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                  console.log(xhr.responseText);
-                } else {
-                  console.error(xhr.statusText);
-                }
-              }
-            };
-            xhr.send(null);
-          }
-          st.start(600000, 3e6, renew_session);
           </script>
         </head>
         <body>
