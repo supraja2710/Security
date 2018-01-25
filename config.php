@@ -21,6 +21,7 @@ $cnf=[
     'disable_security' => param_get($config_file['disable_security'],False),
     'mongo_client_url' => param_get($config_file['mongo_client_url'],"mongodb://quip-data"),
     'trusted_id' => param_get($config_file['trusted_id'] ,"camicSignup"),
+    'trusted_url' => param_get($config_file['trusted_url'] ,"http://quip-data:9099/trustedApplication"),
     'client_id' => param_get($config_file['client_id'] ,"xxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com"),
     'client_secret' => param_get($config_file['client_secret'],"xxxxxxxxxxxxxxx"),
     'title' => param_get($config_file['title'],"caMicroscope"),
