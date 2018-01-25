@@ -16,6 +16,7 @@ function get_api_key($email, $client) {
 }
 
 function renew_key(){
+  global $config;
   $client = new TrustedApplicationClient();
   $client->initialize($config['trusted_id'], $config['trusted_secret'], $config['trusted_url']);
   $_SESSION["last_seen"] = time();
