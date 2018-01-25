@@ -17,10 +17,10 @@ function get_api_key($email, $client) {
 
 function renew_key(){
   $client = new TrustedApplicationClient();
-  $client->initialize($config['bindaas_trusted_id'], $config['bindaas_trusted_secret'], $config['bindaas_trusted_url']);
+  $client->initialize($config['trusted_id'], $config['trusted_secret'], $config['trusted_url']);
   $_SESSION["last_seen"] = time();
   try {
-      $api_key = get_api_key($email, $client);
+      $api_key = get_api_key($_SESSION["email"], $client);
       if (isset($api_key)) {
           $_SESSION["api_key"] = $api_key;
       }

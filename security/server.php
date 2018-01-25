@@ -25,7 +25,7 @@ function handleError($message, $die) {
 function create_new_session($email, $name) {
     global $config;
     $client = new TrustedApplicationClient();
-    $client->initialize($config['bindaas_trusted_id'], $config['bindaas_trusted_secret'], $config['bindaas_trusted_url']);
+    $client->initialize($config['trusted_id'], $config['trusted_secret'], $config['trusted_url']);
     $_SESSION["email"] = $email;
     $_SESSION["username"] = $email;
     $_SESSION["name"] = $name;
