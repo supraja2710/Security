@@ -73,12 +73,19 @@ $cSession = curl_init();
                 console.log(response);
                 var url = response[0]['url'];
                 var xhttp = new XMLHttpRequest();
-                // TODO api
-                xhttp.open("POST", "quip-loader/boxData" + url, true);
-                xhttp.send({box_url: response[0]['url'], case_id: document.getElementById("imageid").value});
+                var caseid = document.getElementById("imageid").value;
+                if (caseid){
+                  xhttp.open("POST", "quip-loader/boxData" + url, true);
+                  xhttp.send({box_url: response[0]['url'], case_id: caseid});
+                  xhttp.onload = ()=>(Materialize.toast("Sent upload request for " + caseid, 4000));
+                }
+                else {
+                  Materialize.toast("ID field required", 4000);
+                }
             });
             // Register a cancel callback handler
             boxSelect.cancel(function() {
+                Materialize.toast("Box upload cancelled", 4000);
                 console.log("The user clicked cancel or closed the popup");
             });
         });
