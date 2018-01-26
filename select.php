@@ -75,7 +75,7 @@ $cSession = curl_init();
                 var xhttp = new XMLHttpRequest();
                 // TODO api
                 xhttp.open("POST", "quip-loader/boxData" + url, true);
-                xhttp.send({box_url: response[0]['url'], case_id: response[0]['name']});
+                xhttp.send({box_url: response[0]['url'], case_id: document.getElementById("imageid").value});
             });
             // Register a cancel callback handler
             boxSelect.cancel(function() {
