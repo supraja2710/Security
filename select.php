@@ -54,6 +54,7 @@ $cSession = curl_init();
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script src="js/jquery.form.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+    <script type="text/javascript" src="https://cdn01.boxcdn.net/js/static/select.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title><?php print $branding_title; ?></title>
     <script>
@@ -64,6 +65,23 @@ $cSession = curl_init();
                     });
             gapi.auth.signOut();
         }
+        $(document).ready(function() {
+            var boxSelect = new BoxSelect();
+            // Register a success callback handler
+            boxSelect.success(function(response) {
+                // TODO unpack response, pass to imageloader
+                console.log(response);
+                var url = response[0]['url'];
+                var xhttp = new XMLHttpRequest();
+                // TODO api
+                xhttp.open("POST", "quip-loader/boxData" + url, true);
+                xhttp.send({box_url: response[0]['url'], case_id: response[0]['name']});
+            });
+            // Register a cancel callback handler
+            boxSelect.cancel(function() {
+                console.log("The user clicked cancel or closed the popup");
+            });
+        });
     </script>
   </head>
 
@@ -108,6 +126,7 @@ $cSession = curl_init();
             Upload <i class="material-icons right">send</i>
             </button>
           </form>
+          OR <div id="box-select" data-link-type="direct" data-multiselect="false" data-client-id="nlhkmgc7k84xy969rawt86gozmrdfs2a"></div>
           <div class="progress">
             <div id="progressbar" class="determinate" style="width: 0%"></div>
           </div>
