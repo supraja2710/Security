@@ -131,12 +131,12 @@ var intersect = ['PC_055_0_1', 'PC_227_2_1', 'PC_058_2_1', 'BC_057_0_1', 'BC_096
 					}
 					data[i]['Registry'] = registry;
 					//console.log(data[i]['case_id']);				
-//					data[i]["Download curated features"] = "<a href='http://quip
+                                        //data[i]["Download curated features"] = "<a href='http://quip
 					//data[i]['TIL Maps'] = "False";
 					//data[i]['View Image'] =  "<a href='http://quip3.bmi.stonybrook.edu/camicroscope/osdCamicroscope.php?tissueId="+ data[i]['case_id']+"'>Launch caMicroscope</a>";
-					data[i]['View Image'] =  "<a target='_blank' href='http://quip3.bmi.stonybrook.edu/camicroscope/osdCamicroscope.php?tissueId="+ data[i]['case_id']+"'>"+ data[i]['Reformatted_DxSlide1_BarcodeID'] + "</a>"
+					data[i]['View Image'] =  "<a target='_blank' href='../camicroscope/osdCamicroscope.php?tissueId="+ data[i]['case_id']+"'>"+ data[i]['Reformatted_DxSlide1_BarcodeID'] + "</a>"
 					//data[i]['Link to Download Nuclear Curated Features'] = '<a href=\'/featurescapeapps/featurescape/?http://quip3.bmi.stonybrook.edu/quip-findapi?limit=1000&find={"randval":{"$gte":0},"provenance.analysis.source":"computer","provenance.analysis.execution_id":"wsi:r0.9:w0.8:l3:u200:k20:j1","provenance.image.case_id":"'+ data[i]['case_id']+ '"}&db=quip&c=default\'>Launch featurescape</a>';
-					data[i]['Link to Download Nuclear Curated Features'] = "<a href='http://quip3.bmi.stonybrook.edu/featurescapeapps/featurescape/u24Preview.php?case_id="+ data[i]['case_id']+"'>View Features</a>";
+					data[i]['Link to Download Nuclear Curated Features'] = "<a href='../featurescapeapps/featurescape/u24Preview.php?case_id="+ data[i]['case_id']+"'>View Features</a>";
 					delete data[i]['Images'];
 					delete data[i]['Original_DxSlide1_BarcodeID'];
 					delete data[i]['Reformatted_DxSlide1_BarcodeID'];
