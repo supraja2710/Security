@@ -1,46 +1,69 @@
 <?php
-session_start();
-require 'authenticate.php';
-require 'branding.php';
-
-require_once 'config/security_config.php';
-$_SESSION["name"] = "quip";
-
-//try to fix bug
-$dataUrl="http://quip-data:9099/services/Camicroscope_DataLoader/DataLoader/query/getAll" ;
-$apiKey = $_SESSION["api_key"];
-$dataUrl = $dataUrl . "?api_key=".$apiKey;
-$cSession = curl_init();
- try {
+ 
+  function fetchData($dataUrl){
+      $cSession = curl_init();
+      try {
           $ch = curl_init();
-
           if (FALSE === $ch)
               throw new Exception('failed to initialize');
-
+              
           curl_setopt($ch,CURLOPT_URL, $dataUrl);
           curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
           curl_setopt($ch,CURLOPT_HEADER, false);
 
           $content = curl_exec($ch);
-
           if (FALSE === $content)
-              throw new Exception(curl_error($ch), curl_errno($ch));
-
+              throw new Exception(curl_error($ch), curl_errno($ch));   
+      
           // ...process $content now
-     } catch(Exception $e) {
+      } catch(Exception $e) {    
           $content = "Error";
-         }
+          return $content;         
+      }     
+      $content_json = json_decode($content);
+      return $content_json; 
+  }
+  
+  session_start();
+  require 'authenticate.php';
+  require 'branding.php';
+  require_once 'config/security_config.php';
 
-    if (empty($content)) {
-             // list is empty.
-             //session_unset();
-             //die();
-      header('Location: forceLogout.php');
-      exit;
-     }
-  //end of bug fix
+  $_SESSION["name"] = "quip";
+  //try to fix bug
+  $dataUrl="http://quip-data:9099/services/Camicroscope_DataLoader/DataLoader/query/getAll" ;
+  $apiKey = $_SESSION["api_key"];
+  $dataUrl = $dataUrl . "?api_key=".$apiKey;
+  $content_json = array();  
+  $content_json = fetchData($dataUrl);
+  //print_r($content_json);
+  if(empty($content_json) or $content_json=='Error'){
+    header('Location: forceLogout.php');
+    exit;
+  }  
+ 
+  $email=$_SESSION["email"];  
+  //echo $email;
+  $dataUrl = "http://quip-data:9099/services/u24_user/user_data/query/findUserByEmail";       
+  $apiKey = $_SESSION["api_key"];    
+  $dataUrl = $dataUrl . "?api_key=".$apiKey;   
+  $dataUrl = $dataUrl . "&email=".$email;  
+  $user_json = array();   	
+  $user_json = fetchData($dataUrl);
+  //print_r($user_json);
+  if(!empty($user_json) and $user_json!='Error'){
+    $item=$user_json[0];      
+    $a = (array)$item;
+    $userType=$a['userType'];  
+  }else 
+    $userType="user";
+      
+  $_SESSION["userType"] = $userType; 
+  //echo $_SESSION["userType"];
 
+  //exit();   
 ?>
+
 <!DOCTYPE HTML>
 <!--
 	Archetype by Pixelarity
@@ -60,10 +83,10 @@ $cSession = curl_init();
 	<script>
 			function logOut() {
 					$.post("security/server.php?logOut", {},
-									function () {
-											window.location = "index.php";
-									});
-					gapi.auth.signOut();
+				          function () {
+							           window.location = "index.php";
+							   });
+				   gapi.auth.signOut();
 			}
 	</script>
 </head>
@@ -92,6 +115,7 @@ $cSession = curl_init();
 				<a href="#" class="image fit"><img src="images/banner1.jpg" alt="" /></a>
 			</div>
 			<div class="posts">
+			
         <section class="post">
           <a href="table/table2.php" class="image"><img src="images/camic.jpg" alt=""/></a>
           <div class="content">
@@ -100,6 +124,7 @@ $cSession = curl_init();
                   <a href="table/table2.php" class="button">More</a>
           </div>
         </section>
+		
         <section class="post">
           <a href="featurescapeapps/featurescape/u24Preview.php" class="image"><img src="images/fscape.jpg" alt="" /></a>
           <div class="content">
@@ -108,6 +133,7 @@ $cSession = curl_init();
             <a href="featurescapeapps/featurescape/u24Preview.php" class="button">More</a>
           </div>
         </section>
+		
         <section class="post">
           <a href="FlexTables/index.php" class="image"><img src="images/camic.jpg" alt="" style="filter: grayscale(100%);"/></a>
           <div class="content">
@@ -116,6 +142,7 @@ $cSession = curl_init();
                   <a href="FlexTables/index.php" class="button">More</a>
           </div>
         </section>
+		
         <section class="post">
           <a href="table/table.php" class="image"><img src="images/camic.jpg" alt="" style="filter: grayscale(100%);"/></a>
           <div class="content">
@@ -123,7 +150,26 @@ $cSession = curl_init();
                   <p>Use caMicroscope to view features that have been extracted but not fully curated</p>
                   <a href="table/table.php" class="button">More</a>
           </div>
+        </section>		
+		
+       <?php   
+        $userType=$_SESSION["userType"];
+        $template = <<<EOT
+<section class="post">
+          <a href="superuser/index.php" class="image"><img src="images/camic.jpg" alt="" style="filter: grayscale(100%);"/></a>
+          <div class="content">
+                  <h3>Super User Control Images</h3>
+                  <p>caMicroscope Super user set up images access control.</p>
+                  <a href="superuser/index.php" class="button">More</a>
+          </div>
         </section>
+EOT;
+        
+        if($userType=="superuser"){    
+          echo $template;          
+        }   
+       ?>		
+		
 				<section class="post">
 					<a href="<?php print $download_link; ?>" class="image"><img src="images/code.jpg" alt="" /></a>
 					<div class="content">
@@ -165,4 +211,3 @@ $cSession = curl_init();
 </body>
 
 </html>
-
