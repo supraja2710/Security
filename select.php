@@ -35,22 +35,19 @@
   $apiKey = $_SESSION["api_key"];
   $dataUrl = $dataUrl . "?api_key=".$apiKey;
   $content_json = array();  
-  $content_json = fetchData($dataUrl);
-  //print_r($content_json);
+  $content_json = fetchData($dataUrl); 
   if(empty($content_json) or $content_json=='Error'){
     header('Location: forceLogout.php');
     exit;
   }  
  
-  $email=$_SESSION["email"];  
-  //echo $email;
+  $email=$_SESSION["email"];    
   $dataUrl = "http://quip-data:9099/services/u24_user/user_data/query/findUserByEmail";       
   $apiKey = $_SESSION["api_key"];    
   $dataUrl = $dataUrl . "?api_key=".$apiKey;   
   $dataUrl = $dataUrl . "&email=".$email;  
   $user_json = array();   	
-  $user_json = fetchData($dataUrl);
-  //print_r($user_json);
+  $user_json = fetchData($dataUrl); 
   if(!empty($user_json) and $user_json!='Error'){
     $item=$user_json[0];      
     $a = (array)$item;
@@ -58,10 +55,7 @@
   }else 
     $userType="user";
       
-  $_SESSION["userType"] = $userType; 
-  //echo $_SESSION["userType"];
-
-  //exit();   
+  $_SESSION["userType"] = $userType;     
 ?>
 
 <!DOCTYPE HTML>
