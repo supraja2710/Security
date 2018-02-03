@@ -75,8 +75,8 @@ $cSession = curl_init();
                 var xhttp = new XMLHttpRequest();
                 var caseid = document.getElementById("imageid").value;
                 if (caseid){
-                  xhttp.open("POST", "quip-loader/boxData" + url, true);
-                  xhttp.send({box_url: response[0]['url'], case_id: caseid});
+                  xhttp.open("POST", "quip-loader/boxData", true);
+                  xhttp.send({case_id: caseid, box_url: response[0]['url']});
                   xhttp.onload = ()=>(Materialize.toast("Sent upload request for " + caseid, 4000));
                 }
                 else {
