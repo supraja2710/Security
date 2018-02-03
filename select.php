@@ -54,6 +54,7 @@ $cSession = curl_init();
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script src="js/jquery.form.js"></script>
+    <script src="js/check_session.js"></script>
     <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
     <link rel="stylesheet" href="css/style.css">
     <title><?php print $config['title']; ?></title>
