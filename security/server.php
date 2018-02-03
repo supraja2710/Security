@@ -8,6 +8,8 @@ if (isset($_REQUEST['logIn'])) {
     $_SESSION['request_type'] = 'logIn';
 } else if (isset($_REQUEST['logOut'])) {
     $_SESSION['request_type'] = 'logOut';
+} else if (isset($_REQUEST['checkStatus'])) {
+    $_SESSION['request_type'] = 'checkStatus';
 } else {
     header('Location:../index.php');
     die();
@@ -100,6 +102,8 @@ if ('logIn' === $_SESSION['request_type']) {
         $_SESSION['access_token'] = $google_client->getAccessToken();
         error_log("token: ".$_SESSION['access_token']);
     }
+} elseif('checkStatus' === $_SESSION['request_type']){
+  echo "{key: " . $_SESSION["api_key"] .", issued: " . $_SESSION["last_seen"] . "}";
 }
 
 /************************************************
