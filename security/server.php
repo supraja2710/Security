@@ -103,7 +103,7 @@ if ('logIn' === $_SESSION['request_type']) {
         error_log("token: ".$_SESSION['access_token']);
     }
 } elseif('checkStatus' === $_SESSION['request_type']){
-  echo "{\"key\": \"" . $_SESSION["api_key"] ."\", \"issued\": \"" . $_SESSION["last_seen"] . "\"}";
+  echo "{\"key\": \"" . $_SESSION["api_key"] ."\", \"issued\": \"" . $_SESSION["last_seen"] ."\", \"now\": \"" . time() . "\"}";
 }
 
 /************************************************
