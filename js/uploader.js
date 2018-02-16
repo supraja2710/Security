@@ -3,7 +3,7 @@ $(document).ready(function() {
   var bar = $('#progressbar');
   var status = $('#status');
   var options = {
-    url: '/quip-loader/submitData',
+    url: 'quip-loader/submitData',
     dataType: 'json',
     beforeSend: function() {
       document.getElementById("submitButton").disabled = true;
@@ -65,7 +65,7 @@ $(document).ready(function() {
     document.getElementById("imageid").value = imageid;
     $.ajax({
       dataType: "JSON",
-      url: "/camicroscope/api/Data/osdMetadataRetriever.php?imageId=" +
+      url: "camicroscope/api/Data/osdMetadataRetriever.php?imageId=" +
         imageid,
       success: function(response) {
         if (response.toString() === ",") {
